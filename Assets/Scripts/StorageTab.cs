@@ -6,12 +6,7 @@ public class StorageTab : Tab
     [SerializeField] private StoragePanel _panelPrefab;
     [SerializeField] private RectTransform _panelsRectTransform;
 
-    private List<StoragePanel> _panels;
-
-    private void Awake()
-    {
-        _panels = new List<StoragePanel>();
-    }
+    private List<StoragePanel> _panels = new List<StoragePanel>();
 
     public override void Open()
     {
