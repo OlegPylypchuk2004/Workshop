@@ -9,11 +9,11 @@ public class StoragePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _quantityText;
     [SerializeField] private TextMeshProUGUI _priceText;
 
-    public void Initialize(ItemData itemData)
+    public void Initialize(ItemData itemData, int itemQuantity)
     {
-        _nameText.text = itemData.Name;
         _iconImage.sprite = itemData.Icon;
-        _quantityText.text = $"{Random.Range(1, 10)}";
-        _priceText.text = $"{Random.Range(1, 10)}";
+        _nameText.text = itemData.Name;
+        _quantityText.text = $"{itemQuantity}";
+        _priceText.text = $"{itemData.Price}";
     }
 }

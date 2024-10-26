@@ -17,12 +17,12 @@ public class StorageTab : Tab
     {
         base.Open();
 
-        int random = Random.Range(0, 10);
+        RemoveAllPanels();
 
-        for (int i = 0; i < random; i++)
+        foreach (var item in Storage.GetAllItems())
         {
             StoragePanel panel = Instantiate(_panelPrefab, Vector3.zero, Quaternion.identity, _panelsRectTransform);
-            panel.Initialize(Resources.Load<ItemData>("Items/Wood"));
+            panel.Initialize(item.Key, item.Value);
             _panels.Add(panel);
         }
     }
@@ -44,6 +44,18 @@ public class StorageTab : Tab
             }
 
             _panels.Clear();
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Storage.AddItem(Resources.Load<ItemData>("Items/Wood"), Random.Range(1, 5));
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Storage.AddItem(Resources.Load<ItemData>("Items/Steel"), Random.Range(1, 5));
         }
     }
 }
