@@ -22,9 +22,10 @@ public class NavigationBar : MonoBehaviour
             }
         }
 
-        foreach (NavigationBarButton button in _buttons)
+        for (int i = 0; i < _buttons.Length; i++)
         {
-            button.Clicked += OnButtonClicked;
+            _buttons[i].Clicked += OnButtonClicked;
+            _buttons[i].UpdateView(i == _currentTabIndex);
         }
     }
 
@@ -46,7 +47,9 @@ public class NavigationBar : MonoBehaviour
         }
 
         _tabs[_currentTabIndex].Close();
+        _buttons[_currentTabIndex].UpdateView(false);
         _currentTabIndex = buttonIndex;
         _tabs[_currentTabIndex].Open();
+        _buttons[_currentTabIndex].UpdateView(true);
     }
 }

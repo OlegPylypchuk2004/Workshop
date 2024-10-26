@@ -135,6 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 956791450917264107}
+  _iconImage: {fileID: 4392452226488830646}
+  _defaultIconColor: {r: 0.45882353, g: 0.45882353, b: 0.45882353, a: 1}
+  _currentIconColor: {r: 0.82641506, g: 0.82641506, b: 0.82641506, a: 1}
 --- !u!1 &5659484909501027940
 GameObject:
   m_ObjectHideFlags: 0
