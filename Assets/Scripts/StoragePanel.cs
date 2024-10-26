@@ -4,16 +4,10 @@ using UnityEngine.UI;
 
 public class StoragePanel : MonoBehaviour
 {
-    [SerializeField] private ItemData _itemData;
     [SerializeField] private Image _iconImage;
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _quantityText;
     [SerializeField] private TextMeshProUGUI _priceText;
-
-    private void Awake()
-    {
-        Initialize(_itemData);
-    }
 
     public void Initialize(ItemData itemData)
     {

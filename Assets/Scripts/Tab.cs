@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Tab : MonoBehaviour
 {
-    public void Open()
+    public virtual void Open()
     {
         gameObject.SetActive(true);
     }
 
-    public void Close()
+    public virtual void Close()
     {
         gameObject.SetActive(false);
     }
