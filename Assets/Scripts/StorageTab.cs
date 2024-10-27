@@ -44,9 +44,14 @@ public class StorageTab : Tab
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Storage.AddItem(Resources.Load<ItemData>("Items/iron_ore"));
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Storage.AddItem(Resources.Load<ItemData>("Items/carbon"));
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

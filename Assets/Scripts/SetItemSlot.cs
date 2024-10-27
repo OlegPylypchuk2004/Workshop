@@ -21,9 +21,17 @@ public class SetItemSlot : ItemSlot
         {
             SetItem(null);
         }
-        else
+        else if(Input.GetKey(KeyCode.O))
         {
             SetItem(Resources.Load<ItemData>("Items/iron_ore"));
+        }
+        else if(Input.GetKey(KeyCode.C))
+        {
+            SetItem(Resources.Load<ItemData>("Items/carbon"));
+        }
+        else if(Input.GetKey(KeyCode.I))
+        {
+            SetItem(Resources.Load<ItemData>("Items/iron"));
         }
     }
 }

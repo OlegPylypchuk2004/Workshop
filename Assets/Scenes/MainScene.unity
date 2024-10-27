@@ -2593,6 +2593,7 @@ MonoBehaviour:
   _resultItemSlot: {fileID: 1447560991}
   _recipes:
   - {fileID: 11400000, guid: 93bd200f40d259b4aa2fcd848f82184e, type: 2}
+  - {fileID: 11400000, guid: b31314d8e3e88974388000862c6afc6f, type: 2}
   _startSmeltingButton: {fileID: 1385273720}
 --- !u!1 &2004739678
 GameObject:
