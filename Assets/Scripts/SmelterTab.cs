@@ -45,12 +45,20 @@ public class SmelterTab : Tab
 
     private void OnSetItemSlotClicked(SetItemSlot setItemSlot)
     {
-        _clickedSetItemSlot = setItemSlot;
+        if (setItemSlot.GetItemData() == null)
+        {
+            _clickedSetItemSlot = setItemSlot;
 
-        _itemSelector.Open();
-        _itemSelector.ItemSelected += OnItemSelected;
+            _itemSelector.Open();
+            _itemSelector.ItemSelected += OnItemSelected;
 
-        Close();
+            Close();
+        }
+        else
+        {
+            setItemSlot.SetItem(null);
+            CheckCraftingAvailability();
+        }
     }
 
     private void OnItemSelected(ItemData data)

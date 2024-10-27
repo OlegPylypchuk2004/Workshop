@@ -5,8 +5,9 @@ using UnityEngine.UI;
 public class DevicePanel : MonoBehaviour
 {
     [SerializeField] private Button _button;
+    [SerializeField] private Tab _tab;
 
-    public event Action<DevicePanel> Clicked;
+    public event Action<Tab> Clicked;
 
     private void Awake()
     {
@@ -20,6 +21,6 @@ public class DevicePanel : MonoBehaviour
 
     private void OnClicked()
     {
-        Clicked?.Invoke(this);
+        Clicked?.Invoke(_tab);
     }
 }

@@ -5,6 +5,7 @@ public class NavigationBar : MonoBehaviour
 {
     [SerializeField] private NavigationBarButton[] _buttons;
     [SerializeField] private Tab[] _tabs;
+    [SerializeField] private Tab[] _allTabs;
 
     private int _currentTabIndex;
 
@@ -39,6 +40,11 @@ public class NavigationBar : MonoBehaviour
 
     private void OnButtonClicked(NavigationBarButton button)
     {
+        foreach (Tab tab in _allTabs)
+        {
+            tab.Close();
+        }
+
         int buttonIndex = Array.IndexOf(_buttons, button);
 
         if (buttonIndex == _currentTabIndex)

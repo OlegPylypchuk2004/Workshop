@@ -1,25 +1,16 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DevicesTab : Tab
 {
-    [SerializeField] private ScrollRect _scrollRect;
-    [SerializeField] private GameObject _deviceOptionsPanel;
     [SerializeField] private DevicePanel[] _devicePanels;
 
-    private void Awake()
+    public override void Open()
     {
+        base.Open();
+
         foreach (DevicePanel devicePanel in _devicePanels)
         {
             devicePanel.Clicked += OnDevicePanelClicked;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        foreach (DevicePanel devicePanel in _devicePanels)
-        {
-            devicePanel.Clicked -= OnDevicePanelClicked;
         }
     }
 
@@ -27,13 +18,15 @@ public class DevicesTab : Tab
     {
         base.Close();
 
-        _scrollRect.gameObject.SetActive(true);
-        _deviceOptionsPanel.gameObject.SetActive(false);
+        foreach (DevicePanel devicePanel in _devicePanels)
+        {
+            devicePanel.Clicked -= OnDevicePanelClicked;
+        }
     }
 
-    private void OnDevicePanelClicked(DevicePanel devicePanel)
+    private void OnDevicePanelClicked(Tab deviceTab)
     {
-        _scrollRect.gameObject.SetActive(false);
-        _deviceOptionsPanel.gameObject.SetActive(true);
+        Close();
+        deviceTab.Open();
     }
 }

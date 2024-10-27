@@ -4,12 +4,21 @@ public class Tab : MonoBehaviour
 {
     public virtual void Open()
     {
-        Debug.Log(name);
+        if (isActiveAndEnabled)
+        {
+            return;
+        }
+
         gameObject.SetActive(true);
     }
 
     public virtual void Close()
     {
+        if (!isActiveAndEnabled)
+        {
+            return;
+        }
+
         gameObject.SetActive(false);
     }
 }
