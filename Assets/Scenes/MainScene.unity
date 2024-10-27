@@ -2424,15 +2424,6 @@ MonoBehaviour:
   _deviceOptionsPanel: {fileID: 1959295126}
   _devicePanels:
   - {fileID: 123030879}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1001 &1913245784
 PrefabInstance:
   m_ObjectHideFlags: 0
