@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class SetItemSlot : ItemSlot
 {
     [SerializeField] private Button _button;
+    [SerializeField] private ItemSelector _itemSelector;
 
     private void OnEnable()
     {
@@ -17,21 +18,13 @@ public class SetItemSlot : ItemSlot
 
     private void OnClicked()
     {
-        if (Input.GetKey(KeyCode.Backspace))
-        {
-            SetItem(null);
-        }
-        else if(Input.GetKey(KeyCode.O))
-        {
-            SetItem(Resources.Load<ItemData>("Items/iron_ore"));
-        }
-        else if(Input.GetKey(KeyCode.C))
-        {
-            SetItem(Resources.Load<ItemData>("Items/carbon"));
-        }
-        else if(Input.GetKey(KeyCode.I))
-        {
-            SetItem(Resources.Load<ItemData>("Items/iron"));
-        }
+        _itemSelector.Open();
+        _itemSelector.ItemSelected += OnItemSelected;
+    }
+
+    private void OnItemSelected(ItemData data)
+    {
+        _itemSelector.ItemSelected -= OnItemSelected;
+        SetItem(data);
     }
 }
