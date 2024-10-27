@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SetItemSlot : ItemSlot
 {
     [SerializeField] private Button _button;
-    [SerializeField] private ItemSelectorTab _itemSelector;
+
+    public event Action<SetItemSlot> Clicked;
 
     private void OnEnable()
     {
@@ -18,13 +20,6 @@ public class SetItemSlot : ItemSlot
 
     private void OnClicked()
     {
-        _itemSelector.Open();
-        _itemSelector.ItemSelected += OnItemSelected;
-    }
-
-    private void OnItemSelected(ItemData data)
-    {
-        _itemSelector.ItemSelected -= OnItemSelected;
-        SetItem(data);
+        Clicked?.Invoke(this);
     }
 }

@@ -4,7 +4,6 @@ public class TestTabChanger : MonoBehaviour
 {
     [SerializeField] private StorageTab _storageTab;
     [SerializeField] private SmelterTab _smelterTab;
-    [SerializeField] private ItemSelectorTab _itemSelectorTab;
 
     private void Start()
     {
@@ -24,17 +23,11 @@ public class TestTabChanger : MonoBehaviour
             CloseAllButtons();
             _smelterTab.Open();
         }
-        else if (Input.GetKeyDown(KeyCode.F3))
-        {
-            CloseAllButtons();
-            _itemSelectorTab.Open();
-        }
     }
 
     private void CloseAllButtons()
     {
         _storageTab.Close();
         _smelterTab.Close();
-        _itemSelectorTab.Close();
     }
 }

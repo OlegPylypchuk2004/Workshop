@@ -9,36 +9,58 @@ public class SmelterTab : Tab
     [SerializeField] private ResultItemSlot _resultItemSlot;
     [SerializeField] private Recipe[] _recipes;
     [SerializeField] private Button _startSmeltingButton;
+    [SerializeField] private ItemSelectorTab _itemSelector;
 
     private Recipe _currentRecipe;
+    private SetItemSlot _clickedSetItemSlot;
 
     public override void Open()
     {
         base.Open();
 
-        foreach (ItemSlot itemSlot in _setItemSlots)
+        foreach (SetItemSlot itemSlot in _setItemSlots)
         {
-            itemSlot.ItemChanged += OnItemInSetSlotChanged;
+            itemSlot.Clicked += OnSetItemSlotClicked;
         }
 
         _startSmeltingButton.onClick.AddListener(OnStartSmeltingButtonClicked);
+
+        if (_setItemSlots.Any(slot => slot.GetItemData() != null))
+        {
+            CheckCraftingAvailability();
+        }
     }
 
     public override void Close()
     {
         base.Close();
 
-        foreach (ItemSlot itemSlot in _setItemSlots)
+        foreach (SetItemSlot itemSlot in _setItemSlots)
         {
-            itemSlot.ItemChanged -= OnItemInSetSlotChanged;
+            itemSlot.Clicked -= OnSetItemSlotClicked;
         }
 
         _startSmeltingButton.onClick.RemoveAllListeners();
     }
 
-    private void OnItemInSetSlotChanged(ItemData data)
+    private void OnSetItemSlotClicked(SetItemSlot setItemSlot)
     {
-        CheckCraftingAvailability();
+        _clickedSetItemSlot = setItemSlot;
+
+        _itemSelector.Open();
+        _itemSelector.ItemSelected += OnItemSelected;
+
+        Close();
+    }
+
+    private void OnItemSelected(ItemData data)
+    {
+        _itemSelector.ItemSelected -= OnItemSelected;
+
+        _clickedSetItemSlot.SetItem(data);
+        _clickedSetItemSlot = null;
+
+        Open();
     }
 
     private void CheckCraftingAvailability()
@@ -52,7 +74,7 @@ public class SmelterTab : Tab
 
         foreach (var recipe in _recipes)
         {
-            if (CanCraft(recipe, slotItems))
+            if (IsCanCraft(recipe, slotItems))
             {
                 _currentRecipe = recipe;
                 _resultItemSlot.SetItem(recipe.Result.ItemData);
@@ -63,7 +85,7 @@ public class SmelterTab : Tab
         _resultItemSlot.SetItem(null);
     }
 
-    private bool CanCraft(Recipe recipe, List<ItemData> slotItems)
+    private bool IsCanCraft(Recipe recipe, List<ItemData> slotItems)
     {
         var itemsToMatch = new List<ItemData>(slotItems);
 
