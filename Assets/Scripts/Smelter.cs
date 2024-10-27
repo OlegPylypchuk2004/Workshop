@@ -89,18 +89,13 @@ public class Smelter : MonoBehaviour
             return;
         }
 
-        // Видаляємо інгредієнти зі Storage
         foreach (var ingredient in _currentRecipe.Ingredients)
         {
             Storage.RemoveItem(ingredient.ItemData, ingredient.Quantity);
         }
 
-        // Додаємо результат до Storage
         Storage.AddItem(_currentRecipe.Result.ItemData);
 
-        Debug.Log($"Crafted: {_currentRecipe.Result.ItemData.Name}");
-
-        // Очищаємо слоти після крафту
         foreach (var slot in _setItemSlots)
         {
             slot.SetItem(null);
@@ -119,6 +114,7 @@ public class Smelter : MonoBehaviour
                 return false;
             }
         }
+
         return true;
     }
 }
