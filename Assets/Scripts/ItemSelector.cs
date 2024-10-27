@@ -6,6 +6,7 @@ public class ItemSelector : MonoBehaviour
 {
     [SerializeField] private SelectItemPanel _panelPrefab;
     [SerializeField] private RectTransform _panelsRectTransform;
+    [SerializeField] private TopBar _topBar;
 
     private List<SelectItemPanel> _panels = new List<SelectItemPanel>();
 
@@ -22,6 +23,8 @@ public class ItemSelector : MonoBehaviour
             panel.SelectButtonClicked += OnItemSelected;
             _panels.Add(panel);
         }
+
+        _topBar.SetTitleText("Select item");
     }
 
     public void Close()
