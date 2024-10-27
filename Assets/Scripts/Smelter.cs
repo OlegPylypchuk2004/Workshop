@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 public class Smelter : MonoBehaviour
 {
@@ -30,9 +30,12 @@ public class Smelter : MonoBehaviour
 
     private void CheckCraftingAvailability()
     {
-        ItemData[] slotItems = _setItemSlots.Select(slot => slot.GetItemData()).ToArray();
+        var slotItems = _setItemSlots
+            .Select(slot => slot.GetItemData())
+            .Where(item => item != null)
+            .ToList();
 
-        foreach (Recipe recipe in _recipes)
+        foreach (var recipe in _recipes)
         {
             if (CanCraft(recipe, slotItems))
             {
@@ -44,17 +47,25 @@ public class Smelter : MonoBehaviour
         _resultItemSlot.SetItem(null);
     }
 
-    private bool CanCraft(Recipe recipe, ItemData[] slotItems)
+    private bool CanCraft(Recipe recipe, System.Collections.Generic.List<ItemData> slotItems)
     {
-        foreach (RecipeIngredient ingredient in recipe.Ingredients)
+        var itemsToMatch = new System.Collections.Generic.List<ItemData>(slotItems);
+
+        foreach (var ingredient in recipe.Ingredients)
         {
-            int countInSlots = slotItems.Count(item => item == ingredient.ItemData);
-            if (countInSlots < ingredient.Quantity)
+            for (int i = 0; i < ingredient.Quantity; i++)
             {
-                return false;
+                if (itemsToMatch.Contains(ingredient.ItemData))
+                {
+                    itemsToMatch.Remove(ingredient.ItemData);
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
-        return true;
+        return itemsToMatch.Count == 0;
     }
 }
