@@ -7,6 +7,7 @@ public class ItemSelectorTab : Tab
     [SerializeField] private SelectItemPanel _panelPrefab;
     [SerializeField] private RectTransform _panelsRectTransform;
     [SerializeField] private TopBar _topBar;
+    [SerializeField] private NavigationBar _navigationBar;
 
     private List<SelectItemPanel> _panels = new List<SelectItemPanel>();
 
@@ -25,6 +26,7 @@ public class ItemSelectorTab : Tab
         }
 
         _topBar.SetTitleText("Select item");
+        _navigationBar.gameObject.SetActive(false);
     }
 
     public override void Close()
@@ -32,6 +34,8 @@ public class ItemSelectorTab : Tab
         base.Close();
 
         RemoveAllPanels();
+
+        _navigationBar.gameObject.SetActive(true);
     }
 
     private void RemoveAllPanels()
