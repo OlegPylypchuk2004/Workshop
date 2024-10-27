@@ -1,11 +1,11 @@
 using UnityEngine;
+using System.Linq;
 
 public class Smelter : MonoBehaviour
 {
     [SerializeField] private SetItemSlot[] _setItemSlots;
     [SerializeField] private ResultItemSlot _resultItemSlot;
-
-    private ItemData[] _itemDatas = new ItemData[2];
+    [SerializeField] private Recipe[] _recipes;
 
     private void OnEnable()
     {
@@ -25,9 +25,36 @@ public class Smelter : MonoBehaviour
 
     private void OnItemInSetSlotChanged(ItemData data)
     {
-        if (data.Name == "iron ore")
+        CheckCraftingAvailability();
+    }
+
+    private void CheckCraftingAvailability()
+    {
+        ItemData[] slotItems = _setItemSlots.Select(slot => slot.GetItemData()).ToArray();
+
+        foreach (Recipe recipe in _recipes)
         {
-            _resultItemSlot.SetItem(Resources.Load<ItemData>("Items/iron"));
+            if (CanCraft(recipe, slotItems))
+            {
+                _resultItemSlot.SetItem(recipe.Result.ItemData);
+                return;
+            }
         }
+
+        _resultItemSlot.SetItem(null);
+    }
+
+    private bool CanCraft(Recipe recipe, ItemData[] slotItems)
+    {
+        foreach (RecipeIngredient ingredient in recipe.Ingredients)
+        {
+            int countInSlots = slotItems.Count(item => item == ingredient.ItemData);
+            if (countInSlots < ingredient.Quantity)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

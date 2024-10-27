@@ -8,6 +8,8 @@ public abstract class ItemSlot : MonoBehaviour
     [SerializeField] private Image _itemIconImage;
     [SerializeField] private TextMeshProUGUI _itemNameText;
 
+    private ItemData _itemData;
+
     public event Action<ItemData> ItemChanged;
 
     public void SetItem(ItemData data)
@@ -25,6 +27,13 @@ public abstract class ItemSlot : MonoBehaviour
             _itemIconImage.gameObject.SetActive(true);
         }
 
+        _itemData = data;
+
         ItemChanged?.Invoke(data);
+    }
+
+    public ItemData GetItemData()
+    {
+        return _itemData;
     }
 }

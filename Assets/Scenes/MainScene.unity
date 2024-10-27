@@ -3505,6 +3505,8 @@ MonoBehaviour:
   - {fileID: 990522388}
   - {fileID: 1913245786}
   _resultItemSlot: {fileID: 1447560991}
+  _recipes:
+  - {fileID: 11400000, guid: 93bd200f40d259b4aa2fcd848f82184e, type: 2}
 --- !u!1 &2004739678
 GameObject:
   m_ObjectHideFlags: 0
