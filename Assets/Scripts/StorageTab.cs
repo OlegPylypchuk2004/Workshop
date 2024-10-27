@@ -5,6 +5,7 @@ public class StorageTab : Tab
 {
     [SerializeField] private StoragePanel _panelPrefab;
     [SerializeField] private RectTransform _panelsRectTransform;
+    [SerializeField] private TopBar _topBar;
 
     private List<StoragePanel> _panels = new List<StoragePanel>();
 
@@ -20,6 +21,8 @@ public class StorageTab : Tab
             panel.Initialize(item.Key, item.Value);
             _panels.Add(panel);
         }
+
+        _topBar.SetTitleText("Storage");
     }
 
     public override void Close()

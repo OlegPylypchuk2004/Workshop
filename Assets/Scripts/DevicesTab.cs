@@ -3,6 +3,7 @@ using UnityEngine;
 public class DevicesTab : Tab
 {
     [SerializeField] private DevicePanel[] _devicePanels;
+    [SerializeField] private TopBar _topBar;
 
     public override void Open()
     {
@@ -12,6 +13,8 @@ public class DevicesTab : Tab
         {
             devicePanel.Clicked += OnDevicePanelClicked;
         }
+
+        _topBar.SetTitleText("Select equipment");
     }
 
     public override void Close()

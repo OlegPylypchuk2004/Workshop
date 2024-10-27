@@ -443,6 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _panelPrefab: {fileID: 9222859274109235406, guid: 2e746512656edcc4680c9ad75b29b5ab, type: 3}
   _panelsRectTransform: {fileID: 508913941}
+  _topBar: {fileID: 2087844749}
 --- !u!1 &190475329
 GameObject:
   m_ObjectHideFlags: 0
@@ -2528,6 +2529,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b31314d8e3e88974388000862c6afc6f, type: 2}
   _startSmeltingButton: {fileID: 1385273720}
   _itemSelector: {fileID: 238914509}
+  _topBar: {fileID: 2087844749}
 --- !u!1 &1610866828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,6 +2776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _devicePanels:
   - {fileID: 123030879}
+  _topBar: {fileID: 2087844749}
 --- !u!1 &1891603164
 GameObject:
   m_ObjectHideFlags: 0

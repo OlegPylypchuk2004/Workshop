@@ -10,6 +10,7 @@ public class SmelterTab : Tab
     [SerializeField] private Recipe[] _recipes;
     [SerializeField] private Button _startSmeltingButton;
     [SerializeField] private ItemSelectorTab _itemSelector;
+    [SerializeField] private TopBar _topBar;
 
     private Recipe _currentRecipe;
     private SetItemSlot _clickedSetItemSlot;
@@ -29,6 +30,8 @@ public class SmelterTab : Tab
         {
             CheckCraftingAvailability();
         }
+
+        _topBar.SetTitleText("Smelter");
     }
 
     public override void Close()
