@@ -17,6 +17,13 @@ public class SetItemSlot : ItemSlot
 
     private void OnClicked()
     {
-        SetItem(Resources.Load<ItemData>("Items/iron_ore"));
+        if (Input.GetKey(KeyCode.Backspace))
+        {
+            SetItem(null);
+        }
+        else
+        {
+            SetItem(Resources.Load<ItemData>("Items/iron_ore"));
+        }
     }
 }
