@@ -44,13 +44,15 @@ public class StorageTab : Tab
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            Storage.AddItem(Resources.Load<ItemData>("Items/Wood"), Random.Range(1, 5));
+            Storage.AddItem(Resources.Load<ItemData>("Items/iron_ore"));
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Storage.AddItem(Resources.Load<ItemData>("Items/Steel"), Random.Range(1, 5));
+            Storage.ClearStorage();
+            Debug.Log("All items have been removed from storage.");
         }
     }
 }

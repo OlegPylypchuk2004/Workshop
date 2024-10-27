@@ -5,7 +5,7 @@ public static class Storage
 {
     private static Dictionary<ItemData, int> items = new Dictionary<ItemData, int>();
 
-    public static void AddItem(ItemData itemData, int quantity)
+    public static void AddItem(ItemData itemData, int quantity = 1)
     {
         if (items.ContainsKey(itemData))
         {
