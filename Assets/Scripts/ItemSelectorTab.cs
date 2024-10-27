@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemSelector : MonoBehaviour
+public class ItemSelectorTab : Tab
 {
     [SerializeField] private SelectItemPanel _panelPrefab;
     [SerializeField] private RectTransform _panelsRectTransform;
@@ -12,9 +12,9 @@ public class ItemSelector : MonoBehaviour
 
     public event Action<ItemData> ItemSelected;
 
-    public void Open()
+    public override void Open()
     {
-        gameObject.SetActive(true);
+        base.Open();
 
         foreach (var item in Storage.GetAllItems())
         {
@@ -27,9 +27,9 @@ public class ItemSelector : MonoBehaviour
         _topBar.SetTitleText("Select item");
     }
 
-    public void Close()
+    public override void Close()
     {
-        gameObject.SetActive(false);
+        base.Close();
 
         RemoveAllPanels();
     }

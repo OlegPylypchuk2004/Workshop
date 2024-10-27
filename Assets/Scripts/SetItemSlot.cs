@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class SetItemSlot : ItemSlot
 {
     [SerializeField] private Button _button;
-    [SerializeField] private ItemSelector _itemSelector;
+    [SerializeField] private ItemSelectorTab _itemSelector;
 
     private void OnEnable()
     {

@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Smelter : MonoBehaviour
+public class SmelterTab : Tab
 {
     [SerializeField] private SetItemSlot[] _setItemSlots;
     [SerializeField] private ResultItemSlot _resultItemSlot;
@@ -12,8 +12,10 @@ public class Smelter : MonoBehaviour
 
     private Recipe _currentRecipe;
 
-    private void OnEnable()
+    public override void Open()
     {
+        base.Open();
+
         foreach (ItemSlot itemSlot in _setItemSlots)
         {
             itemSlot.ItemChanged += OnItemInSetSlotChanged;
@@ -22,8 +24,10 @@ public class Smelter : MonoBehaviour
         _startSmeltingButton.onClick.AddListener(OnStartSmeltingButtonClicked);
     }
 
-    private void OnDisable()
+    public override void Close()
     {
+        base.Close();
+
         foreach (ItemSlot itemSlot in _setItemSlots)
         {
             itemSlot.ItemChanged -= OnItemInSetSlotChanged;
