@@ -11,7 +11,7 @@ public class MarketTab : Tab
     private List<MarketItem> _goods = new List<MarketItem>();
     private ItemData[] _itemDatas;
 
-    private void Start()
+    private void Awake()
     {
         InitializeGoods();
     }
@@ -68,6 +68,11 @@ public class MarketTab : Tab
 
     private void OnPanelBuyButtonClicked(MarketBuyItemPanel panel)
     {
+        MarketItem marketItem = panel.MarketItem;
 
+        Storage.AddItem(marketItem.ItemData, marketItem.Quantity);
+        _panels.Remove(panel);
+        _goods.Remove(marketItem);
+        Destroy(panel.gameObject);
     }
 }
