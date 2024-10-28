@@ -30,10 +30,7 @@ public class ItemSelectorPanel : Panel
         _topBar.SetTitleText("Select item");
         _navigationBar.gameObject.SetActive(false);
 
-        if (_panels.Count == 0)
-        {
-            _emptyStorageText.gameObject.SetActive(true);
-        }
+        _emptyStorageText.gameObject.SetActive(_panels.Count == 0);
     }
 
     public override void Close()

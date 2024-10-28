@@ -26,10 +26,7 @@ public class StorageTab : Tab
 
         _topBar.SetTitleText("Storage");
 
-        if (_panels.Count == 0)
-        {
-            _emptyStorageText.gameObject.SetActive(true);
-        }
+        _emptyStorageText.gameObject.SetActive(_panels.Count == 0);
     }
 
     public override void Close()
