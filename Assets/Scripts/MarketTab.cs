@@ -8,6 +8,7 @@ public class MarketTab : Tab
     [SerializeField] private RectTransform _panelsListRecTransform;
 
     private List<MarketBuyItemPanel> _panels = new List<MarketBuyItemPanel>();
+    private List<MarketItem> _goods = new List<MarketItem>();
     private ItemData[] _itemDatas;
 
     private void Start()
@@ -23,8 +24,22 @@ public class MarketTab : Tab
 
         for (int i = 0; i < goodsCount; i++)
         {
+            ItemData itemData = _itemDatas[Random.Range(0, _itemDatas.Length)];
+            int quantity = Random.Range(5, 25);
+            float priceCoef = Random.Range(1f, 1.25f);
+            int price = Mathf.RoundToInt(itemData.Price * quantity * priceCoef);
+
+            MarketItem marketItem = new MarketItem
+            {
+                ItemData = itemData,
+                Quantity = quantity,
+                Price = price,
+            };
+
+            _goods.Add(marketItem);
+
             MarketBuyItemPanel panel = Instantiate(_panelPrefab, Vector3.zero, Quaternion.identity, _panelsListRecTransform);
-            panel.Initialize(_itemDatas[Random.Range(0, _itemDatas.Length)], Random.Range(5, 25), Random.Range(1f, 1.75f));
+            panel.Initialize(marketItem);
             _panels.Add(panel);
         }
     }

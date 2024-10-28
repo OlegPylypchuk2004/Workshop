@@ -11,9 +11,7 @@ public class MarketBuyItemPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _priceText;
     [SerializeField] private Button _buyButton;
 
-    private ItemData _itemData;
-    private int _quantity;
-    private int _price;
+    public MarketItem MarketItem { get; private set; }
 
     public event Action<MarketBuyItemPanel> BuyButtonClicked;
 
@@ -27,27 +25,18 @@ public class MarketBuyItemPanel : MonoBehaviour
         _buyButton.onClick.RemoveAllListeners();
     }
 
-    public void Initialize(ItemData itemData, int itemQuantity, float priceCoef)
+    public void Initialize(MarketItem marketItem)
     {
-        _quantity = itemQuantity;
-        _price = Mathf.RoundToInt(itemData.Price * itemQuantity * priceCoef);
+        MarketItem = marketItem;
 
-        _iconImage.sprite = itemData.Icon;
-        _nameText.text = itemData.Name;
-        _quantityText.text = $"{_quantity}";
-        _priceText.text = $"{_price}";
+        _iconImage.sprite = marketItem.ItemData.Icon;
+        _nameText.text = marketItem.ItemData.Name;
+        _quantityText.text = $"{marketItem.Quantity}";
+        _priceText.text = $"{marketItem.Price}";
     }
 
     private void OnBuyButtonClicked()
     {
         BuyButtonClicked?.Invoke(this);
-    }
-
-    public ItemData ItemData
-    {
-        get
-        {
-            return _itemData;
-        }
     }
 }
