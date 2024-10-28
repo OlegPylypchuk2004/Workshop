@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb797403deaf8834da7283273d2a1528, type: 3}
-  m_Name: steel_recipe
+  m_Name: copper_recipe
   m_EditorClassIdentifier: 
   <Ingredients>k__BackingField:
-  - <ItemData>k__BackingField: {fileID: 11400000, guid: 9f69542eac155044fa5120399c6489cf, type: 2}
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 982e6028f1a78724490272b8a6e561b5, type: 2}
     <Quantity>k__BackingField: 1
-  - <ItemData>k__BackingField: {fileID: 11400000, guid: 55563ce28c27c8d4e82910bd895fe530, type: 2}
-    <Quantity>k__BackingField: 1
-  <Time>k__BackingField: 2
+  <Time>k__BackingField: 1
   <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 11400000, guid: 83ec45ff47fbdc94f8849a2213d549f3, type: 2}
+    <ItemData>k__BackingField: {fileID: 11400000, guid: 6cc772d90764fcf4caec918b5254bf3e, type: 2}
     <Quantity>k__BackingField: 1
