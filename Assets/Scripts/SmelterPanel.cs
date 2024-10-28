@@ -13,6 +13,9 @@ public class SmelterPanel : Panel
     [SerializeField] private TopBar _topBar;
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _buttonText;
+    [SerializeField] private TextMeshProUGUI _smeltingTimerText;
+    [SerializeField] private GameObject _progressBar;
+    [SerializeField] private Image _progressBarFiller;
 
     private Recipe[] _recipes;
     private Recipe _currentRecipe;
@@ -182,10 +185,30 @@ public class SmelterPanel : Panel
     private IEnumerator SmeltingCoroutine()
     {
         float smeltingTime = _currentRecipe.Time;
+        float elapsedTime = 0f;
 
-        yield return new WaitForSeconds(smeltingTime);
+        _progressBar.SetActive(true);
+        _smeltingTimerText.gameObject.SetActive(true);
+
+        while (elapsedTime < smeltingTime)
+        {
+            elapsedTime += Time.deltaTime;
+            float remainingTime = smeltingTime - elapsedTime;
+
+            if (isActiveAndEnabled)
+            {
+                _smeltingTimerText.text = FormatTime(remainingTime);
+                _progressBarFiller.fillAmount = elapsedTime / smeltingTime;
+            }
+
+            yield return null;
+        }
+
+        _progressBar.SetActive(false);
+        _smeltingTimerText.gameObject.SetActive(false);
 
         _smelterState = SmelterState.done;
+
         UpdateState();
     }
 
@@ -222,6 +245,13 @@ public class SmelterPanel : Panel
                 _buttonText.text = "Take";
                 break;
         }
+    }
+
+    private string FormatTime(float timeInSeconds)
+    {
+        int minutes = Mathf.FloorToInt(timeInSeconds / 60);
+        int seconds = Mathf.FloorToInt(timeInSeconds % 60);
+        return $"{minutes}m {seconds}s";
     }
 }
 
