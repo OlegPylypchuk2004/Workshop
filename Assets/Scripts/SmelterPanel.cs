@@ -189,7 +189,7 @@ public class SmelterPanel : Panel
 
             if (isActiveAndEnabled)
             {
-                _smeltingTimerText.text = FormatTime(remainingTime);
+                _smeltingTimerText.text = TextFormatter.FormatTime(remainingTime);
                 _progressBarFiller.fillAmount = elapsedTime / smeltingTime;
             }
 
@@ -223,13 +223,15 @@ public class SmelterPanel : Panel
                 _buttonText.text = "Take";
                 break;
         }
-    }
 
-    private string FormatTime(float timeInSeconds)
-    {
-        int minutes = Mathf.FloorToInt(timeInSeconds / 60);
-        int seconds = Mathf.FloorToInt(timeInSeconds % 60);
-        return $"{minutes}m {seconds}s";
+        if (_currentRecipe == null || _smelterState != SmelterState.idle)
+        {
+            _resultItemSlot.SetTime();
+        }
+        else
+        {
+            _resultItemSlot.SetTime(_currentRecipe.Time);
+        }
     }
 }
 

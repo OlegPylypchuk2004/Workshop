@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class StorageTab : Tab
@@ -6,6 +7,7 @@ public class StorageTab : Tab
     [SerializeField] private StoragePanel _panelPrefab;
     [SerializeField] private RectTransform _panelsRectTransform;
     [SerializeField] private TopBar _topBar;
+    [SerializeField] private TextMeshProUGUI _emptyStorageText;
 
     private List<StoragePanel> _panels = new List<StoragePanel>();
 
@@ -23,6 +25,11 @@ public class StorageTab : Tab
         }
 
         _topBar.SetTitleText("Storage");
+
+        if (_panels.Count == 0)
+        {
+            _emptyStorageText.gameObject.SetActive(true);
+        }
     }
 
     public override void Close()

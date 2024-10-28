@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ItemSelectorPanel : Panel
@@ -8,6 +9,7 @@ public class ItemSelectorPanel : Panel
     [SerializeField] private RectTransform _panelsRectTransform;
     [SerializeField] private TopBar _topBar;
     [SerializeField] private NavigationBar _navigationBar;
+    [SerializeField] private TextMeshProUGUI _emptyStorageText;
 
     private List<SelectItemPanel> _panels = new List<SelectItemPanel>();
 
@@ -27,6 +29,11 @@ public class ItemSelectorPanel : Panel
 
         _topBar.SetTitleText("Select item");
         _navigationBar.gameObject.SetActive(false);
+
+        if (_panels.Count == 0)
+        {
+            _emptyStorageText.gameObject.SetActive(true);
+        }
     }
 
     public override void Close()
