@@ -740,7 +740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _navigationBar: {fileID: 1610866831}
   _topBar: {fileID: 2087844749}
-  _isDebug: 1
+  _isDebug: 0
 --- !u!4 &380198988
 Transform:
   m_ObjectHideFlags: 0
