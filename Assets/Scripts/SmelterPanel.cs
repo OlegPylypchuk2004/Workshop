@@ -77,6 +77,7 @@ public class SmelterPanel : Panel
         }
         else
         {
+            Storage.AddItem(setItemSlot.GetItemData());
             setItemSlot.SetItem(null);
             CheckCraftingAvailability();
         }
@@ -87,6 +88,8 @@ public class SmelterPanel : Panel
     private void OnItemSelected(ItemData data)
     {
         _itemSelector.ItemSelected -= OnItemSelected;
+
+        Storage.RemoveItem(data, 1);
 
         _clickedSetItemSlot.SetItem(data);
         _clickedSetItemSlot = null;
@@ -141,12 +144,6 @@ public class SmelterPanel : Panel
         switch (_smelterState)
         {
             case SmelterState.idle:
-
-                if (_currentRecipe == null || !AreIngredientsAvailable(_currentRecipe))
-                {
-                    Debug.Log("Not enough ingredients in storage.");
-                    return;
-                }
 
                 foreach (var ingredient in _currentRecipe.Ingredients)
                 {
@@ -210,20 +207,6 @@ public class SmelterPanel : Panel
         _smelterState = SmelterState.done;
 
         UpdateState();
-    }
-
-    private bool AreIngredientsAvailable(Recipe recipe)
-    {
-        foreach (var ingredient in recipe.Ingredients)
-        {
-            int availableQuantity = Storage.GetItemQuantity(ingredient.ItemData);
-            if (availableQuantity < ingredient.Quantity)
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     private void UpdateState()
