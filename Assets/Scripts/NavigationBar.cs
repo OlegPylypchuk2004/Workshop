@@ -3,59 +3,38 @@ using UnityEngine;
 
 public class NavigationBar : MonoBehaviour
 {
-    [SerializeField] private NavigationBarButton[] _buttons;
+    [SerializeField] private NavigationBarButton[] _navigationButtons;
     [SerializeField] private Tab[] _tabs;
-    [SerializeField] private Tab[] _allTabs;
 
     private int _currentTabIndex;
 
     private void Awake()
     {
-        for (int i = 0; i < _tabs.Length; i++)
+        for (int i = 0; i < _navigationButtons.Length; i++)
         {
-            if (i == _currentTabIndex)
-            {
-                _tabs[i].Open();
-            }
-            else
-            {
-                _tabs[i].Close();
-            }
+            _navigationButtons[i].Clicked += OnNavigationButtonClicked;
+            _navigationButtons[i].UpdateView(i == _currentTabIndex);
         }
 
-        for (int i = 0; i < _buttons.Length; i++)
-        {
-            _buttons[i].Clicked += OnButtonClicked;
-            _buttons[i].UpdateView(i == _currentTabIndex);
-        }
+        NavigationController.Instance.OpenTab(_tabs[_currentTabIndex]);
     }
 
     private void OnDestroy()
     {
-        foreach (NavigationBarButton button in _buttons)
+        for (int i = 0; i < _navigationButtons.Length; i++)
         {
-            button.Clicked -= OnButtonClicked;
+            _navigationButtons[i].Clicked -= OnNavigationButtonClicked;
         }
     }
 
-    private void OnButtonClicked(NavigationBarButton button)
+    private void OnNavigationButtonClicked(NavigationBarButton navigationButton)
     {
-        foreach (Tab tab in _allTabs)
-        {
-            tab.Close();
-        }
+        _navigationButtons[_currentTabIndex].UpdateView(false);
+        NavigationController.Instance.ClosePanel();
 
-        int buttonIndex = Array.IndexOf(_buttons, button);
+        _currentTabIndex = Array.IndexOf(_navigationButtons, navigationButton);
 
-        if (buttonIndex == _currentTabIndex)
-        {
-            return;
-        }
-
-        _tabs[_currentTabIndex].Close();
-        _buttons[_currentTabIndex].UpdateView(false);
-        _currentTabIndex = buttonIndex;
-        _tabs[_currentTabIndex].Open();
-        _buttons[_currentTabIndex].UpdateView(true);
+        _navigationButtons[_currentTabIndex].UpdateView(true);
+        NavigationController.Instance.OpenTab(_tabs[_currentTabIndex]);
     }
 }

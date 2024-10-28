@@ -3,7 +3,7 @@ using UnityEngine;
 public class TestTabChanger : MonoBehaviour
 {
     [SerializeField] private StorageTab _storageTab;
-    [SerializeField] private SmelterTab _smelterTab;
+    [SerializeField] private SmelterPanel _smelterTab;
 
     private void Start()
     {
