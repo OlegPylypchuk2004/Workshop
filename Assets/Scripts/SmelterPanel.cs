@@ -3,13 +3,13 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SmelterTab : Tab
+public class SmelterPanel : Panel
 {
     [SerializeField] private SetItemSlot[] _setItemSlots;
     [SerializeField] private ResultItemSlot _resultItemSlot;
     [SerializeField] private Recipe[] _recipes;
     [SerializeField] private Button _startSmeltingButton;
-    [SerializeField] private ItemSelectorTab _itemSelector;
+    [SerializeField] private ItemSelectorPanel _itemSelector;
     [SerializeField] private TopBar _topBar;
 
     private Recipe _currentRecipe;
@@ -32,6 +32,9 @@ public class SmelterTab : Tab
         }
 
         _topBar.SetTitleText("Smelter");
+
+        _itemSelector.ItemSelected -= OnItemSelected;
+        _clickedSetItemSlot = null;
     }
 
     public override void Close()
@@ -52,10 +55,10 @@ public class SmelterTab : Tab
         {
             _clickedSetItemSlot = setItemSlot;
 
-            _itemSelector.Open();
-            _itemSelector.ItemSelected += OnItemSelected;
+            //NavigationController.Instance.ClosePanel();
+            NavigationController.Instance.OpenPanel(_itemSelector);
 
-            Close();
+            _itemSelector.ItemSelected += OnItemSelected;
         }
         else
         {
@@ -71,7 +74,8 @@ public class SmelterTab : Tab
         _clickedSetItemSlot.SetItem(data);
         _clickedSetItemSlot = null;
 
-        Open();
+        //NavigationController.Instance.OpenLast();
+        //NavigationController.Instance.ClosePanel();
     }
 
     private void CheckCraftingAvailability()

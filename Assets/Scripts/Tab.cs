@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Tab : MonoBehaviour
+public class Tab : MonoBehaviour, INavigationElement
 {
     public virtual void Open()
     {

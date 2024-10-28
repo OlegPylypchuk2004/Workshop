@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemSelectorTab : Tab
+public class ItemSelectorPanel : Panel
 {
     [SerializeField] private SelectItemPanel _panelPrefab;
     [SerializeField] private RectTransform _panelsRectTransform;
@@ -55,6 +55,8 @@ public class ItemSelectorTab : Tab
     private void OnItemSelected(SelectItemPanel panel)
     {
         ItemSelected?.Invoke(panel.ItemData);
-        Close();
+
+        NavigationController.Instance.ClosePanel();
+        //NavigationController.Instance.OpenLast();
     }
 }
