@@ -1965,7 +1965,7 @@ GameObject:
   - component: {fileID: 708845606}
   - component: {fileID: 708845605}
   m_Layer: 0
-  m_Name: CurrencyIcon
+  m_Name: CreditsIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4738,8 +4738,9 @@ GameObject:
   - component: {fileID: 1432399130}
   - component: {fileID: 1432399132}
   - component: {fileID: 1432399131}
+  - component: {fileID: 1432399133}
   m_Layer: 0
-  m_Name: MoneyText
+  m_Name: CredirsCountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4861,6 +4862,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432399129}
   m_CullTransparentMesh: 1
+--- !u!114 &1432399133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432399129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12e263745065ec419669c99d06a01d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _countText: {fileID: 1432399131}
 --- !u!1001 &1447560989
 PrefabInstance:
   m_ObjectHideFlags: 0

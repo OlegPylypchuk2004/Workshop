@@ -70,9 +70,13 @@ public class MarketTab : Tab
     {
         MarketItem marketItem = panel.MarketItem;
 
-        Storage.AddItem(marketItem.ItemData, marketItem.Quantity);
-        _panels.Remove(panel);
-        _goods.Remove(marketItem);
-        panel.Disappear();
+        if (PlayerDataManager.Data.CreditsCount >= marketItem.Price)
+        {
+            PlayerDataManager.Data.CreditsCount -= marketItem.Price;
+            Storage.AddItem(marketItem.ItemData, marketItem.Quantity);
+            _panels.Remove(panel);
+            _goods.Remove(marketItem);
+            panel.Disappear();
+        }
     }
 }
