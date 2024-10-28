@@ -145,13 +145,8 @@ public class SmelterPanel : Panel
         {
             case SmelterState.idle:
 
-                foreach (var ingredient in _currentRecipe.Ingredients)
-                {
-                    Storage.RemoveItem(ingredient.ItemData, ingredient.Quantity);
-                }
-
                 _smelterState = SmelterState.smelting;
-                StartCoroutine(SmeltingCoroutine());
+                CoroutineManager.Instance.StartCoroutine(SmeltingCoroutine());
 
                 break;
 

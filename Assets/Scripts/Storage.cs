@@ -29,6 +29,8 @@ public static class Storage
                 items.Remove(itemData);
             }
         }
+
+        Debug.Log($"Removed item: {itemData.Name}, {quantity}");
     }
 
     public static int GetItemQuantity(ItemData itemData)
