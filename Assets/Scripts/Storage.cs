@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public static class Storage
 {
     private static Dictionary<ItemData, int> items = new Dictionary<ItemData, int>();
+    private static readonly string filePath = Path.Combine(Application.persistentDataPath, "InventoryData.json");
 
     public static void AddItem(ItemData itemData, int quantity = 1)
     {
@@ -17,6 +19,7 @@ public static class Storage
         }
 
         Debug.Log($"Added item: {itemData.Name}, {quantity}");
+        SaveInventory();
     }
 
     public static void RemoveItem(ItemData itemData, int quantity)
@@ -31,6 +34,7 @@ public static class Storage
         }
 
         Debug.Log($"Removed item: {itemData.Name}, {quantity}");
+        SaveInventory();
     }
 
     public static int GetItemQuantity(ItemData itemData)
@@ -41,10 +45,70 @@ public static class Storage
     public static void ClearStorage()
     {
         items.Clear();
+        SaveInventory();
     }
 
     public static Dictionary<ItemData, int> GetAllItems()
     {
         return new Dictionary<ItemData, int>(items);
+    }
+
+    public static void SaveInventory()
+    {
+        InventoryData data = new InventoryData(items);
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(filePath, json);
+    }
+
+    public static void LoadInventory()
+    {
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            InventoryData data = JsonUtility.FromJson<InventoryData>(json);
+            items = data.ToDictionary();
+        }
+        else
+        {
+            items = new Dictionary<ItemData, int>();
+        }
+    }
+}
+
+[System.Serializable]
+public class InventoryData
+{
+    public List<ItemEntry> items;
+
+    public InventoryData(Dictionary<ItemData, int> itemsDict)
+    {
+        items = new List<ItemEntry>();
+        foreach (var kvp in itemsDict)
+        {
+            items.Add(new ItemEntry(kvp.Key, kvp.Value));
+        }
+    }
+
+    public Dictionary<ItemData, int> ToDictionary()
+    {
+        Dictionary<ItemData, int> dict = new Dictionary<ItemData, int>();
+        foreach (var entry in items)
+        {
+            dict[entry.itemData] = entry.quantity;
+        }
+        return dict;
+    }
+}
+
+[System.Serializable]
+public class ItemEntry
+{
+    public ItemData itemData;
+    public int quantity;
+
+    public ItemEntry(ItemData itemData, int quantity)
+    {
+        this.itemData = itemData;
+        this.quantity = quantity;
     }
 }

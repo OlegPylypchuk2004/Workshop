@@ -3,11 +3,11 @@ using UnityEngine;
 
 public static class PlayerDataManager
 {
-    private static readonly string filePath;
+    private static readonly string filePath = Path.Combine(Application.persistentDataPath, "PlayerData.json");
+    private static readonly string inventoryFilePath = Path.Combine(Application.persistentDataPath, "InventoryData.json");
 
     static PlayerDataManager()
     {
-        filePath = Path.Combine(Application.persistentDataPath, "PlayerData.json");
         Data = new PlayerData();
 
         if (File.Exists(filePath))
@@ -31,5 +31,21 @@ public static class PlayerDataManager
     {
         Data.ResetToDefaults();
         SaveData();
+    }
+
+    public static void ClearAllData()
+    {
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+        }
+
+        if (File.Exists(inventoryFilePath))
+        {
+            File.Delete(inventoryFilePath);
+        }
+
+        Data.ResetToDefaults();
+        Storage.ClearStorage();
     }
 }

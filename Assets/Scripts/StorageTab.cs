@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StorageTab : Tab
 {
@@ -63,8 +64,8 @@ public class StorageTab : Tab
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Storage.ClearStorage();
-            Debug.Log("All items have been removed from storage.");
+            PlayerDataManager.ClearAllData();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
