@@ -29,7 +29,6 @@ public class DevicesTab : Tab
 
     private void OnDevicePanelClicked(Panel devicePanel)
     {
-        //NavigationController.Instance.ClosePanel();
         NavigationController.Instance.OpenPanel(devicePanel);
     }
 }
