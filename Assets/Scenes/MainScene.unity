@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 33388629}
   - component: {fileID: 33388630}
+  - component: {fileID: 33388631}
   m_Layer: 0
   m_Name: ScrollRect
   m_TagString: Untagged
@@ -189,6 +190,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &33388631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33388628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f92d4e60cb5694f8da2c59a16f62f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 1066943655}
 --- !u!1 &103507213
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,6 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 103507214}
   - component: {fileID: 103507215}
+  - component: {fileID: 103507216}
   m_Layer: 0
   m_Name: ScrollRect
   m_TagString: Untagged
@@ -256,6 +271,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &103507216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103507213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f92d4e60cb5694f8da2c59a16f62f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 508913941}
 --- !u!1001 &123030877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3790,6 +3818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1198794155}
   - component: {fileID: 1198794156}
+  - component: {fileID: 1198794157}
   m_Layer: 0
   m_Name: ScrollRect
   m_TagString: Untagged
@@ -3847,6 +3876,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1198794157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198794154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f92d4e60cb5694f8da2c59a16f62f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 531148692}
 --- !u!1 &1201104299
 GameObject:
   m_ObjectHideFlags: 0
@@ -5111,6 +5153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1648857929}
   - component: {fileID: 1648857930}
+  - component: {fileID: 1648857931}
   m_Layer: 0
   m_Name: ScrollRect
   m_TagString: Untagged
@@ -5168,6 +5211,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1648857931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648857928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f92d4e60cb5694f8da2c59a16f62f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 255687345}
 --- !u!1 &1736280082
 GameObject:
   m_ObjectHideFlags: 0
