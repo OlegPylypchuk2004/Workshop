@@ -8,6 +8,7 @@ public class NavigationController : MonoBehaviour
     public int NavigationStackCount { get; private set; } // Поле для зберігання кількості елементів у стеці
 
     public NavigationBar _navigationBar;
+    public TopBar _topBar;
 
     public static NavigationController Instance { get; private set; }
 
@@ -41,6 +42,7 @@ public class NavigationController : MonoBehaviour
         UpdateStackCount();
 
         _navigationBar.gameObject.SetActive(true);
+        _topBar.SetBackButtonEnabled(false);
     }
 
     public void OpenPanel(INavigationElement panel)
@@ -53,6 +55,7 @@ public class NavigationController : MonoBehaviour
         UpdateStackCount();
 
         _navigationBar.gameObject.SetActive(false);
+        _topBar.SetBackButtonEnabled(true);
     }
 
     public void ClosePanel()
@@ -71,10 +74,12 @@ public class NavigationController : MonoBehaviour
         if (navigationStack.Count > 0 && navigationStack.Peek() is Tab)
         {
             _navigationBar.gameObject.SetActive(true);
+            _topBar.SetBackButtonEnabled(false);
         }
         else
         {
             _navigationBar.gameObject.SetActive(false);
+            _topBar.SetBackButtonEnabled(true);
         }
     }
 

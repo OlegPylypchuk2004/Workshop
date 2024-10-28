@@ -32,6 +32,9 @@ public class SmelterPanel : Panel
         }
 
         _topBar.SetTitleText("Smelter");
+
+        _itemSelector.ItemSelected -= OnItemSelected;
+        _clickedSetItemSlot = null;
     }
 
     public override void Close()

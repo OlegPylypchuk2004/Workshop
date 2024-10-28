@@ -8,7 +8,7 @@ public class NavigationBar : MonoBehaviour
 
     private int _currentTabIndex;
 
-    private void Awake()
+    private void Start()
     {
         for (int i = 0; i < _navigationButtons.Length; i++)
         {
@@ -29,12 +29,15 @@ public class NavigationBar : MonoBehaviour
 
     private void OnNavigationButtonClicked(NavigationBarButton navigationButton)
     {
-        _navigationButtons[_currentTabIndex].UpdateView(false);
-        NavigationController.Instance.ClosePanel();
+        int newTabIndex = Array.IndexOf(_navigationButtons, navigationButton);
 
-        _currentTabIndex = Array.IndexOf(_navigationButtons, navigationButton);
+        if (newTabIndex != -1 && newTabIndex != _currentTabIndex)
+        {
+            _navigationButtons[_currentTabIndex].UpdateView(false); // Сховати попередню вкладку
+            _currentTabIndex = newTabIndex; // Оновити індекс вкладки
+            _navigationButtons[_currentTabIndex].UpdateView(true); // Відкрити нову вкладку
 
-        _navigationButtons[_currentTabIndex].UpdateView(true);
-        NavigationController.Instance.OpenTab(_tabs[_currentTabIndex]);
+            NavigationController.Instance.OpenTab(_tabs[_currentTabIndex]);
+        }
     }
 }
