@@ -73,6 +73,6 @@ public class MarketTab : Tab
         Storage.AddItem(marketItem.ItemData, marketItem.Quantity);
         _panels.Remove(panel);
         _goods.Remove(marketItem);
-        Destroy(panel.gameObject);
+        panel.Disappear();
     }
 }

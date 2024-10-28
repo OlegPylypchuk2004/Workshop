@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class MarketBuyItemPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _quantityText;
     [SerializeField] private TextMeshProUGUI _priceText;
     [SerializeField] private Button _buyButton;
+    [SerializeField] private CanvasGroup _canvasGroup;
+    [SerializeField] private RectTransform _rectTransform;
 
     public MarketItem MarketItem { get; private set; }
 
@@ -38,5 +41,21 @@ public class MarketBuyItemPanel : MonoBehaviour
     private void OnBuyButtonClicked()
     {
         BuyButtonClicked?.Invoke(this);
+    }
+
+    public void Disappear()
+    {
+        _canvasGroup.interactable = false;
+        _canvasGroup.alpha = 0f;
+
+        Vector2 targetSize = new Vector2(_rectTransform.sizeDelta.x, -50f);
+
+        _rectTransform.DOSizeDelta(targetSize, 0.25f)
+            .SetEase(Ease.Linear)
+            .SetLink(gameObject)
+            .OnComplete(() =>
+            {
+                Destroy(gameObject);
+            });
     }
 }
