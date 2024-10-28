@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class SetItemSlot : ItemSlot
 {
     [SerializeField] private Button _button;
+    [SerializeField] private Image _maskImage;
 
     public event Action<SetItemSlot> Clicked;
 
@@ -21,5 +22,10 @@ public class SetItemSlot : ItemSlot
     private void OnClicked()
     {
         Clicked?.Invoke(this);
+    }
+
+    public void SetMaskEnabled(bool isEnabled)
+    {
+        _maskImage.gameObject.SetActive(isEnabled);
     }
 }

@@ -209,18 +209,39 @@ public class SmelterPanel : Panel
         switch (_smelterState)
         {
             case SmelterState.idle:
+
                 _button.interactable = _resultItemSlot.GetItemData() != null;
                 _buttonText.text = "Start smelting";
+
+                foreach (SetItemSlot itemSlot in _setItemSlots)
+                {
+                    itemSlot.SetMaskEnabled(false);
+                }
+
                 break;
 
             case SmelterState.smelting:
+
                 _button.interactable = false;
                 _buttonText.text = "Smelting...";
+
+                foreach (SetItemSlot itemSlot in _setItemSlots)
+                {
+                    itemSlot.SetMaskEnabled(true);
+                }
+
                 break;
 
             case SmelterState.done:
+
                 _button.interactable = true;
                 _buttonText.text = "Take";
+
+                foreach (SetItemSlot itemSlot in _setItemSlots)
+                {
+                    itemSlot.SetMaskEnabled(true);
+                }
+
                 break;
         }
 
