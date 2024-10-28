@@ -6,14 +6,14 @@ public class CreditsCountView : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _countText;
 
-    private int _animatedCreditsCount;
+    private int _cashedCreditsCount;
 
     private void OnEnable()
     {
         int numberOfCoins = PlayerDataManager.Data.CreditsCount;
 
-        _animatedCreditsCount = numberOfCoins;
-        _countText.text = numberOfCoins.ToString();
+        _cashedCreditsCount = numberOfCoins;
+        _countText.text = TextFormatter.FormatValue(numberOfCoins);
 
         PlayerDataManager.Data.CreditsCountChanged += OnNumberOfCoinsChanged;
     }
@@ -25,14 +25,14 @@ public class CreditsCountView : MonoBehaviour
 
     private void OnNumberOfCoinsChanged(int numberOfCoins)
     {
-        int currentCoinsAmount = _animatedCreditsCount;
-        _animatedCreditsCount = numberOfCoins;
+        int currentCoinsAmount = _cashedCreditsCount;
+        _cashedCreditsCount = numberOfCoins;
 
         DOTween.To(() => currentCoinsAmount, x => currentCoinsAmount = x, numberOfCoins, 0.25f)
             .SetEase(Ease.Linear)
             .OnUpdate(() =>
             {
-                _countText.text = currentCoinsAmount.ToString();
+                _countText.text = TextFormatter.FormatValue(currentCoinsAmount);
             });
     }
 }

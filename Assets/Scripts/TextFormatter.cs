@@ -1,3 +1,4 @@
+using System.Globalization;
 using UnityEngine;
 
 public static class TextFormatter
@@ -19,6 +20,26 @@ public static class TextFormatter
         else
         {
             return $"{seconds}s";
+        }
+    }
+
+    public static string FormatValue(float value)
+    {
+        if (value >= 1_000_000_000)
+        {
+            return (value / 1_000_000_000).ToString("F2", CultureInfo.InvariantCulture) + "B";
+        }
+        else if (value >= 1_000_000)
+        {
+            return (value / 1_000_000).ToString("F2", CultureInfo.InvariantCulture) + "M";
+        }
+        else if (value >= 1_000)
+        {
+            return (value / 1_000).ToString("F2", CultureInfo.InvariantCulture) + "k";
+        }
+        else
+        {
+            return value.ToString("F0", CultureInfo.InvariantCulture);
         }
     }
 }
