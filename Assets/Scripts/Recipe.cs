@@ -4,5 +4,6 @@ using UnityEngine;
 public class Recipe : ScriptableObject
 {
     [field: SerializeField] public RecipeIngredient[] Ingredients { get; private set; }
+    [field: SerializeField] public float Time { get; private set; }
     [field: SerializeField] public RecipeIngredient Result { get; private set; }
 }
