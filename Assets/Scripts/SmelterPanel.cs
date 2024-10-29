@@ -21,6 +21,7 @@ public class SmelterPanel : Panel
     private Recipe _currentRecipe;
     private SetItemSlot _clickedSetItemSlot;
     private SmelterState _smelterState;
+    private int _resultItemsQuantity;
 
     public override void Open()
     {
@@ -115,26 +116,26 @@ public class SmelterPanel : Panel
             {
                 _currentRecipe = recipe;
 
-                int resultItemsQuantity = int.MaxValue;
+                _resultItemsQuantity = int.MaxValue;
 
                 foreach (SetItemSlot setItemSlot in _setItemSlots)
                 {
                     if (setItemSlot.GetItemData() != null)
                     {
                         int quantity = setItemSlot.GetItemQuantity();
-                        if (quantity < resultItemsQuantity)
+                        if (quantity < _resultItemsQuantity)
                         {
-                            resultItemsQuantity = quantity;
+                            _resultItemsQuantity = quantity;
                         }
                     }
                 }
 
-                if (resultItemsQuantity == int.MaxValue)
+                if (_resultItemsQuantity == int.MaxValue)
                 {
-                    resultItemsQuantity = 0;
+                    _resultItemsQuantity = 0;
                 }
 
-                _resultItemSlot.SetItem(recipe.Result.ItemData, resultItemsQuantity);
+                _resultItemSlot.SetItem(recipe.Result.ItemData, _resultItemsQuantity);
                 return;
             }
         }
@@ -266,6 +267,11 @@ public class SmelterPanel : Panel
 
                 foreach (SetItemSlot itemSlot in _setItemSlots)
                 {
+                    if (itemSlot.GetItemQuantity() > _resultItemsQuantity)
+                    {
+                        Storage.AddItem(itemSlot.GetItemData(), itemSlot.GetItemQuantity() - _resultItemsQuantity);
+                    }
+
                     itemSlot.SetMaskEnabled(true);
                     itemSlot.SetCrossEnabled(false);
                 }
