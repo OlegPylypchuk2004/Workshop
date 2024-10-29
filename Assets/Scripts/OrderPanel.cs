@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class OrderPanel : MonoBehaviour
@@ -5,6 +6,7 @@ public class OrderPanel : MonoBehaviour
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] private OrderResourcePanel _orderResourcePanelPrefab;
     [SerializeField] private RectTransform _orderResourcePanelRectTransform;
+    [SerializeField] private TextMeshProUGUI _orderNameText;
 
     private OrderResourcePanel[] _resourcePanels;
 
@@ -20,6 +22,8 @@ public class OrderPanel : MonoBehaviour
             orderResourcePanel.Initialize(order.OrderResources[i].ItemData, order.OrderResources[i].Quantity);
             _resourcePanels[i] = orderResourcePanel;
         }
+
+        _orderNameText.text = order.CustomerName;
     }
 
     private void OnEnable()

@@ -8,11 +8,11 @@ public class OrdersTab : Tab
     [SerializeField] private TopBar _topBar;
 
     private List<OrderPanel> _panels = new List<OrderPanel>();
-    private ItemData[] _allItems;
+    private OrderData[] _orderDatas;
 
     private void Start()
     {
-        _allItems = Resources.LoadAll<ItemData>("Items");
+        _orderDatas = Resources.LoadAll<OrderData>("Orders");
         GenerateOrders();
     }
 
@@ -22,17 +22,24 @@ public class OrdersTab : Tab
 
         for (int i = 0; i < ordersCount; i++)
         {
-            int orderResourcesCount = Random.Range(2, 6);
+            OrderData randomOrderData = _orderDatas[Random.Range(0, _orderDatas.Length)];
+
+            List<ItemData> availableItems = new List<ItemData>(randomOrderData.Items);
+
+            int orderResourcesCount = Random.Range(2, Mathf.Min(6, availableItems.Count + 1));
             OrderResource[] orderResources = new OrderResource[orderResourcesCount];
 
             for (int j = 0; j < orderResourcesCount; j++)
             {
-                ItemData randomItemData = _allItems[Random.Range(0, _allItems.Length)];
+                int randomIndex = Random.Range(0, availableItems.Count);
+                ItemData randomItemData = availableItems[randomIndex];
+                availableItems.RemoveAt(randomIndex);
+
                 int resourcesCount = Random.Range(1, 26);
                 orderResources[j] = new OrderResource(randomItemData, resourcesCount);
             }
 
-            Order order = new Order(orderResources);
+            Order order = new Order(randomOrderData.CustomerName, orderResources);
 
             OrderPanel panel = Instantiate(_panelPrefab, _panelsRectTransform);
             panel.Initialize(order);

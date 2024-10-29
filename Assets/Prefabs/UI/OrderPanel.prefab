@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 7727723841866418727}
   - component: {fileID: 5995699810713459546}
   m_Layer: 0
-  m_Name: Name
+  m_Name: CustomerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1268,6 +1268,7 @@ MonoBehaviour:
   _rectTransform: {fileID: 4578537319539501178}
   _orderResourcePanelPrefab: {fileID: 6899177753491320957, guid: 6ffc80aa078de7b4bacf79b134878d3e, type: 3}
   _orderResourcePanelRectTransform: {fileID: 689281227052919652}
+  _orderNameText: {fileID: 5995699810713459546}
 --- !u!1 &5848284227622092468
 GameObject:
   m_ObjectHideFlags: 0
