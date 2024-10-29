@@ -70,13 +70,12 @@ public class ItemSelectorPanel : Panel
 
     private void OnCountChosen(int count)
     {
-        _selectItemPanel = null;
         _setCountPanel.CountChosen -= OnCountChosen;
 
         NavigationController.Instance.ClosePanel();
 
         ItemSelected?.Invoke(_selectItemPanel.ItemData);
 
-        Debug.Log(count);
+        _selectItemPanel = null;
     }
 }
