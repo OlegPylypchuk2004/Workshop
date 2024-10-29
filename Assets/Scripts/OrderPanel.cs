@@ -82,8 +82,10 @@ public class OrderPanel : MonoBehaviour
         foreach (OrderResourcePanel orderResourcePanel in _resourcePanels)
         {
             Storage.RemoveItem(orderResourcePanel.ItemData, orderResourcePanel.ItemQuantity);
-            PlayerDataManager.Data.CreditsCount += _order.CreditsReward;
         }
+
+        PlayerDataManager.Data.CreditsCount += _order.CreditsReward;
+        PlayerDataManager.Data.ExperiencePointsCount += _order.ExperiencePointsReward;
 
         OrderSubmitted?.Invoke(this);
 
