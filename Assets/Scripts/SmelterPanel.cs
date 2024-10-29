@@ -114,7 +114,27 @@ public class SmelterPanel : Panel
             if (IsCanCraft(recipe, slotItems))
             {
                 _currentRecipe = recipe;
-                _resultItemSlot.SetItem(recipe.Result.ItemData);
+
+                int resultItemsQuantity = int.MaxValue;
+
+                foreach (SetItemSlot setItemSlot in _setItemSlots)
+                {
+                    if (setItemSlot.GetItemData() != null)
+                    {
+                        int quantity = setItemSlot.GetItemQuantity();
+                        if (quantity < resultItemsQuantity)
+                        {
+                            resultItemsQuantity = quantity;
+                        }
+                    }
+                }
+
+                if (resultItemsQuantity == int.MaxValue)
+                {
+                    resultItemsQuantity = 0;
+                }
+
+                _resultItemSlot.SetItem(recipe.Result.ItemData, resultItemsQuantity);
                 return;
             }
         }
@@ -161,7 +181,7 @@ public class SmelterPanel : Panel
 
             case SmelterState.done:
 
-                Storage.AddItem(_currentRecipe.Result.ItemData);
+                Storage.AddItem(_currentRecipe.Result.ItemData, _resultItemSlot.GetItemQuantity());
 
                 foreach (SetItemSlot itemSlot in _setItemSlots)
                 {
@@ -181,7 +201,7 @@ public class SmelterPanel : Panel
 
     private IEnumerator SmeltingCoroutine()
     {
-        float smeltingTime = _currentRecipe.Time;
+        float smeltingTime = _currentRecipe.Time * _resultItemSlot.GetItemQuantity();
         float elapsedTime = 0f;
 
         _progressBar.SetActive(true);
