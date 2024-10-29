@@ -39,6 +39,8 @@ public class OrderPanel : MonoBehaviour
 
         _orderNameText.text = order.CustomerName;
         _creditsRewardText.text = $"+{order.CreditsReward}";
+
+        _submitButton.interactable = IsCanSubmit();
     }
 
     private void OnEnable()
@@ -70,12 +72,9 @@ public class OrderPanel : MonoBehaviour
 
     private void OnSubmitButtonClicked()
     {
-        foreach (OrderResourcePanel orderResourcePanel in _resourcePanels)
+        if (!IsCanSubmit())
         {
-            if (Storage.GetItemQuantity(orderResourcePanel.ItemData) <= orderResourcePanel.ItemQuantity)
-            {
-                return;
-            }
+            return;
         }
 
         foreach (OrderResourcePanel orderResourcePanel in _resourcePanels)
@@ -87,6 +86,19 @@ public class OrderPanel : MonoBehaviour
         OrderSubmitted?.Invoke(this);
 
         Disappear();
+    }
+
+    private bool IsCanSubmit()
+    {
+        foreach (OrderResourcePanel orderResourcePanel in _resourcePanels)
+        {
+            if (Storage.GetItemQuantity(orderResourcePanel.ItemData) < orderResourcePanel.ItemQuantity)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private void Disappear()
@@ -102,7 +114,7 @@ public class OrderPanel : MonoBehaviour
             .From(1f)
             .SetEase(Ease.InQuad));
 
-        disappearSequence.AppendInterval(0.25f);
+        disappearSequence.AppendInterval(0.1f);
 
         disappearSequence.Append(_backgroundImage.DOFade(0f, 0.25f)
             .From(1f)
@@ -125,5 +137,7 @@ public class OrderPanel : MonoBehaviour
         {
             resourcePanel.UpdateView();
         }
+
+        _submitButton.interactable = IsCanSubmit();
     }
 }
