@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class OrderResource : MonoBehaviour
+public class OrderResource
 {
-    // Start is called before the first frame update
-    void Start()
+    private ItemData _itemData;
+    private int _quantity;
+
+    public OrderResource(ItemData itemData, int quantity)
     {
-        
+        _itemData = itemData;
+        _quantity = quantity;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public ItemData ItemData => _itemData;
+    public int Quantity => _quantity;
 }

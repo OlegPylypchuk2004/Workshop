@@ -52,6 +52,7 @@ public class StorageTab : Tab
 
     private void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Storage.AddItem(Resources.Load<ItemData>("Items/iron_ore"));
@@ -68,4 +69,5 @@ public class StorageTab : Tab
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
+#endif
 }

@@ -1,18 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OrderPanel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private RectTransform _rectTransform;
+    [SerializeField] private OrderResourcePanel _orderResourcePanelPrefab;
+    [SerializeField] private RectTransform _orderResourcePanelRectTransform;
+
+    private OrderResourcePanel[] _resourcePanels;
+
+    public void Initialize(Order order)
     {
-        
+        _rectTransform.sizeDelta = new Vector2(_rectTransform.sizeDelta.x, _rectTransform.sizeDelta.y + 125f * order.OrderResources.Length);
+
+        _resourcePanels = new OrderResourcePanel[order.OrderResources.Length];
+
+        for (int i = 0; i < order.OrderResources.Length; i++)
+        {
+            OrderResourcePanel orderResourcePanel = Instantiate(_orderResourcePanelPrefab, Vector2.zero, Quaternion.identity, _orderResourcePanelRectTransform);
+            orderResourcePanel.Initialize(order.OrderResources[i].ItemData, order.OrderResources[i].Quantity);
+            _resourcePanels[i] = orderResourcePanel;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        if (_resourcePanels == null)
+        {
+            return;
+        }
+
+        foreach (OrderResourcePanel resourcePanel in _resourcePanels)
+        {
+            resourcePanel.UpdateView();
+        }
     }
 }

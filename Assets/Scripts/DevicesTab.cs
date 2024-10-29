@@ -14,7 +14,7 @@ public class DevicesTab : Tab
             devicePanel.Clicked += OnDevicePanelClicked;
         }
 
-        _topBar.SetTitleText("Select equipment");
+        _topBar.SetTitleText("Equipment");
     }
 
     public override void Close()

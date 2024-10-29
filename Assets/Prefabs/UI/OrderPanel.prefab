@@ -1175,6 +1175,7 @@ GameObject:
   - component: {fileID: 7386868048202510207}
   - component: {fileID: 3235788119953392401}
   - component: {fileID: 7883581705221710540}
+  - component: {fileID: 6809591201804275027}
   m_Layer: 0
   m_Name: OrderPanel
   m_TagString: Untagged
@@ -1200,7 +1201,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 980, y: 814}
+  m_SizeDelta: {x: 980, y: 440}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7386868048202510207
 CanvasRenderer:
@@ -1252,6 +1253,21 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6809591201804275027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464293618836280419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94bb0959552339447a5fdf16e5f159cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 4578537319539501178}
+  _orderResourcePanelPrefab: {fileID: 6899177753491320957, guid: 6ffc80aa078de7b4bacf79b134878d3e, type: 3}
+  _orderResourcePanelRectTransform: {fileID: 689281227052919652}
 --- !u!1 &5848284227622092468
 GameObject:
   m_ObjectHideFlags: 0
