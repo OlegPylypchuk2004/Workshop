@@ -18,7 +18,8 @@ public class Order
             itemsPrice += orderResources[i].ItemData.Price * orderResources[i].Quantity;
         }
 
-        _creditsReward = Mathf.RoundToInt(itemsPrice * Random.Range(1.1f, 1.25f));
+        float orderRewardInCreditsCoef = Resources.Load<GameRules>("GameRules").OrderRewardInCreditsCoef;
+        _creditsReward = Mathf.RoundToInt(itemsPrice * orderRewardInCreditsCoef);
     }
 
     public string CustomerName => _customerName;
