@@ -39,4 +39,7 @@ public class OrderResourcePanel : MonoBehaviour
             _quantityText.color = _redColor;
         }
     }
+
+    public ItemData ItemData => _itemData;
+    public int ItemQuantity => _quantity;
 }

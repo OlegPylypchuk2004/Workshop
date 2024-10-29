@@ -1270,6 +1270,8 @@ MonoBehaviour:
   _orderResourcePanelRectTransform: {fileID: 689281227052919652}
   _orderNameText: {fileID: 5995699810713459546}
   _creditsRewardText: {fileID: 8323889812912008404}
+  _rejectButton: {fileID: 5226742414899576398}
+  _submitButton: {fileID: 8326723130979211730}
 --- !u!1 &5848284227622092468
 GameObject:
   m_ObjectHideFlags: 0
