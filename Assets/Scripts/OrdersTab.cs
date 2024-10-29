@@ -44,6 +44,7 @@ public class OrdersTab : Tab
             OrderPanel panel = Instantiate(_panelPrefab, _panelsRectTransform);
             panel.Initialize(order);
             _panels.Add(panel);
+            panel.OrderSubmitted += OnOrderSubmitted;
         }
     }
 
@@ -51,5 +52,16 @@ public class OrdersTab : Tab
     {
         base.Open();
         _topBar.SetTitleText("Orders");
+    }
+
+    private void OnOrderSubmitted(OrderPanel panel)
+    {
+        panel.OrderSubmitted -= OnOrderSubmitted;
+        _panels.Remove(panel);
+
+        foreach (OrderPanel orderPanel in _panels)
+        {
+            orderPanel.UpdateView();
+        }
     }
 }

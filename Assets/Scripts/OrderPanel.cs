@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,8 @@ public class OrderPanel : MonoBehaviour
 
     private Order _order;
     private OrderResourcePanel[] _resourcePanels;
+
+    public event Action<OrderPanel> OrderSubmitted;
 
     public void Initialize(Order order)
     {
@@ -80,6 +83,8 @@ public class OrderPanel : MonoBehaviour
             PlayerDataManager.Data.CreditsCount += _order.CreditsReward;
         }
 
+        OrderSubmitted?.Invoke(this);
+
         Disappear();
     }
 
@@ -111,6 +116,13 @@ public class OrderPanel : MonoBehaviour
         {
             Destroy(gameObject);
         });
+    }
 
+    public void UpdateView()
+    {
+        foreach (OrderResourcePanel resourcePanel in _resourcePanels)
+        {
+            resourcePanel.UpdateView();
+        }
     }
 }
