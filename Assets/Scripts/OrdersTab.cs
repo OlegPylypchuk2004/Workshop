@@ -44,7 +44,8 @@ public class OrdersTab : Tab
             OrderPanel panel = Instantiate(_panelPrefab, _panelsRectTransform);
             panel.Initialize(order);
             _panels.Add(panel);
-            panel.OrderSubmitted += OnOrderSubmitted;
+            panel.OrderSubmitted += OnOrderChangedStatus;
+            panel.OrderRejected += OnOrderChangedStatus;
         }
     }
 
@@ -54,9 +55,10 @@ public class OrdersTab : Tab
         _topBar.SetTitleText("Orders");
     }
 
-    private void OnOrderSubmitted(OrderPanel panel)
+    private void OnOrderChangedStatus(OrderPanel panel)
     {
-        panel.OrderSubmitted -= OnOrderSubmitted;
+        panel.OrderSubmitted -= OnOrderChangedStatus;
+        panel.OrderRejected -= OnOrderChangedStatus;
         _panels.Remove(panel);
 
         foreach (OrderPanel orderPanel in _panels)
