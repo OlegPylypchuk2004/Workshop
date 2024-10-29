@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameRules
   m_EditorClassIdentifier: 
   <OrderRewardInCreditsCoef>k__BackingField: 1.25
+  <MarketPricesCoef>k__BackingField: 1.75

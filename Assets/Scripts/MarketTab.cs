@@ -26,7 +26,7 @@ public class MarketTab : Tab
         {
             ItemData itemData = _itemDatas[Random.Range(0, _itemDatas.Length)];
             int quantity = Random.Range(5, 25);
-            float priceCoef = Random.Range(1f, 1.25f);
+            float priceCoef = Resources.Load<GameRules>("GameRules").MarketPricesCoef;
             int price = Mathf.RoundToInt(itemData.Price * quantity * priceCoef);
 
             MarketItem marketItem = new MarketItem
