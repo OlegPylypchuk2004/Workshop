@@ -14,6 +14,7 @@ public class SetCountPanel : Panel
     private int _maxValue = 1;
 
     public event Action<int> CountChosen;
+    public event Action CountChooseCanceled;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class SetCountPanel : Panel
 
         _slider.onValueChanged.AddListener(OnSliderValueChanged);
 
-        _cancelButton.onClick.AddListener(OnCloseButtonClicked);
+        _cancelButton.onClick.AddListener(OnCancelButtonClicked);
         _confirmButton.onClick.AddListener(OnConfirmButtonClicked);
     }
 
@@ -50,6 +51,13 @@ public class SetCountPanel : Panel
     private void OnConfirmButtonClicked()
     {
         CountChosen?.Invoke(GetValue());
+    }
+
+    private void OnCancelButtonClicked()
+    {
+        CountChooseCanceled?.Invoke();
+
+        OnCloseButtonClicked();
     }
 
     public void Initialize(int minValue, int maxValue)

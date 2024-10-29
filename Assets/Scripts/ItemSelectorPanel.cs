@@ -68,6 +68,7 @@ public class ItemSelectorPanel : Panel
         {
             _setCountPanel.Initialize(1, itemQuantity);
             _setCountPanel.CountChosen += OnCountChosen;
+            _setCountPanel.CountChooseCanceled += OnCountChooseCanceled;
 
             NavigationController.Instance.OpenPanel(_setCountPanel);
         }
@@ -80,11 +81,18 @@ public class ItemSelectorPanel : Panel
     private void OnCountChosen(int count)
     {
         _setCountPanel.CountChosen -= OnCountChosen;
+        _setCountPanel.CountChooseCanceled -= OnCountChooseCanceled;
 
         NavigationController.Instance.ClosePanel();
 
         ItemSelected?.Invoke(_selectItemPanel.ItemData, count);
 
         _selectItemPanel = null;
+    }
+
+    private void OnCountChooseCanceled()
+    {
+        _setCountPanel.CountChosen -= OnCountChosen;
+        _setCountPanel.CountChooseCanceled -= OnCountChooseCanceled;
     }
 }
