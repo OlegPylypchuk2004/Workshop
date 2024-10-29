@@ -4,5 +4,6 @@ using UnityEngine;
 public class OrderData : ScriptableObject
 {
     [field: SerializeField] public string CustomerName { get; private set; }
+    [field: SerializeField] public int ExperiencePointsPerItem { get; private set; }
     [field: SerializeField] public ItemData[] Items { get; private set; }
 }

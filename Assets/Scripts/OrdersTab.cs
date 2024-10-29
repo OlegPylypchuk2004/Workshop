@@ -22,9 +22,9 @@ public class OrdersTab : Tab
 
         for (int i = 0; i < ordersCount; i++)
         {
-            OrderData randomOrderData = _orderDatas[Random.Range(0, _orderDatas.Length)];
+            OrderData orderData = _orderDatas[Random.Range(0, _orderDatas.Length)];
 
-            List<ItemData> availableItems = new List<ItemData>(randomOrderData.Items);
+            List<ItemData> availableItems = new List<ItemData>(orderData.Items);
 
             int orderResourcesCount = Random.Range(2, Mathf.Min(6, availableItems.Count + 1));
             OrderResource[] orderResources = new OrderResource[orderResourcesCount];
@@ -39,7 +39,9 @@ public class OrdersTab : Tab
                 orderResources[j] = new OrderResource(randomItemData, resourcesCount);
             }
 
-            Order order = new Order(randomOrderData.CustomerName, orderResources);
+            int experiencePoints = orderData.ExperiencePointsPerItem * orderResources.Length;
+
+            Order order = new Order(orderData.CustomerName, experiencePoints, orderResources);
 
             OrderPanel panel = Instantiate(_panelPrefab, _panelsRectTransform);
             panel.Initialize(order);

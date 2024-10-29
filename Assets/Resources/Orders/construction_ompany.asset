@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: construction_ompany
   m_EditorClassIdentifier: 
   <CustomerName>k__BackingField: Construction company
+  <ExperiencePointsPerItem>k__BackingField: 25
   <Items>k__BackingField:
   - {fileID: 11400000, guid: 6cc772d90764fcf4caec918b5254bf3e, type: 2}
   - {fileID: 11400000, guid: 982e6028f1a78724490272b8a6e561b5, type: 2}

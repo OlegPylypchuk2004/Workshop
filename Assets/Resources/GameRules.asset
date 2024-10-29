@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a133783a137f146a326e857355d686, type: 3}
   m_Name: GameRules
   m_EditorClassIdentifier: 
-  <OrderRewardInCreditsCoef>k__BackingField: 1.25
   <MarketPricesCoef>k__BackingField: 1.75
+  <OrderRewardInCreditsCoef>k__BackingField: 1.25
+  <OrderRewardInExperiencePointsCoef>k__BackingField: 1.25

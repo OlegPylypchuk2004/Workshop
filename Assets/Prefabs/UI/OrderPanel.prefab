@@ -1230,6 +1230,7 @@ MonoBehaviour:
   _orderResourcePanelRectTransform: {fileID: 689281227052919652}
   _orderNameText: {fileID: 5995699810713459546}
   _creditsRewardText: {fileID: 8323889812912008404}
+  _experiencePointsRewardText: {fileID: 7333289577555436024}
   _rejectButton: {fileID: 5226742414899576398}
   _submitButton: {fileID: 8326723130979211730}
   _backgroundImage: {fileID: 3235788119953392401}

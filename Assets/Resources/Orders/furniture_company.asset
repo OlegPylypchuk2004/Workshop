@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: furniture_company
   m_EditorClassIdentifier: 
   <CustomerName>k__BackingField: Furniture company
+  <ExperiencePointsPerItem>k__BackingField: 10
   <Items>k__BackingField:
   - {fileID: 11400000, guid: 9f69542eac155044fa5120399c6489cf, type: 2}
   - {fileID: 11400000, guid: f81945085f739d44fa7ab7ebb6c15b28, type: 2}
