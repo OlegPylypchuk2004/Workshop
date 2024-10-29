@@ -9,6 +9,7 @@ public abstract class ItemSlot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _itemNameText;
 
     private ItemData _itemData;
+    private int _itemQuantity;
 
     public event Action<ItemData> ItemChanged;
 
@@ -23,11 +24,12 @@ public abstract class ItemSlot : MonoBehaviour
         else
         {
             _itemIconImage.sprite = data.Icon;
-            _itemNameText.text = $"{data.Name}";
+            _itemNameText.text = $"x{quantity} {data.Name}";
             _itemIconImage.gameObject.SetActive(true);
         }
 
         _itemData = data;
+        _itemQuantity = quantity;
 
         ItemChanged?.Invoke(data);
     }
@@ -35,5 +37,10 @@ public abstract class ItemSlot : MonoBehaviour
     public ItemData GetItemData()
     {
         return _itemData;
+    }
+
+    public int GetItemQuantity()
+    {
+        return _itemQuantity;
     }
 }

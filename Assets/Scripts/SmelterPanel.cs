@@ -77,7 +77,7 @@ public class SmelterPanel : Panel
         }
         else
         {
-            Storage.AddItem(setItemSlot.GetItemData());
+            Storage.AddItem(setItemSlot.GetItemData(), setItemSlot.GetItemQuantity());
             setItemSlot.SetItem(null);
             CheckCraftingAvailability();
         }
