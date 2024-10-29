@@ -20,6 +20,7 @@ public class OrderPanel : MonoBehaviour
     private OrderResourcePanel[] _resourcePanels;
 
     public event Action<OrderPanel> OrderSubmitted;
+    public event Action<OrderPanel> OrderRejected;
 
     public void Initialize(Order order)
     {
@@ -42,14 +43,12 @@ public class OrderPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_resourcePanels == null)
+        if (_resourcePanels != null)
         {
-            return;
-        }
-
-        foreach (OrderResourcePanel resourcePanel in _resourcePanels)
-        {
-            resourcePanel.UpdateView();
+            foreach (OrderResourcePanel resourcePanel in _resourcePanels)
+            {
+                resourcePanel.UpdateView();
+            }
         }
 
         _rejectButton.onClick.AddListener(OnRejectButtonClicked);
@@ -64,7 +63,9 @@ public class OrderPanel : MonoBehaviour
 
     private void OnRejectButtonClicked()
     {
+        OrderRejected?.Invoke(this);
 
+        Disappear();
     }
 
     private void OnSubmitButtonClicked()
