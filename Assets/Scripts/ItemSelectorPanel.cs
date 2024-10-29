@@ -62,10 +62,19 @@ public class ItemSelectorPanel : Panel
     private void OnItemSelected(SelectItemPanel panel)
     {
         _selectItemPanel = panel;
-        _setCountPanel.Initialize(1, Storage.GetItemQuantity(panel.ItemData));
-        _setCountPanel.CountChosen += OnCountChosen;
+        int itemQuantity = Storage.GetItemQuantity(panel.ItemData);
 
-        NavigationController.Instance.OpenPanel(_setCountPanel);
+        if (itemQuantity > 1)
+        {
+            _setCountPanel.Initialize(1, itemQuantity);
+            _setCountPanel.CountChosen += OnCountChosen;
+
+            NavigationController.Instance.OpenPanel(_setCountPanel);
+        }
+        else
+        {
+            ItemSelected?.Invoke(panel.ItemData, itemQuantity);
+        }
     }
 
     private void OnCountChosen(int count)

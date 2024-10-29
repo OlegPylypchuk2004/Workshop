@@ -42,6 +42,8 @@ public class SetCountPanel : Panel
 
     private void OnSliderValueChanged(float value)
     {
+        _slider.value = Mathf.RoundToInt(_slider.value);
+
         UpdateView();
     }
 
@@ -72,6 +74,6 @@ public class SetCountPanel : Panel
 
     private void UpdateView()
     {
-        _text.text = $"x{Mathf.RoundToInt(_slider.value)} / {_maxValue}";
+        _text.text = $"x{_slider.value} / {_maxValue}";
     }
 }
