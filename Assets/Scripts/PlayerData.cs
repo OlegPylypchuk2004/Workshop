@@ -4,19 +4,34 @@ using UnityEngine;
 [Serializable]
 public class PlayerData
 {
-    [SerializeField] private int creditsCount = 10000;
+    [SerializeField] private int _creditsCount = 10000;
+    [SerializeField] private int _experiencePointsCount = 0;
 
     public event Action<int> CreditsCountChanged;
+    public event Action<int> ExperiencePointsChanged;
 
     public int CreditsCount
     {
-        get => creditsCount;
+        get => _creditsCount;
         set
         {
-            if (creditsCount != value)
+            if (_creditsCount != value)
             {
-                creditsCount = value;
-                CreditsCountChanged?.Invoke(creditsCount);
+                _creditsCount = value;
+                CreditsCountChanged?.Invoke(_creditsCount);
+            }
+        }
+    }
+
+    public int ExperiencePointsCount
+    {
+        get => _experiencePointsCount;
+        set
+        {
+            if (_experiencePointsCount != value)
+            {
+                _experiencePointsCount = value;
+                ExperiencePointsChanged?.Invoke(_experiencePointsCount);
             }
         }
     }
@@ -24,5 +39,6 @@ public class PlayerData
     public void ResetToDefaults()
     {
         CreditsCount = 10000;
+        _experiencePointsCount = 0;
     }
 }
