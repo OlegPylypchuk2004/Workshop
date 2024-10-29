@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +12,8 @@ public class OrderPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _creditsRewardText;
     [SerializeField] private Button _rejectButton;
     [SerializeField] private Button _submitButton;
+    [SerializeField] private Image _backgroundImage;
+    [SerializeField] private CanvasGroup _canvasGroup;
 
     private Order _order;
     private OrderResourcePanel[] _resourcePanels;
@@ -78,6 +80,37 @@ public class OrderPanel : MonoBehaviour
             PlayerDataManager.Data.CreditsCount += _order.CreditsReward;
         }
 
-        Destroy(gameObject);
+        Disappear();
+    }
+
+    private void Disappear()
+    {
+        Sequence disappearSequence = DOTween.Sequence();
+
+        disappearSequence.AppendCallback(() =>
+        {
+            _canvasGroup.interactable = false;
+        });
+
+        disappearSequence.Append(_canvasGroup.DOFade(0f, 0.25f)
+            .From(1f)
+            .SetEase(Ease.InQuad));
+
+        disappearSequence.AppendInterval(0.25f);
+
+        disappearSequence.Append(_backgroundImage.DOFade(0f, 0.25f)
+            .From(1f)
+            .SetEase(Ease.InQuad));
+
+        disappearSequence.Append(_rectTransform.DOSizeDelta(new Vector2(_rectTransform.sizeDelta.x, -50f), 0.25f)
+            .SetEase(Ease.InQuad));
+
+        disappearSequence.SetLink(gameObject);
+
+        disappearSequence.OnComplete(() =>
+        {
+            Destroy(gameObject);
+        });
+
     }
 }
