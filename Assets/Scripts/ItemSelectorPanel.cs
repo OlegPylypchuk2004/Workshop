@@ -10,6 +10,9 @@ public class ItemSelectorPanel : Panel
     [SerializeField] private TopBar _topBar;
     [SerializeField] private NavigationBar _navigationBar;
     [SerializeField] private TextMeshProUGUI _emptyStorageText;
+    [SerializeField] private SetCountPanel _setCountPanel;
+
+    private SelectItemPanel _selectItemPanel;
 
     private List<SelectItemPanel> _panels = new List<SelectItemPanel>();
 
@@ -58,9 +61,22 @@ public class ItemSelectorPanel : Panel
 
     private void OnItemSelected(SelectItemPanel panel)
     {
-        ItemSelected?.Invoke(panel.ItemData);
+        _selectItemPanel = panel;
+        _setCountPanel.Initialize(1, Storage.GetItemQuantity(panel.ItemData));
+        _setCountPanel.CountChosen += OnCountChosen;
+
+        NavigationController.Instance.OpenPanel(_setCountPanel);
+    }
+
+    private void OnCountChosen(int count)
+    {
+        _selectItemPanel = null;
+        _setCountPanel.CountChosen -= OnCountChosen;
 
         NavigationController.Instance.ClosePanel();
-        //NavigationController.Instance.OpenLast();
+
+        ItemSelected?.Invoke(_selectItemPanel.ItemData);
+
+        Debug.Log(count);
     }
 }

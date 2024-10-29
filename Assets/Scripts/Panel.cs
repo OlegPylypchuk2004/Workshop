@@ -29,7 +29,7 @@ public class Panel : MonoBehaviour, INavigationElement
         _closeButton.onClick.RemoveAllListeners();
     }
 
-    private void OnCloseButtonClicked()
+    protected void OnCloseButtonClicked()
     {
         NavigationController.Instance.ClosePanel();
     }
