@@ -7,6 +7,7 @@ public class OrderPanel : MonoBehaviour
     [SerializeField] private OrderResourcePanel _orderResourcePanelPrefab;
     [SerializeField] private RectTransform _orderResourcePanelRectTransform;
     [SerializeField] private TextMeshProUGUI _orderNameText;
+    [SerializeField] private TextMeshProUGUI _creditsRewardText;
 
     private OrderResourcePanel[] _resourcePanels;
 
@@ -24,6 +25,7 @@ public class OrderPanel : MonoBehaviour
         }
 
         _orderNameText.text = order.CustomerName;
+        _creditsRewardText.text = $"+{order.CreditsReward}";
     }
 
     private void OnEnable()

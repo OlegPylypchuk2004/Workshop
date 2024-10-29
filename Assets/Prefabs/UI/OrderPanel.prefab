@@ -1269,6 +1269,7 @@ MonoBehaviour:
   _orderResourcePanelPrefab: {fileID: 6899177753491320957, guid: 6ffc80aa078de7b4bacf79b134878d3e, type: 3}
   _orderResourcePanelRectTransform: {fileID: 689281227052919652}
   _orderNameText: {fileID: 5995699810713459546}
+  _creditsRewardText: {fileID: 8323889812912008404}
 --- !u!1 &5848284227622092468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,7 +1623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 605866679563202712}
   m_Layer: 0
-  m_Name: Icons
+  m_Name: Conditions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
