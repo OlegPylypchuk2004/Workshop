@@ -94,7 +94,7 @@ public class InventoryData
         Dictionary<ItemData, int> dict = new Dictionary<ItemData, int>();
         foreach (var entry in items)
         {
-            dict[entry.itemData] = entry.quantity;
+            dict[entry.ItemData] = entry.Quantity;
         }
         return dict;
     }
@@ -103,12 +103,12 @@ public class InventoryData
 [System.Serializable]
 public class ItemEntry
 {
-    public ItemData itemData;
-    public int quantity;
+    public ItemData ItemData;
+    public int Quantity;
 
     public ItemEntry(ItemData itemData, int quantity)
     {
-        this.itemData = itemData;
-        this.quantity = quantity;
+        ItemData = itemData;
+        Quantity = quantity;
     }
 }
