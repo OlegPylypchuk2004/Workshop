@@ -16,7 +16,7 @@ public class ItemSelectorPanel : Panel
 
     private List<SelectItemPanel> _panels = new List<SelectItemPanel>();
 
-    public event Action<ItemData> ItemSelected;
+    public event Action<ItemData, int> ItemSelected;
 
     public override void Open()
     {
@@ -74,7 +74,7 @@ public class ItemSelectorPanel : Panel
 
         NavigationController.Instance.ClosePanel();
 
-        ItemSelected?.Invoke(_selectItemPanel.ItemData);
+        ItemSelected?.Invoke(_selectItemPanel.ItemData, count);
 
         _selectItemPanel = null;
     }

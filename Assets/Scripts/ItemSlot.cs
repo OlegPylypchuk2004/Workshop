@@ -12,7 +12,7 @@ public abstract class ItemSlot : MonoBehaviour
 
     public event Action<ItemData> ItemChanged;
 
-    public void SetItem(ItemData data)
+    public void SetItem(ItemData data, int quantity = 1)
     {
         if (data == null)
         {

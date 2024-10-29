@@ -43,7 +43,7 @@ public class SmelterPanel : Panel
         _topBar.SetTitleText("Smelter");
 
         _itemSelector.ItemSelected -= OnItemSelected;
-        _clickedSetItemSlot = null;
+        //_clickedSetItemSlot = null;
 
         UpdateState();
     }
@@ -85,14 +85,19 @@ public class SmelterPanel : Panel
         UpdateState();
     }
 
-    private void OnItemSelected(ItemData data)
+    private void OnItemSelected(ItemData data, int quantity)
     {
+        NavigationController.Instance.ClosePanel();
+
         _itemSelector.ItemSelected -= OnItemSelected;
 
-        Storage.RemoveItem(data, 1);
+        Storage.RemoveItem(data, quantity);
 
-        _clickedSetItemSlot.SetItem(data);
+        _clickedSetItemSlot.SetItem(data, quantity);
         _clickedSetItemSlot = null;
+
+        CheckCraftingAvailability();
+        UpdateState();
     }
 
     private void CheckCraftingAvailability()

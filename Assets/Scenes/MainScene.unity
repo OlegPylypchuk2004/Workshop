@@ -4378,7 +4378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5653,7 +5653,7 @@ GameObject:
   - component: {fileID: 1432399131}
   - component: {fileID: 1432399133}
   m_Layer: 0
-  m_Name: CredirsCountText
+  m_Name: CreditsCountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5698,7 +5698,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 12k
+  m_text: 12.12k
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 208c4ec605debaf47b41e9be6898bf17, type: 2}
   m_sharedMaterial: {fileID: -7736143722184601850, guid: 208c4ec605debaf47b41e9be6898bf17, type: 2}
