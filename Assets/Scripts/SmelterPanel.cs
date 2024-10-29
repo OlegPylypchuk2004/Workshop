@@ -221,6 +221,7 @@ public class SmelterPanel : Panel
                 foreach (SetItemSlot itemSlot in _setItemSlots)
                 {
                     itemSlot.SetMaskEnabled(false);
+                    itemSlot.SetCrossEnabled(itemSlot.GetItemData() != null);
                 }
 
                 break;
@@ -233,6 +234,7 @@ public class SmelterPanel : Panel
                 foreach (SetItemSlot itemSlot in _setItemSlots)
                 {
                     itemSlot.SetMaskEnabled(true);
+                    itemSlot.SetCrossEnabled(false);
                 }
 
                 break;
@@ -245,6 +247,7 @@ public class SmelterPanel : Panel
                 foreach (SetItemSlot itemSlot in _setItemSlots)
                 {
                     itemSlot.SetMaskEnabled(true);
+                    itemSlot.SetCrossEnabled(false);
                 }
 
                 break;

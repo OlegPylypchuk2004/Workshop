@@ -6,6 +6,7 @@ public class SetItemSlot : ItemSlot
 {
     [SerializeField] private Button _button;
     [SerializeField] private Image _maskImage;
+    [SerializeField] private GameObject _cross;
 
     public event Action<SetItemSlot> Clicked;
 
@@ -27,5 +28,10 @@ public class SetItemSlot : ItemSlot
     public void SetMaskEnabled(bool isEnabled)
     {
         _maskImage.gameObject.SetActive(isEnabled);
+    }
+
+    public void SetCrossEnabled(bool isEnabled)
+    {
+        _cross.SetActive(isEnabled);
     }
 }
