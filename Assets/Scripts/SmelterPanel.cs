@@ -23,6 +23,18 @@ public class SmelterPanel : Panel
     private SmelterState _smelterState;
     private int _resultItemsQuantity;
 
+    private void OnDestroy()
+    {
+        foreach (SetItemSlot setItemSlot in _setItemSlots)
+        {
+            if (setItemSlot.GetItemData() != null)
+            {
+                Storage.AddItem(setItemSlot.GetItemData(), setItemSlot.GetItemQuantity());
+                setItemSlot.SetItem(null);
+            }
+        }
+    }
+
     public override void Open()
     {
         base.Open();
