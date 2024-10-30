@@ -56,7 +56,6 @@ public class SmelterPanel : Panel
         _topBar.SetTitleText("Smelter");
 
         _itemSelector.ItemSelected -= OnItemSelected;
-        //_clickedSetItemSlot = null;
 
         UpdateState();
     }
@@ -115,16 +114,11 @@ public class SmelterPanel : Panel
 
     private void CheckCraftingAvailability()
     {
-        var slotItems = _setItemSlots
-            .Select(slot => slot.GetItemData())
-            .Where(item => item != null)
-            .ToList();
-
         _currentRecipe = null;
 
-        foreach (var recipe in _recipes)
+        foreach (Recipe recipe in _recipes)
         {
-            if (IsCanCraft(recipe, slotItems))
+            if (IsCanCraft(recipe))
             {
                 _currentRecipe = recipe;
 
@@ -155,26 +149,35 @@ public class SmelterPanel : Panel
         _resultItemSlot.SetItem(null);
     }
 
-    private bool IsCanCraft(Recipe recipe, List<ItemData> slotItems)
+    private bool IsCanCraft(Recipe recipe)
     {
-        var itemsToMatch = new List<ItemData>(slotItems);
-
-        foreach (var ingredient in recipe.Ingredients)
+        if (_setItemSlots.Length != recipe.Ingredients.Length)
         {
-            for (int i = 0; i < ingredient.Quantity; i++)
-            {
-                if (itemsToMatch.Contains(ingredient.ItemData))
-                {
-                    itemsToMatch.Remove(ingredient.ItemData);
-                }
-                else
-                {
-                    return false;
-                }
-            }
+            return false;
         }
 
-        return itemsToMatch.Count == 0;
+        bool[] matchedSlots = new bool[_setItemSlots.Length];
+
+        for (int i = 0; i < recipe.Ingredients.Length; i++)
+        {
+            bool isMatched = false;
+            for (int j = 0; j < _setItemSlots.Length; j++)
+            {
+                if (!matchedSlots[j] &&
+                    _setItemSlots[j].GetItemData() == recipe.Ingredients[i].ItemData &&
+                    _setItemSlots[j].GetItemQuantity() >= recipe.Ingredients[i].Quantity)
+                {
+                    matchedSlots[j] = true;
+                    isMatched = true;
+                    break;
+                }
+            }
+
+            if (!isMatched)
+                return false;
+        }
+
+        return true;
     }
 
     private void OnButtonClicked()
@@ -182,18 +185,14 @@ public class SmelterPanel : Panel
         switch (_smelterState)
         {
             case SmelterState.idle:
-
                 _smelterState = SmelterState.smelting;
                 CoroutineManager.Instance.StartCoroutine(SmeltingCoroutine());
-
                 break;
 
             case SmelterState.smelting:
-
                 break;
 
             case SmelterState.done:
-
                 Storage.AddItem(_currentRecipe.Result.ItemData, _resultItemSlot.GetItemQuantity());
 
                 foreach (SetItemSlot itemSlot in _setItemSlots)
@@ -205,7 +204,6 @@ public class SmelterPanel : Panel
                 _currentRecipe = null;
 
                 _smelterState = SmelterState.idle;
-
                 break;
         }
 
@@ -247,7 +245,6 @@ public class SmelterPanel : Panel
         switch (_smelterState)
         {
             case SmelterState.idle:
-
                 _button.interactable = _resultItemSlot.GetItemData() != null;
                 _buttonText.text = "Start smelting";
 
@@ -260,7 +257,6 @@ public class SmelterPanel : Panel
                 break;
 
             case SmelterState.smelting:
-
                 _button.interactable = false;
                 _buttonText.text = "Smelting...";
 
@@ -273,7 +269,6 @@ public class SmelterPanel : Panel
                 break;
 
             case SmelterState.done:
-
                 _button.interactable = true;
                 _buttonText.text = "Take";
 
