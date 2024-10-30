@@ -137,6 +137,9 @@ public class SmelterPanel : Panel
 
         for (int i = 0; i < recipe.Ingredients.Length; i++)
         {
+            if (recipe.Ingredients[i].ItemData == null)
+                continue;
+
             int availableQuantity = 0;
 
             for (int j = 0; j < _setItemSlots.Length; j++)
@@ -148,17 +151,11 @@ public class SmelterPanel : Panel
                 }
             }
 
-            int possibleQuantity = 1;
-
-            if (availableQuantity > 0 && recipe.Ingredients[i].Quantity > 0)
-            {
-                possibleQuantity = availableQuantity / recipe.Ingredients[i].Quantity;
-            }
-
+            int possibleQuantity = availableQuantity / recipe.Ingredients[i].Quantity;
             maxQuantity = Mathf.Min(maxQuantity, possibleQuantity);
         }
 
-        return maxQuantity;
+        return maxQuantity > 0 ? maxQuantity : 0;
     }
 
     private bool IsCanCraft(Recipe recipe)
