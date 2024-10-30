@@ -6,10 +6,12 @@ public class MarketTab : Tab
     [SerializeField] private MarketBuyItemPanel _panelPrefab;
     [SerializeField] private TopBar _topBar;
     [SerializeField] private RectTransform _panelsListRecTransform;
+    [SerializeField] private SetCountPanel _setCountPanel;
 
     private List<MarketBuyItemPanel> _panels = new List<MarketBuyItemPanel>();
     private List<MarketItem> _goods = new List<MarketItem>();
     private ItemData[] _itemDatas;
+    private MarketItem _chosenMarketItem;
 
     private void Awake()
     {
@@ -65,12 +67,53 @@ public class MarketTab : Tab
 
     private void OnPanelBuyButtonClicked(MarketBuyItemPanel panel)
     {
-        MarketItem marketItem = panel.MarketItem;
+        _chosenMarketItem = panel.MarketItem;
 
-        if (PlayerDataManager.Data.CreditsCount >= marketItem.Price)
+        int maxItemsCount = Mathf.CeilToInt(PlayerDataManager.Data.CreditsCount / panel.MarketItem.Price);
+
+        if (maxItemsCount <= 0)
         {
-            PlayerDataManager.Data.CreditsCount -= marketItem.Price;
-            Storage.AddItem(marketItem.ItemData, 1);
+            _chosenMarketItem = null;
+            return;
         }
+
+        if (maxItemsCount == 1)
+        {
+            PlayerDataManager.Data.CreditsCount -= _chosenMarketItem.Price * 1;
+            Storage.AddItem(_chosenMarketItem.ItemData, 1);
+
+            _chosenMarketItem = null;
+            return;
+        }
+
+        if (maxItemsCount > 25)
+        {
+            maxItemsCount = 25;
+        }
+
+        _setCountPanel.Initialize(1, maxItemsCount);
+        _setCountPanel.CountChosen += OnCountChosen;
+        _setCountPanel.CountChooseCanceled += OnCountChooseCanceled;
+
+        NavigationController.Instance.OpenPanel(_setCountPanel);
+    }
+
+    private void OnCountChosen(int count)
+    {
+        _setCountPanel.CountChosen -= OnCountChosen;
+        _setCountPanel.CountChooseCanceled -= OnCountChooseCanceled;
+
+        NavigationController.Instance.ClosePanel();
+
+        PlayerDataManager.Data.CreditsCount -= _chosenMarketItem.Price * count;
+        Storage.AddItem(_chosenMarketItem.ItemData, count);
+
+        _chosenMarketItem = null;
+    }
+
+    private void OnCountChooseCanceled()
+    {
+        _setCountPanel.CountChosen -= OnCountChosen;
+        _setCountPanel.CountChooseCanceled -= OnCountChooseCanceled;
     }
 }
