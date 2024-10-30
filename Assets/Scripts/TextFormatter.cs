@@ -10,17 +10,31 @@ public static class TextFormatter
             timeInSeconds = 0f;
         }
 
-        int minutes = Mathf.FloorToInt(timeInSeconds / 60);
+        int days = Mathf.FloorToInt(timeInSeconds / 86400);
+        int hours = Mathf.FloorToInt((timeInSeconds % 86400) / 3600);
+        int minutes = Mathf.FloorToInt((timeInSeconds % 3600) / 60);
         int seconds = Mathf.FloorToInt(timeInSeconds % 60);
 
-        if (timeInSeconds >= 60)
+        string result = "";
+
+        if (days > 0)
         {
-            return $"{minutes}m {seconds}s";
+            result += $"{days}d ";
         }
-        else
+        if (hours > 0)
         {
-            return $"{seconds}s";
+            result += $"{hours}h ";
         }
+        if (minutes > 0)
+        {
+            result += $"{minutes}m ";
+        }
+        if (seconds > 0 || result == "")
+        {
+            result += $"{seconds}s";
+        }
+
+        return result.Trim();
     }
 
     public static string FormatValue(float value)

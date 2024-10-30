@@ -41,7 +41,7 @@ public class OrdersTab : Tab
 
             int experiencePoints = orderData.ExperiencePointsPerItem * orderResources.Length;
 
-            Order order = new Order(orderData.CustomerName, experiencePoints, orderResources);
+            Order order = new Order(orderData.CustomerName, experiencePoints, orderResources, orderData.TimeIsSeconds);
 
             OrderPanel panel = Instantiate(_panelPrefab, _panelsRectTransform);
             panel.Initialize(order);

@@ -12,6 +12,7 @@ public class OrderPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _orderNameText;
     [SerializeField] private TextMeshProUGUI _creditsRewardText;
     [SerializeField] private TextMeshProUGUI _experiencePointsRewardText;
+    [SerializeField] private TextMeshProUGUI _timeText;
     [SerializeField] private Button _rejectButton;
     [SerializeField] private Button _submitButton;
     [SerializeField] private Image _backgroundImage;
@@ -41,6 +42,7 @@ public class OrderPanel : MonoBehaviour
         _orderNameText.text = order.CustomerName;
         _creditsRewardText.text = $"+{order.CreditsReward}";
         _experiencePointsRewardText.text = $"+{order.ExperiencePointsReward}";
+        _timeText.text = TextFormatter.FormatTime(order.Time);
 
         _submitButton.interactable = IsCanSubmit();
     }

@@ -18,3 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6cc772d90764fcf4caec918b5254bf3e, type: 2}
   - {fileID: 11400000, guid: 982e6028f1a78724490272b8a6e561b5, type: 2}
   - {fileID: 11400000, guid: ddd03b32a2711fa48a062b4d8cd84da5, type: 2}
+  <TimeIsSeconds>k__BackingField: 300
