@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class EquipmentPanel : Panel
+public class EquipmentPanel : Panel
 {
     [SerializeField] private EquipmentData _data;
     [SerializeField] private SetItemSlot[] _setItemSlots;

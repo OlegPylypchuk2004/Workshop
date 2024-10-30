@@ -27,7 +27,7 @@ public class EquipmentTab : Tab
         }
     }
 
-    private void OnDevicePanelClicked(Panel equipmentPanel)
+    private void OnDevicePanelClicked(EquipmentPanel equipmentPanel)
     {
         NavigationController.Instance.OpenPanel(equipmentPanel);
     }

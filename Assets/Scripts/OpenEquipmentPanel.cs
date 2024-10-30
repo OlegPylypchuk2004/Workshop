@@ -5,9 +5,9 @@ using UnityEngine.UI;
 public class OpenEquipmentPanel : MonoBehaviour
 {
     [SerializeField] private Button _button;
-    [SerializeField] private Panel _panel;
+    [SerializeField] private EquipmentPanel _panel;
 
-    public event Action<Panel> Clicked;
+    public event Action<EquipmentPanel> Clicked;
 
     private void Awake()
     {
