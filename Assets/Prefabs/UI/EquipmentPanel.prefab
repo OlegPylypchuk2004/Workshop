@@ -221,9 +221,9 @@ GameObject:
   - component: {fileID: 8765127410838726443}
   - component: {fileID: 2894668618452960770}
   - component: {fileID: 8710234004708743208}
-  - component: {fileID: 1724291951307163117}
+  - component: {fileID: 4708196242639726292}
   m_Layer: 0
-  m_Name: DevicePanel
+  m_Name: EquipmentPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1724291951307163117
+--- !u!114 &4708196242639726292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -341,7 +341,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5464293618836280419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ce2c00c0d44ed4a8a634beb2154948, type: 3}
+  m_Script: {fileID: 11500000, guid: b1ebf68f89ec08448a65e72ee7797b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 8710234004708743208}
+  _panel: {fileID: 0}

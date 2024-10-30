@@ -734,6 +734,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4708196242639726292, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
+      propertyPath: _panel
+      value: 
+      objectReference: {fileID: 1493487637}
     - target: {fileID: 5464293618836280419, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
       propertyPath: m_Name
       value: DevicePanel
@@ -748,17 +752,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4578537319539501178, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
   m_PrefabInstance: {fileID: 123030877}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &123030879 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1724291951307163117, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
-  m_PrefabInstance: {fileID: 123030877}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ce2c00c0d44ed4a8a634beb2154948, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &123190578
 GameObject:
   m_ObjectHideFlags: 0
@@ -5171,6 +5164,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074e104739e146d4292dbafb408f0536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1185351540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1724291951307163117, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
+  m_PrefabInstance: {fileID: 123030877}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ce2c00c0d44ed4a8a634beb2154948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1198794154
 GameObject:
   m_ObjectHideFlags: 0
@@ -6722,6 +6726,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4708196242639726292, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
+      propertyPath: _panel
+      value: 
+      objectReference: {fileID: 1913189895}
     - target: {fileID: 5464293618836280419, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
       propertyPath: m_Name
       value: DevicePanel (1)
@@ -7417,7 +7425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _equipmentPanels:
-  - {fileID: 123030879}
+  - {fileID: 1185351540}
   - {fileID: 1609353556}
   _topBar: {fileID: 2087844749}
 --- !u!1 &1769376946

@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class EquipmentTab : Tab
 {
-    [SerializeField] private EquipmentPanel[] _equipmentPanels;
+    [SerializeField] private OpenEquipmentPanel[] _equipmentPanels;
     [SerializeField] private TopBar _topBar;
 
     public override void Open()
     {
         base.Open();
 
-        foreach (EquipmentPanel equipmentPanel in _equipmentPanels)
+        foreach (OpenEquipmentPanel equipmentPanel in _equipmentPanels)
         {
             equipmentPanel.Clicked += OnDevicePanelClicked;
         }
@@ -21,7 +21,7 @@ public class EquipmentTab : Tab
     {
         base.Close();
 
-        foreach (EquipmentPanel equipmentPanel in _equipmentPanels)
+        foreach (OpenEquipmentPanel equipmentPanel in _equipmentPanels)
         {
             equipmentPanel.Clicked -= OnDevicePanelClicked;
         }
