@@ -3,10 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class Bootstrap : MonoBehaviour
 {
+    [SerializeField] private bool _isLoadNextScene;
+
     private void Start()
     {
         Storage.LoadInventory();
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (_isLoadNextScene)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }

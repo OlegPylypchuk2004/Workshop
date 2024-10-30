@@ -3630,6 +3630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0277dc3bd5be8cb4dac0869b92cdeaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isLoadNextScene: 0
 --- !u!4 &912657157
 Transform:
   m_ObjectHideFlags: 0
@@ -8711,6 +8712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _titleText: {fileID: 987539402}
   _backButton: {fileID: 652976574}
+  _levelView: {fileID: 47932091}
 --- !u!1 &2127038363
 GameObject:
   m_ObjectHideFlags: 0

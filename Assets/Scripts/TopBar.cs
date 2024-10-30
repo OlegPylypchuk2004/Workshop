@@ -6,6 +6,7 @@ public class TopBar : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _titleText;
     [SerializeField] private Button _backButton;
+    [SerializeField] private LevelView _levelView;
 
     public void Open()
     {
@@ -25,5 +26,10 @@ public class TopBar : MonoBehaviour
     public void SetBackButtonEnabled(bool isEnabled)
     {
         _backButton.gameObject.SetActive(isEnabled);
+    }
+
+    public void SetLevelViewEnabled(bool isEnabled)
+    {
+        _levelView.gameObject.SetActive(isEnabled);
     }
 }
