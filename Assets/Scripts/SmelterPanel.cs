@@ -211,7 +211,17 @@ public class SmelterPanel : Panel
                         if (itemSlot.GetItemData() == _currentRecipe.Ingredients[i].ItemData)
                         {
                             int spentQuantity = _currentRecipe.Ingredients[i].Quantity * _resultItemsQuantity;
-                            itemSlot.SetItem(itemSlot.GetItemData(), itemSlot.GetItemQuantity() - spentQuantity);
+                            int quantity = itemSlot.GetItemQuantity() - spentQuantity;
+
+                            if (quantity <= 0)
+                            {
+                                itemSlot.SetItem(null);
+                            }
+                            else
+                            {
+                                itemSlot.SetItem(itemSlot.GetItemData(), quantity);
+                            }
+
                             break;
                         }
                     }
