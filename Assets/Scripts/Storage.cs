@@ -94,7 +94,10 @@ public class InventoryData
         Dictionary<ItemData, int> dict = new Dictionary<ItemData, int>();
         foreach (var entry in items)
         {
-            dict[entry.ItemData] = entry.Quantity;
+            if (entry.ItemData != null)
+            {
+                dict[entry.ItemData] = entry.Quantity;
+            }
         }
         return dict;
     }
