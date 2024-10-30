@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DevicePanel : MonoBehaviour
+public class EquipmentPanel : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private Panel _panel;
