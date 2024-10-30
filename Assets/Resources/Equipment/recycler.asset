@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: recycler
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Recycler
+  <IdleStateButtonText>k__BackingField: Start recycling
+  <AtWorkStateButtonText>k__BackingField: Recycling...
+  <DoneStateButtonText>k__BackingField: Take

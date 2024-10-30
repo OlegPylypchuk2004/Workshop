@@ -13,14 +13,14 @@ public abstract class EquipmentPanel : Panel
     [SerializeField] private TopBar _topBar;
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _buttonText;
-    [SerializeField] private TextMeshProUGUI _smeltingTimerText;
+    [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private GameObject _progressBar;
     [SerializeField] private Image _progressBarFiller;
 
     private Recipe[] _recipes;
     private Recipe _currentRecipe;
     private SetItemSlot _clickedSetItemSlot;
-    private EquipmentState _smelterState;
+    private EquipmentState _state;
     private int _resultItemsQuantity;
 
     private void OnDestroy()
@@ -53,7 +53,7 @@ public abstract class EquipmentPanel : Panel
             CheckCraftingAvailability();
         }
 
-        _topBar.SetTitleText($"{_data.Name}");
+        _topBar.SetTitleText(_data.Name);
 
         _itemSelector.ItemSelected -= OnItemSelected;
 
@@ -74,7 +74,7 @@ public abstract class EquipmentPanel : Panel
 
     private void OnSetItemSlotClicked(SetItemSlot setItemSlot)
     {
-        if (_smelterState != EquipmentState.Idle)
+        if (_state != EquipmentState.Idle)
         {
             return;
         }
@@ -191,14 +191,14 @@ public abstract class EquipmentPanel : Panel
 
     private void OnButtonClicked()
     {
-        switch (_smelterState)
+        switch (_state)
         {
             case EquipmentState.Idle:
-                _smelterState = EquipmentState.Smelting;
-                CoroutineManager.Instance.StartCoroutine(SmeltingCoroutine());
+                _state = EquipmentState.AtWork;
+                CoroutineManager.Instance.StartCoroutine(WorkCoroutine());
                 break;
 
-            case EquipmentState.Smelting:
+            case EquipmentState.AtWork:
                 break;
 
             case EquipmentState.Done:
@@ -230,50 +230,50 @@ public abstract class EquipmentPanel : Panel
                 _resultItemSlot.SetItem(null);
                 _currentRecipe = null;
 
-                _smelterState = EquipmentState.Idle;
+                _state = EquipmentState.Idle;
                 break;
         }
 
         UpdateState();
     }
 
-    private IEnumerator SmeltingCoroutine()
+    private IEnumerator WorkCoroutine()
     {
-        float smeltingTime = _currentRecipe.Time * _resultItemSlot.GetItemQuantity();
+        float workTime = _currentRecipe.Time * _resultItemSlot.GetItemQuantity();
         float elapsedTime = 0f;
 
         _progressBar.SetActive(true);
-        _smeltingTimerText.gameObject.SetActive(true);
+        _timerText.gameObject.SetActive(true);
 
-        while (elapsedTime < smeltingTime)
+        while (elapsedTime < workTime)
         {
             elapsedTime += Time.deltaTime;
-            float remainingTime = smeltingTime - elapsedTime;
+            float remainingTime = workTime - elapsedTime;
 
             if (isActiveAndEnabled)
             {
-                _smeltingTimerText.text = TextFormatter.FormatTime(remainingTime);
-                _progressBarFiller.fillAmount = elapsedTime / smeltingTime;
+                _timerText.text = TextFormatter.FormatTime(remainingTime);
+                _progressBarFiller.fillAmount = elapsedTime / workTime;
             }
 
             yield return null;
         }
 
         _progressBar.SetActive(false);
-        _smeltingTimerText.gameObject.SetActive(false);
+        _timerText.gameObject.SetActive(false);
 
-        _smelterState = EquipmentState.Done;
+        _state = EquipmentState.Done;
 
         UpdateState();
     }
 
     private void UpdateState()
     {
-        switch (_smelterState)
+        switch (_state)
         {
             case EquipmentState.Idle:
                 _button.interactable = _resultItemSlot.GetItemData() != null;
-                _buttonText.text = "Start smelting";
+                _buttonText.text = _data.IdleStateButtonText;
 
                 foreach (SetItemSlot itemSlot in _setItemSlots)
                 {
@@ -283,9 +283,9 @@ public abstract class EquipmentPanel : Panel
 
                 break;
 
-            case EquipmentState.Smelting:
+            case EquipmentState.AtWork:
                 _button.interactable = false;
-                _buttonText.text = "Smelting...";
+                _buttonText.text = _data.AtWorkStateButtonText;
 
                 foreach (SetItemSlot itemSlot in _setItemSlots)
                 {
@@ -297,7 +297,7 @@ public abstract class EquipmentPanel : Panel
 
             case EquipmentState.Done:
                 _button.interactable = true;
-                _buttonText.text = "Take";
+                _buttonText.text = _data.DoneStateButtonText;
 
                 foreach (SetItemSlot itemSlot in _setItemSlots)
                 {
@@ -313,7 +313,7 @@ public abstract class EquipmentPanel : Panel
                 break;
         }
 
-        if (_currentRecipe == null || _smelterState != EquipmentState.Idle)
+        if (_currentRecipe == null || _state != EquipmentState.Idle)
         {
             _resultItemSlot.SetTime();
         }
@@ -327,6 +327,6 @@ public abstract class EquipmentPanel : Panel
 public enum EquipmentState
 {
     Idle,
-    Smelting,
+    AtWork,
     Done
 }

@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: smelter
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Smelter
+  <IdleStateButtonText>k__BackingField: Start smelting
+  <AtWorkStateButtonText>k__BackingField: Smelting...
+  <DoneStateButtonText>k__BackingField: Take
