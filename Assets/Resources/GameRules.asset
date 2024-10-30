@@ -15,3 +15,5 @@ MonoBehaviour:
   <MarketPricesCoef>k__BackingField: 1.75
   <OrderRewardInCreditsCoef>k__BackingField: 1.25
   <OrderRewardInExperiencePointsCoef>k__BackingField: 1.25
+  <FirstLevelExperiencePointsCount>k__BackingField: 50
+  <NextLevelExperiencePointsCountCoef>k__BackingField: 2
