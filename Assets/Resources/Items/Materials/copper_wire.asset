@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e76c158e0827ab4593f6c18db00294a, type: 3}
-  m_Name: iron
+  m_Name: copper_wire
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: c8e9d735615606749bb0471ed528c637, type: 3}
-  <Name>k__BackingField: Iron
-  <Price>k__BackingField: 12
+  <Icon>k__BackingField: {fileID: 21300000, guid: 541c5242e8c7ffa449f2d1aaa5972f50, type: 3}
+  <Name>k__BackingField: Copper ore
+  <Price>k__BackingField: 5
+  <Type>k__BackingField: 2

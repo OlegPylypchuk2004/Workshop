@@ -18,14 +18,13 @@ public class MarketTab : Tab
 
     private void InitializeGoods()
     {
-        _itemDatas = Resources.LoadAll<ItemData>("Items");
-
-        int goodsCount = Random.Range(10, 15);
+        _itemDatas = Resources.LoadAll<ItemData>("Items/RawMaterials");
+        int goodsCount = _itemDatas.Length;
 
         for (int i = 0; i < goodsCount; i++)
         {
-            ItemData itemData = _itemDatas[Random.Range(0, _itemDatas.Length)];
-            int quantity = Random.Range(5, 25);
+            ItemData itemData = _itemDatas[i];
+            int quantity = 25;
             float priceCoef = Resources.Load<GameRules>("GameRules").MarketPricesCoef;
             int price = Mathf.RoundToInt(itemData.Price * quantity * priceCoef);
 

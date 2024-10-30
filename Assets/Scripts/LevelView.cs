@@ -12,16 +12,6 @@ public class LevelView : MonoBehaviour
     private Sequence _progressBarSequence;
     private float _lastProgressBarValue;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            PlayerDataManager.Data.ExperiencePointsCount += 12;
-        }
-
-        Debug.Log($"{LevelManager.GetCurrentLevelPoints()} / {LevelManager.GetPointsForNextLevel() + LevelManager.GetCurrentLevelPoints()}");
-    }
-
     private void Start()
     {
         _levelNumberText.text = $"{LevelManager.GetCurrentLevel()}";
