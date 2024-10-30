@@ -115,38 +115,45 @@ public class SmelterPanel : Panel
     private void CheckCraftingAvailability()
     {
         _currentRecipe = null;
+        _resultItemsQuantity = 0;
 
         foreach (Recipe recipe in _recipes)
         {
             if (IsCanCraft(recipe))
             {
                 _currentRecipe = recipe;
-
-                _resultItemsQuantity = int.MaxValue;
-
-                foreach (SetItemSlot setItemSlot in _setItemSlots)
-                {
-                    if (setItemSlot.GetItemData() != null)
-                    {
-                        int quantity = setItemSlot.GetItemQuantity();
-                        if (quantity < _resultItemsQuantity)
-                        {
-                            _resultItemsQuantity = quantity;
-                        }
-                    }
-                }
-
-                if (_resultItemsQuantity == int.MaxValue)
-                {
-                    _resultItemsQuantity = 0;
-                }
-
+                _resultItemsQuantity = CalculateResultQuantity(recipe);
                 _resultItemSlot.SetItem(recipe.Result.ItemData, _resultItemsQuantity);
                 return;
             }
         }
 
         _resultItemSlot.SetItem(null);
+    }
+
+    private int CalculateResultQuantity(Recipe recipe)
+    {
+        int maxQuantity = int.MaxValue;
+
+        for (int i = 0; i < recipe.Ingredients.Length; i++)
+        {
+            int availableQuantity = 0;
+
+            for (int j = 0; j < _setItemSlots.Length; j++)
+            {
+                if (_setItemSlots[j].GetItemData() == recipe.Ingredients[i].ItemData)
+                {
+                    availableQuantity = _setItemSlots[j].GetItemQuantity();
+                    break;
+                }
+            }
+
+            int possibleQuantity = availableQuantity / recipe.Ingredients[i].Quantity;
+
+            maxQuantity = Mathf.Min(maxQuantity, possibleQuantity);
+        }
+
+        return maxQuantity;
     }
 
     private bool IsCanCraft(Recipe recipe)
@@ -193,11 +200,19 @@ public class SmelterPanel : Panel
                 break;
 
             case SmelterState.done:
-                Storage.AddItem(_currentRecipe.Result.ItemData, _resultItemSlot.GetItemQuantity());
+                Storage.AddItem(_currentRecipe.Result.ItemData, _resultItemsQuantity);
 
                 foreach (SetItemSlot itemSlot in _setItemSlots)
                 {
-                    itemSlot.SetItem(null);
+                    for (int i = 0; i < _currentRecipe.Ingredients.Length; i++)
+                    {
+                        if (itemSlot.GetItemData() == _currentRecipe.Ingredients[i].ItemData)
+                        {
+                            int spentQuantity = _currentRecipe.Ingredients[i].Quantity * _resultItemsQuantity;
+                            itemSlot.SetItem(itemSlot.GetItemData(), itemSlot.GetItemQuantity() - spentQuantity);
+                            break;
+                        }
+                    }
                 }
 
                 _resultItemSlot.SetItem(null);
