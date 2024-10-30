@@ -2311,17 +2311,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2570808583597193062, guid: c221c93021534e6448bfe73b9a490150, type: 3}
   m_PrefabInstance: {fileID: 574253080}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &574253082 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5489538176341116661, guid: c221c93021534e6448bfe73b9a490150, type: 3}
-  m_PrefabInstance: {fileID: 574253080}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750d1117074d6d14480bc5f725365daf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &623236313
 GameObject:
   m_ObjectHideFlags: 0
@@ -7332,17 +7321,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 644962418751816936, guid: b65973cf5cc166142be45693551c89af, type: 3}
   m_PrefabInstance: {fileID: 1737210812}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1737210814 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6624841325425834276, guid: b65973cf5cc166142be45693551c89af, type: 3}
-  m_PrefabInstance: {fileID: 1737210812}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69d3f23af7feeeb41aef50a23cffc054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1741077328
 GameObject:
   m_ObjectHideFlags: 0
@@ -8189,16 +8167,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _closeButton: {fileID: 652976574}
-  _setItemSlots:
-  - {fileID: 1737210814}
-  _resultItemSlot: {fileID: 574253082}
-  _itemSelector: {fileID: 238914509}
-  _topBar: {fileID: 2087844749}
-  _button: {fileID: 1721165870}
-  _buttonText: {fileID: 564580425}
-  _smeltingTimerText: {fileID: 405535622}
-  _progressBar: {fileID: 457891529}
-  _progressBarFiller: {fileID: 1772108339}
+  _setItemSlots: []
+  _resultItemSlot: {fileID: 0}
+  _itemSelector: {fileID: 0}
+  _topBar: {fileID: 0}
+  _button: {fileID: 0}
+  _buttonText: {fileID: 0}
+  _smeltingTimerText: {fileID: 0}
+  _progressBar: {fileID: 0}
+  _progressBarFiller: {fileID: 0}
 --- !u!1001 &1913245784
 PrefabInstance:
   m_ObjectHideFlags: 0
