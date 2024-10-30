@@ -56,7 +56,6 @@ public class SmelterPanel : Panel
         _topBar.SetTitleText("Smelter");
 
         _itemSelector.ItemSelected -= OnItemSelected;
-        //_clickedSetItemSlot = null;
 
         UpdateState();
     }
@@ -157,24 +156,30 @@ public class SmelterPanel : Panel
 
     private bool IsCanCraft(Recipe recipe, List<ItemData> slotItems)
     {
-        var itemsToMatch = new List<ItemData>(slotItems);
+        var ingredientsNeeded = recipe.Ingredients.ToList();
 
-        foreach (var ingredient in recipe.Ingredients)
+        // Перевірка, чи в слотах є інгредієнти, що відповідають рецепту
+        foreach (var ingredient in ingredientsNeeded)
         {
-            for (int i = 0; i < ingredient.Quantity; i++)
+            int requiredQuantity = ingredient.Quantity;
+            bool found = false;
+
+            foreach (var slot in _setItemSlots)
             {
-                if (itemsToMatch.Contains(ingredient.ItemData))
+                if (slot.GetItemData() == ingredient.ItemData && slot.GetItemQuantity() >= requiredQuantity)
                 {
-                    itemsToMatch.Remove(ingredient.ItemData);
+                    found = true;
+                    break;
                 }
-                else
-                {
-                    return false;
-                }
+            }
+
+            if (!found)
+            {
+                return false;
             }
         }
 
-        return itemsToMatch.Count == 0;
+        return true;
     }
 
     private void OnButtonClicked()
@@ -182,18 +187,14 @@ public class SmelterPanel : Panel
         switch (_smelterState)
         {
             case SmelterState.idle:
-
                 _smelterState = SmelterState.smelting;
                 CoroutineManager.Instance.StartCoroutine(SmeltingCoroutine());
-
                 break;
 
             case SmelterState.smelting:
-
                 break;
 
             case SmelterState.done:
-
                 Storage.AddItem(_currentRecipe.Result.ItemData, _resultItemSlot.GetItemQuantity());
 
                 foreach (SetItemSlot itemSlot in _setItemSlots)
@@ -205,7 +206,6 @@ public class SmelterPanel : Panel
                 _currentRecipe = null;
 
                 _smelterState = SmelterState.idle;
-
                 break;
         }
 
@@ -247,7 +247,6 @@ public class SmelterPanel : Panel
         switch (_smelterState)
         {
             case SmelterState.idle:
-
                 _button.interactable = _resultItemSlot.GetItemData() != null;
                 _buttonText.text = "Start smelting";
 
@@ -260,7 +259,6 @@ public class SmelterPanel : Panel
                 break;
 
             case SmelterState.smelting:
-
                 _button.interactable = false;
                 _buttonText.text = "Smelting...";
 
@@ -273,7 +271,6 @@ public class SmelterPanel : Panel
                 break;
 
             case SmelterState.done:
-
                 _button.interactable = true;
                 _buttonText.text = "Take";
 
