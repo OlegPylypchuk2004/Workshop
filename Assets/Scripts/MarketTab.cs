@@ -24,14 +24,12 @@ public class MarketTab : Tab
         for (int i = 0; i < goodsCount; i++)
         {
             ItemData itemData = _itemDatas[i];
-            int quantity = 25;
             float priceCoef = Resources.Load<GameRules>("GameRules").MarketPricesCoef;
-            int price = Mathf.RoundToInt(itemData.Price * quantity * priceCoef);
+            int price = Mathf.RoundToInt(itemData.Price * priceCoef);
 
             MarketItem marketItem = new MarketItem
             {
                 ItemData = itemData,
-                Quantity = quantity,
                 Price = price,
             };
 
@@ -72,10 +70,7 @@ public class MarketTab : Tab
         if (PlayerDataManager.Data.CreditsCount >= marketItem.Price)
         {
             PlayerDataManager.Data.CreditsCount -= marketItem.Price;
-            Storage.AddItem(marketItem.ItemData, marketItem.Quantity);
-            _panels.Remove(panel);
-            _goods.Remove(marketItem);
-            panel.Disappear();
+            Storage.AddItem(marketItem.ItemData, 1);
         }
     }
 }
