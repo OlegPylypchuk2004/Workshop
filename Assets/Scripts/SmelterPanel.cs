@@ -151,8 +151,6 @@ public class SmelterPanel : Panel
 
     private bool IsCanCraft(Recipe recipe)
     {
-        Debug.LogError($"{_setItemSlots.Length} {recipe.Ingredients.Length}");
-
         if (_setItemSlots.Length != recipe.Ingredients.Length)
         {
             return false;
