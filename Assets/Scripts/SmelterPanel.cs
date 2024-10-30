@@ -148,7 +148,12 @@ public class SmelterPanel : Panel
                 }
             }
 
-            int possibleQuantity = availableQuantity / recipe.Ingredients[i].Quantity;
+            int possibleQuantity = 1;
+
+            if (availableQuantity > 0 && recipe.Ingredients[i].Quantity > 0)
+            {
+                possibleQuantity = availableQuantity / recipe.Ingredients[i].Quantity;
+            }
 
             maxQuantity = Mathf.Min(maxQuantity, possibleQuantity);
         }
