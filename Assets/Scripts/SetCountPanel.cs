@@ -6,20 +6,20 @@ using UnityEngine.UI;
 public class SetCountPanel : Panel
 {
     [SerializeField] private Slider _slider;
-    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private TextMeshProUGUI _quantityText;
+    [SerializeField] private TextMeshProUGUI _priceText;
+    [SerializeField] private GameObject _priceView;
     [SerializeField] private Button _cancelButton;
     [SerializeField] private Button _confirmButton;
 
     private int _minValue = 0;
     private int _maxValue = 1;
 
+    private bool _isNeedPriceView;
+    private int _pricePerItem;
+
     public event Action<int> CountChosen;
     public event Action CountChooseCanceled;
-
-    private void Awake()
-    {
-        Initialize(_minValue, _maxValue);
-    }
 
     public override void Open()
     {
@@ -60,7 +60,7 @@ public class SetCountPanel : Panel
         OnCloseButtonClicked();
     }
 
-    public void Initialize(int minValue, int maxValue)
+    public void Initialize(int minValue, int maxValue, bool isNeedPriceView = false, int pricePerItem = 0)
     {
         _minValue = minValue;
         _maxValue = maxValue;
@@ -69,6 +69,10 @@ public class SetCountPanel : Panel
         _slider.maxValue = _maxValue;
 
         _slider.value = _minValue;
+
+        _isNeedPriceView = isNeedPriceView;
+        _pricePerItem = pricePerItem;
+        _priceView.gameObject.SetActive(_isNeedPriceView);
 
         UpdateView();
     }
@@ -82,6 +86,11 @@ public class SetCountPanel : Panel
 
     private void UpdateView()
     {
-        _text.text = $"x{_slider.value} / {_maxValue}";
+        _quantityText.text = $"x{_slider.value} / {_maxValue}";
+
+        if (_isNeedPriceView)
+        {
+            _priceText.text = TextFormatter.FormatValue(_slider.value * _pricePerItem);
+        }
     }
 }

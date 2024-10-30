@@ -91,7 +91,7 @@ public class MarketTab : Tab
             maxItemsCount = 25;
         }
 
-        _setCountPanel.Initialize(1, maxItemsCount);
+        _setCountPanel.Initialize(1, maxItemsCount, true, _chosenMarketItem.Price);
         _setCountPanel.CountChosen += OnCountChosen;
         _setCountPanel.CountChooseCanceled += OnCountChooseCanceled;
 
