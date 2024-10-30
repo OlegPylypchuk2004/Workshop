@@ -57,6 +57,11 @@ public class OrderPanel : MonoBehaviour
 
         _rejectButton.onClick.AddListener(OnRejectButtonClicked);
         _submitButton.onClick.AddListener(OnSubmitButtonClicked);
+
+        if (_order != null)
+        {
+            _submitButton.interactable = IsCanSubmit();
+        }
     }
 
     private void OnDisable()
