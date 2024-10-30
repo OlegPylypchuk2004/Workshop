@@ -114,16 +114,11 @@ public class SmelterPanel : Panel
 
     private void CheckCraftingAvailability()
     {
-        var slotItems = _setItemSlots
-            .Select(slot => slot.GetItemData())
-            .Where(item => item != null)
-            .ToList();
-
         _currentRecipe = null;
 
-        foreach (var recipe in _recipes)
+        foreach (Recipe recipe in _recipes)
         {
-            if (IsCanCraft(recipe, slotItems))
+            if (IsCanCraft(recipe))
             {
                 _currentRecipe = recipe;
 
@@ -154,29 +149,34 @@ public class SmelterPanel : Panel
         _resultItemSlot.SetItem(null);
     }
 
-    private bool IsCanCraft(Recipe recipe, List<ItemData> slotItems)
+    private bool IsCanCraft(Recipe recipe)
     {
-        var ingredientsNeeded = recipe.Ingredients.ToList();
+        Debug.LogError($"{_setItemSlots.Length} {recipe.Ingredients.Length}");
 
-        // Перевірка, чи в слотах є інгредієнти, що відповідають рецепту
-        foreach (var ingredient in ingredientsNeeded)
+        if (_setItemSlots.Length != recipe.Ingredients.Length)
         {
-            int requiredQuantity = ingredient.Quantity;
-            bool found = false;
+            return false;
+        }
 
-            foreach (var slot in _setItemSlots)
+        bool[] matchedSlots = new bool[_setItemSlots.Length];
+
+        for (int i = 0; i < recipe.Ingredients.Length; i++)
+        {
+            bool isMatched = false;
+            for (int j = 0; j < _setItemSlots.Length; j++)
             {
-                if (slot.GetItemData() == ingredient.ItemData && slot.GetItemQuantity() >= requiredQuantity)
+                if (!matchedSlots[j] &&
+                    _setItemSlots[j].GetItemData() == recipe.Ingredients[i].ItemData &&
+                    _setItemSlots[j].GetItemQuantity() >= recipe.Ingredients[i].Quantity)
                 {
-                    found = true;
+                    matchedSlots[j] = true;
+                    isMatched = true;
                     break;
                 }
             }
 
-            if (!found)
-            {
+            if (!isMatched)
                 return false;
-            }
         }
 
         return true;
