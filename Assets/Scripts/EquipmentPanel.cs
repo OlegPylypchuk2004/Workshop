@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public abstract class EquipmentPanel : Panel
 {
+    [SerializeField] private EquipmentData _data;
     [SerializeField] private SetItemSlot[] _setItemSlots;
     [SerializeField] private ResultItemSlot _resultItemSlot;
     [SerializeField] private ItemSelectorPanel _itemSelector;
@@ -38,7 +39,7 @@ public abstract class EquipmentPanel : Panel
     {
         base.Open();
 
-        _recipes = Resources.LoadAll<Recipe>("Smelter/Recipes");
+        _recipes = Resources.LoadAll<Recipe>($"Recipes/{_data.Name}");
 
         foreach (SetItemSlot itemSlot in _setItemSlots)
         {
@@ -52,7 +53,7 @@ public abstract class EquipmentPanel : Panel
             CheckCraftingAvailability();
         }
 
-        _topBar.SetTitleText("Smelter");
+        _topBar.SetTitleText($"{_data.Name}");
 
         _itemSelector.ItemSelected -= OnItemSelected;
 
