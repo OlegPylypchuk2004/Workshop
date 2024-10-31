@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class ItemSlot : MonoBehaviour
+public class ItemSlot : MonoBehaviour
 {
     [SerializeField] private Image _itemIconImage;
     [SerializeField] private TextMeshProUGUI _itemNameText;
