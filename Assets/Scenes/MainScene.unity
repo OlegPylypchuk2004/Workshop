@@ -6731,6 +6731,10 @@ PrefabInstance:
       propertyPath: _panel
       value: 
       objectReference: {fileID: 1913189895}
+    - target: {fileID: 5193199673841650043, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
+      propertyPath: m_text
+      value: Recycler
+      objectReference: {fileID: 0}
     - target: {fileID: 5464293618836280419, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
       propertyPath: m_Name
       value: DevicePanel (1)
