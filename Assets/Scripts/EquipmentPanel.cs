@@ -280,7 +280,6 @@ public class EquipmentPanel : Panel
                     itemSlot.SetMaskEnabled(false);
                     itemSlot.SetCrossEnabled(itemSlot.GetItemData() != null);
                 }
-
                 break;
 
             case EquipmentState.AtWork:
@@ -292,7 +291,6 @@ public class EquipmentPanel : Panel
                     itemSlot.SetMaskEnabled(true);
                     itemSlot.SetCrossEnabled(false);
                 }
-
                 break;
 
             case EquipmentState.Done:
@@ -301,15 +299,9 @@ public class EquipmentPanel : Panel
 
                 foreach (SetItemSlot itemSlot in _setItemSlots)
                 {
-                    if (itemSlot.GetItemQuantity() > _resultItemsQuantity)
-                    {
-                        Storage.AddItem(itemSlot.GetItemData(), itemSlot.GetItemQuantity() - _resultItemsQuantity);
-                    }
-
                     itemSlot.SetMaskEnabled(true);
                     itemSlot.SetCrossEnabled(false);
                 }
-
                 break;
         }
 
