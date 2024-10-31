@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -6,6 +7,9 @@ public static class Storage
 {
     private static Dictionary<ItemData, int> items = new Dictionary<ItemData, int>();
     private static readonly string filePath = Path.Combine(Application.persistentDataPath, "InventoryData.json");
+
+    public static event Action<ItemData, int> ItemAdded;
+    public static event Action<ItemData, int> ItemRemoved;
 
     public static void AddItem(ItemData itemData, int quantity = 1)
     {
@@ -18,7 +22,8 @@ public static class Storage
             items[itemData] = quantity;
         }
 
-        Debug.Log($"Added item: {itemData.Name}, {quantity}");
+        ItemAdded?.Invoke(itemData, quantity);
+
         SaveInventory();
     }
 
@@ -33,7 +38,8 @@ public static class Storage
             }
         }
 
-        Debug.Log($"Removed item: {itemData.Name}, {quantity}");
+        ItemRemoved?.Invoke(itemData, quantity);
+
         SaveInventory();
     }
 
