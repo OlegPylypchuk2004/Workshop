@@ -2,17 +2,19 @@ using UnityEngine;
 
 public class RecipesTab : Tab
 {
-    //[SerializeField] private OpenEquipmentPanel[] _equipmentPanels;
+    [SerializeField] private EquipmentRecipesPanel[] _panels;
     [SerializeField] private TopBar _topBar;
+
+    public Recipe[] Recipes { get; private set; }
 
     public override void Open()
     {
         base.Open();
 
-        //foreach (OpenEquipmentPanel equipmentPanel in _equipmentPanels)
-        //{
-        //    equipmentPanel.Clicked += OnDevicePanelClicked;
-        //}
+        foreach (EquipmentRecipesPanel panel in _panels)
+        {
+            panel.Chosen += OnPanelChosen;
+        }
 
         _topBar.SetTitleText("Recipes");
     }
@@ -21,14 +23,16 @@ public class RecipesTab : Tab
     {
         base.Close();
 
-        //foreach (OpenEquipmentPanel equipmentPanel in _equipmentPanels)
-        //{
-        //    equipmentPanel.Clicked -= OnDevicePanelClicked;
-        //}
+        foreach (EquipmentRecipesPanel panel in _panels)
+        {
+            panel.Chosen -= OnPanelChosen;
+        }
     }
 
-    private void OnDevicePanelClicked(EquipmentPanel equipmentPanel)
+    private void OnPanelChosen(EquipmentData equipmentData)
     {
-        NavigationController.Instance.OpenPanel(equipmentPanel);
+        Recipes = Resources.LoadAll<Recipe>($"Recipes/{equipmentData.Name}");
+
+        //NavigationController.Instance.OpenPanel();
     }
 }
