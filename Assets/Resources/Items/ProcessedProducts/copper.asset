@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e76c158e0827ab4593f6c18db00294a, type: 3}
   m_Name: copper
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: f460542ce665cd244b7b4767ea4212ff, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 00150cb4c69336e40bc18b8503cf195e, type: 3}
   <Name>k__BackingField: Copper
-  <Price>k__BackingField: 5
+  <Price>k__BackingField: 8
   <Type>k__BackingField: 1

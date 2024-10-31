@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb797403deaf8834da7283273d2a1528, type: 3}
-  m_Name: copper_recipe
+  m_Name: glass_recipe
   m_EditorClassIdentifier: 
   <Ingredients>k__BackingField:
-  - <ItemData>k__BackingField: {fileID: 11400000, guid: b4a50619e74e85a43a993fa749eb0f58, type: 2}
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: b0dae5dde634a1142add0c6cb1d89d94, type: 2}
     <Quantity>k__BackingField: 1
   - <ItemData>k__BackingField: {fileID: 0}
     <Quantity>k__BackingField: 0
   <Time>k__BackingField: 0.1
   <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 11400000, guid: 1df7f1e3ce55da64c8b0d5df02699175, type: 2}
+    <ItemData>k__BackingField: {fileID: 11400000, guid: c9f304b9cb8a38e4e84fd95d3feb474e, type: 2}
     <Quantity>k__BackingField: 1

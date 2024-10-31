@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e76c158e0827ab4593f6c18db00294a, type: 3}
-  m_Name: carbon
+  m_Name: graphite
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: 46fb3d077ade1d042894b5a10ee2759c, type: 3}
-  <Name>k__BackingField: Carbon
-  <Price>k__BackingField: 4
-  <Type>k__BackingField: 0
+  <Icon>k__BackingField: {fileID: 21300000, guid: ce058bb620022db45835dd4bb10d006c, type: 3}
+  <Name>k__BackingField: Graphite
+  <Price>k__BackingField: 20
+  <Type>k__BackingField: 1
