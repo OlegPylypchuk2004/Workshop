@@ -7,6 +7,7 @@ public class TopBar : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _titleText;
     [SerializeField] private Button _backButton;
     [SerializeField] private LevelView _levelView;
+    [SerializeField] private CreditsCountView _creditsCountView;
 
     public void Open()
     {
@@ -31,5 +32,10 @@ public class TopBar : MonoBehaviour
     public void SetLevelViewEnabled(bool isEnabled)
     {
         _levelView.gameObject.SetActive(isEnabled);
+    }
+
+    public void SetCreditsCountViewEnabled(bool isEnabled)
+    {
+        _creditsCountView.gameObject.SetActive(isEnabled);
     }
 }

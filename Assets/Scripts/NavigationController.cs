@@ -46,6 +46,7 @@ public class NavigationController : MonoBehaviour
         _navigationBar.gameObject.SetActive(true);
         _topBar.SetBackButtonEnabled(false);
         _topBar.SetLevelViewEnabled(true);
+        _topBar.SetCreditsCountViewEnabled(true);
     }
 
     public void OpenPanel(INavigationElement panel)
@@ -59,6 +60,7 @@ public class NavigationController : MonoBehaviour
         _navigationBar.gameObject.SetActive(false);
         _topBar.SetBackButtonEnabled(true);
         _topBar.SetLevelViewEnabled(false);
+        _topBar.SetCreditsCountViewEnabled(false);
     }
 
     public void ClosePanel()
@@ -80,6 +82,7 @@ public class NavigationController : MonoBehaviour
         _navigationBar.gameObject.SetActive(isTabOnTop);
         _topBar.SetBackButtonEnabled(!isTabOnTop);
         _topBar.SetLevelViewEnabled(isTabOnTop);
+        _topBar.SetCreditsCountViewEnabled(isTabOnTop);
     }
 
     public string GetNavigationStackContents()
