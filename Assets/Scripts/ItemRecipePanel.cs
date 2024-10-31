@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,14 +9,16 @@ public class ItemRecipePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private Button _viewButton;
 
-    public ItemData ItemData { get; private set; }
+    private Recipe _recipe;
 
-    public void Initialize(ItemData itemData)
+    public event Action<Recipe> RecipeChosen;
+
+    public void Initialize(Recipe recipe)
     {
-        ItemData = itemData;
+        _recipe = recipe;
 
-        _iconImage.sprite = itemData.Icon;
-        _nameText.text = itemData.Name;
+        _iconImage.sprite = recipe.Result.ItemData.Icon;
+        _nameText.text = recipe.Result.ItemData.Name;
     }
 
     private void OnEnable()
@@ -30,6 +33,6 @@ public class ItemRecipePanel : MonoBehaviour
 
     private void OnViewButtonClicked()
     {
-
+        RecipeChosen?.Invoke(_recipe);
     }
 }

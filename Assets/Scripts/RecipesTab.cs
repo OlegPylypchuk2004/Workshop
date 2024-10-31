@@ -7,6 +7,7 @@ public class RecipesTab : Tab
     [SerializeField] private RecipesListPanel _recipesListPanel;
 
     public Recipe[] Recipes { get; private set; }
+    public EquipmentData Equipment { get; private set; }
 
     public override void Open()
     {
@@ -33,6 +34,7 @@ public class RecipesTab : Tab
     private void OnPanelChosen(EquipmentData equipmentData)
     {
         Recipes = Resources.LoadAll<Recipe>($"Recipes/{equipmentData.Name}");
+        Equipment = equipmentData;
 
         NavigationController.Instance.OpenPanel(_recipesListPanel);
     }
