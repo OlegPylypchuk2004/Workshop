@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: copper_wire
   m_EditorClassIdentifier: 
   <Icon>k__BackingField: {fileID: 21300000, guid: 541c5242e8c7ffa449f2d1aaa5972f50, type: 3}
-  <Name>k__BackingField: Copper ore
+  <Name>k__BackingField: Copper wire
   <Price>k__BackingField: 5
   <Type>k__BackingField: 2
