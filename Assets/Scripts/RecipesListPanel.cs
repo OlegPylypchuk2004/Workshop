@@ -7,6 +7,23 @@ public class RecipesListPanel : Panel
     [SerializeField] private RecipePanel _recipePanel;
     [SerializeField] private TopBar _topBar;
 
+    private EquipmentData _equipmentData;
+
+    public override void Open()
+    {
+        base.Open();
+
+        for (int i = 0; i < _itemRecipePanels.Length; i++)
+        {
+            _itemRecipePanels[i].RecipeChosen += OnRecipeChosen;
+        }
+
+        if (_equipmentData != null)
+        {
+            _topBar.SetTitleText($"{_equipmentData.Name} recipes");
+        }
+    }
+
     public override void Close()
     {
         base.Close();
@@ -30,11 +47,10 @@ public class RecipesListPanel : Panel
                 _itemRecipePanels[i].gameObject.SetActive(true);
                 _itemRecipePanels[i].Initialize(recipes[i]);
             }
-
-            _itemRecipePanels[i].RecipeChosen += OnRecipeChosen;
         }
 
-        _topBar.SetTitleText($"{equipmentData.Name} recipes");
+        _equipmentData = equipmentData;
+        _topBar.SetTitleText($"{_equipmentData.Name} recipes");
     }
 
     private void OnRecipeChosen(Recipe recipe)
