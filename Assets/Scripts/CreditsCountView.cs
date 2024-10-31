@@ -15,24 +15,24 @@ public class CreditsCountView : MonoBehaviour
         _cashedCreditsCount = numberOfCoins;
         _countText.text = TextFormatter.FormatValue(numberOfCoins);
 
-        PlayerDataManager.Data.CreditsCountChanged += OnNumberOfCoinsChanged;
+        PlayerDataManager.Data.CreditsCountChanged += OnCreditsCountChanged;
     }
 
     private void OnDisable()
     {
-        PlayerDataManager.Data.CreditsCountChanged -= OnNumberOfCoinsChanged;
+        PlayerDataManager.Data.CreditsCountChanged -= OnCreditsCountChanged;
     }
 
-    private void OnNumberOfCoinsChanged(int numberOfCoins)
+    private void OnCreditsCountChanged(int count)
     {
-        int currentCoinsAmount = _cashedCreditsCount;
-        _cashedCreditsCount = numberOfCoins;
+        int currentCount = _cashedCreditsCount;
+        _cashedCreditsCount = count;
 
-        DOTween.To(() => currentCoinsAmount, x => currentCoinsAmount = x, numberOfCoins, 0.25f)
+        DOTween.To(() => currentCount, x => currentCount = x, count, 0.25f)
             .SetEase(Ease.Linear)
             .OnUpdate(() =>
             {
-                _countText.text = TextFormatter.FormatValue(currentCoinsAmount);
+                _countText.text = TextFormatter.FormatValue(currentCount);
             });
     }
 }

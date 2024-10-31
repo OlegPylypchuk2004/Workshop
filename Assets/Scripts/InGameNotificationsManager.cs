@@ -9,12 +9,18 @@ public class InGameNotificationsManager : MonoBehaviour
     {
         Storage.ItemAdded += OnItemAdded;
         Storage.ItemRemoved += OnItemRemoved;
+        PlayerDataManager.Data.CreditsCountIncreased += OnCreditsCountIncreased;
+        PlayerDataManager.Data.CreditsCountDecreased += OnCreditsCountDecreased;
+        PlayerDataManager.Data.ExperiencePointsChanged += OnExperiencePointsCountChanged;
     }
 
     private void OnDisable()
     {
         Storage.ItemAdded -= OnItemAdded;
         Storage.ItemRemoved -= OnItemRemoved;
+        PlayerDataManager.Data.CreditsCountIncreased -= OnCreditsCountIncreased;
+        PlayerDataManager.Data.CreditsCountDecreased -= OnCreditsCountDecreased;
+        PlayerDataManager.Data.ExperiencePointsChanged -= OnExperiencePointsCountChanged;
     }
 
     private void OnItemAdded(ItemData itemData, int quantity)
@@ -25,6 +31,21 @@ public class InGameNotificationsManager : MonoBehaviour
     private void OnItemRemoved(ItemData itemData, int quantity)
     {
         GetNewNotification().Initialize($"-x{quantity} {itemData.Name.ToLower()}");
+    }
+
+    private void OnCreditsCountIncreased(int result)
+    {
+        GetNewNotification().Initialize($"+{result}", isShowCreditsIcon: true);
+    }
+
+    private void OnCreditsCountDecreased(int result)
+    {
+        GetNewNotification().Initialize($"{result}", isShowCreditsIcon: true);
+    }
+
+    private void OnExperiencePointsCountChanged(int count)
+    {
+        GetNewNotification().Initialize($"+{count}", isShowExperiencePointsIcon: true);
     }
 
     private InGameNotification GetNewNotification()

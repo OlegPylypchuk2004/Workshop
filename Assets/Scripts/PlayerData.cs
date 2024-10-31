@@ -8,6 +8,8 @@ public class PlayerData
     [SerializeField] private int _experiencePointsCount = 0;
 
     public event Action<int> CreditsCountChanged;
+    public event Action<int> CreditsCountIncreased;
+    public event Action<int> CreditsCountDecreased;
     public event Action<int> ExperiencePointsChanged;
 
     public int CreditsCount
@@ -17,6 +19,17 @@ public class PlayerData
         {
             if (_creditsCount != value)
             {
+                int result = value - _creditsCount;
+
+                if (result > _creditsCount)
+                {
+                    CreditsCountIncreased?.Invoke(result);
+                }
+                else if (result < _creditsCount)
+                {
+                    CreditsCountDecreased?.Invoke(result);
+                }
+
                 _creditsCount = value;
                 CreditsCountChanged?.Invoke(_creditsCount);
             }
