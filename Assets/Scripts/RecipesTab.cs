@@ -4,6 +4,7 @@ public class RecipesTab : Tab
 {
     [SerializeField] private EquipmentRecipesPanel[] _panels;
     [SerializeField] private TopBar _topBar;
+    [SerializeField] private RecipesListPanel _recipesListPanel;
 
     public Recipe[] Recipes { get; private set; }
 
@@ -33,6 +34,6 @@ public class RecipesTab : Tab
     {
         Recipes = Resources.LoadAll<Recipe>($"Recipes/{equipmentData.Name}");
 
-        //NavigationController.Instance.OpenPanel();
+        NavigationController.Instance.OpenPanel(_recipesListPanel);
     }
 }
