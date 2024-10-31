@@ -24,7 +24,16 @@ public abstract class ItemSlot : MonoBehaviour
         else
         {
             _itemIconImage.sprite = data.Icon;
-            _itemNameText.text = $"x{quantity} {data.Name}";
+
+            if (quantity == 1)
+            {
+                _itemNameText.text = $"{data.Name}";
+            }
+            else
+            {
+                _itemNameText.text = $"x{quantity} {data.Name}";
+            }
+
             _itemIconImage.gameObject.SetActive(true);
         }
 
