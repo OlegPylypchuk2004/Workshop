@@ -91,7 +91,7 @@ public class OrderPanel : MonoBehaviour
         _timeText.text = TextFormatter.FormatTime(currentTime);
     }
 
-    private void OnCurrentTimeIsUp()
+    private void OnCurrentTimeIsUp(Order order)
     {
         Disappear();
     }

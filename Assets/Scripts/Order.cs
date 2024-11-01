@@ -11,7 +11,7 @@ public class Order
     private readonly float _time;
 
     public event Action<float> CurrentTimeChanged;
-    public event Action CurrentTimeIsUp;
+    public event Action<Order> CurrentTimeIsUp;
 
     public Order(string customerName, int experiencePoints, OrderResource[] orderResources, float time)
     {
@@ -47,7 +47,7 @@ public class Order
         }
 
         IsTimeUp = true;
-        CurrentTimeIsUp?.Invoke();
+        CurrentTimeIsUp?.Invoke(this);
     }
 
     public string CustomerName => _customerName;

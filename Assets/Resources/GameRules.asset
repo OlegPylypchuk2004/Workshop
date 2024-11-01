@@ -17,3 +17,6 @@ MonoBehaviour:
   <OrderRewardInExperiencePointsCoef>k__BackingField: 1.25
   <FirstLevelExperiencePointsCount>k__BackingField: 50
   <NextLevelExperiencePointsCountCoef>k__BackingField: 2
+  <MaxOrdersCount>k__BackingField: 10
+  <BaseOrdersIncreaseDelay>k__BackingField: 5
+  <OrdersDelayCoef>k__BackingField: 7
