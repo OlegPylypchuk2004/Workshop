@@ -2,5 +2,5 @@ public enum ItemType
 {
     RawMaterials,
     ProcessedProducts,
-    Materials
+    Details
 }
