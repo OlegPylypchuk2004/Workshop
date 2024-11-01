@@ -314,6 +314,11 @@ public class EquipmentPanel : Panel
             _resultItemSlot.SetTime(_currentRecipe.Time);
         }
     }
+
+    public EquipmentData GetItemData()
+    {
+        return _data;
+    }
 }
 
 public enum EquipmentState
