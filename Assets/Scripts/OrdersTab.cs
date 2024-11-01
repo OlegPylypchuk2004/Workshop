@@ -34,6 +34,7 @@ public class OrdersTab : Tab
     private void SpawnOrderPanel(Order order)
     {
         OrderPanel panel = Instantiate(_panelPrefab, _panelsRectTransform);
+        panel.transform.SetSiblingIndex(0);
         panel.Initialize(order);
         _panels.Add(panel);
         panel.OrderSubmitted += OnOrderChangedStatus;

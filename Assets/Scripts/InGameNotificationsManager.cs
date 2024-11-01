@@ -37,8 +37,7 @@ public class InGameNotificationsManager : MonoBehaviour
 
     private InGameNotification GetNewNotification()
     {
-        InGameNotification notification = Instantiate(_notificationPrefab);
-        notification.transform.SetParent(_notificationsParent);
+        InGameNotification notification = Instantiate(_notificationPrefab, _notificationsParent);
         notification.transform.SetSiblingIndex(0);
 
         return notification;

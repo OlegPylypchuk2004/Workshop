@@ -19,4 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1df7f1e3ce55da64c8b0d5df02699175, type: 2}
   - {fileID: 11400000, guid: 66842f319a0d34b489de6fecbd0f3077, type: 2}
   - {fileID: 11400000, guid: c9f304b9cb8a38e4e84fd95d3feb474e, type: 2}
-  <TimeIsSeconds>k__BackingField: 60
+  <TimeIsSeconds>k__BackingField: 150

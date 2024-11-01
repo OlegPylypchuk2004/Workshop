@@ -50,6 +50,11 @@ public class OrderPanel : MonoBehaviour
         _order.Overdue += OnOrderOverdue;
     }
 
+    private void Start()
+    {
+        Appear();
+    }
+
     private void OnEnable()
     {
         if (_order != null)
@@ -138,14 +143,40 @@ public class OrderPanel : MonoBehaviour
         return true;
     }
 
+    private void Appear()
+    {
+        Vector2 normalSize = _rectTransform.sizeDelta;
+        _canvasGroup.interactable = false;
+
+        Sequence appearSequence = DOTween.Sequence();
+
+        appearSequence.Append(_rectTransform.DOSizeDelta(normalSize, 0.25f)
+            .From(Vector2.zero)
+            .SetEase(Ease.OutQuad));
+
+        appearSequence.Append(_backgroundImage.DOFade(1f, 0.25f)
+            .From(0f)
+            .SetEase(Ease.OutQuad));
+
+        appearSequence.AppendInterval(0.1f);
+
+        appearSequence.Append(_canvasGroup.DOFade(1f, 0.25f)
+            .From(0f)
+            .SetEase(Ease.OutQuad));
+
+        appearSequence.SetLink(gameObject);
+
+        appearSequence.OnComplete(() =>
+        {
+            _canvasGroup.interactable = true;
+        });
+    }
+
     private void Disappear()
     {
-        Sequence disappearSequence = DOTween.Sequence();
+        _canvasGroup.interactable = false;
 
-        disappearSequence.AppendCallback(() =>
-        {
-            _canvasGroup.interactable = false;
-        });
+        Sequence disappearSequence = DOTween.Sequence();
 
         disappearSequence.Append(_canvasGroup.DOFade(0f, 0.25f)
             .From(1f)
