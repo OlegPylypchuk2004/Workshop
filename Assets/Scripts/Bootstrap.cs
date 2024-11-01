@@ -12,6 +12,12 @@ public class Bootstrap : MonoBehaviour
         if (_isLoadNextScene)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+#if UNITY_EDITOR
+            Application.targetFrameRate = 1000;
+#else
+        Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.numerator;
+#endif
         }
     }
 }
