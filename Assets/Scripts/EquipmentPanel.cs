@@ -152,7 +152,7 @@ public class EquipmentPanel : Panel
             }
 
             int possibleQuantity = availableQuantity / recipe.Ingredients[i].Quantity;
-            maxQuantity = Mathf.Min(maxQuantity, possibleQuantity);
+            maxQuantity = Mathf.Min(maxQuantity, possibleQuantity) * recipe.Result.Quantity;
         }
 
         return maxQuantity > 0 ? maxQuantity : 0;
