@@ -50,6 +50,11 @@ public class OrderPanel : MonoBehaviour
         _order.Overdue += OnOrderOverdue;
     }
 
+    private void Awake()
+    {
+        _submitButton.interactable = false;
+    }
+
     private void Start()
     {
         Appear();
