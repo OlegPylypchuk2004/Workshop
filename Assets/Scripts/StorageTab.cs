@@ -68,6 +68,6 @@ public class StorageTab : Tab
             PlayerDataManager.ClearAllData();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-    }
 #endif
+    }
 }
