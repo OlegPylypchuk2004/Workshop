@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class Order
@@ -7,6 +9,9 @@ public class Order
     private readonly int _creditsReward;
     private readonly int _experiencePointsReward;
     private readonly float _time;
+
+    public event Action<float> CurrentTimeChanged;
+    public event Action CurrentTimeIsUp;
 
     public Order(string customerName, int experiencePoints, OrderResource[] orderResources, float time)
     {
@@ -25,6 +30,24 @@ public class Order
         _creditsReward = Mathf.RoundToInt(itemsPrice * gameRules.OrderRewardInCreditsCoef);
         _experiencePointsReward = Mathf.RoundToInt(experiencePoints * gameRules.OrderRewardInExperiencePointsCoef);
         _time = time;
+
+        CoroutineManager.Instance.StartCoroutine(LifeTimeCoroutine());
+    }
+
+    private IEnumerator LifeTimeCoroutine()
+    {
+        float currentTime = _time;
+
+        while (currentTime > 0)
+        {
+            currentTime -= UnityEngine.Time.deltaTime;
+            CurrentTimeChanged?.Invoke(currentTime);
+
+            yield return null;
+        }
+
+        IsTimeUp = true;
+        CurrentTimeIsUp?.Invoke();
     }
 
     public string CustomerName => _customerName;
@@ -32,4 +55,5 @@ public class Order
     public int CreditsReward => _creditsReward;
     public int ExperiencePointsReward => _experiencePointsReward;
     public float Time => _time;
+    public bool IsTimeUp { get; private set; }
 }

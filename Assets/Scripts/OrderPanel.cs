@@ -45,10 +45,26 @@ public class OrderPanel : MonoBehaviour
         _timeText.text = TextFormatter.FormatTime(order.Time);
 
         _submitButton.interactable = IsCanSubmit();
+
+        _order.CurrentTimeChanged += OnCurrentTimeChanged;
+        _order.CurrentTimeIsUp += OnCurrentTimeIsUp;
     }
 
     private void OnEnable()
     {
+        if (_order != null)
+        {
+            if (_order.IsTimeUp)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            _submitButton.interactable = IsCanSubmit();
+            _order.CurrentTimeChanged += OnCurrentTimeChanged;
+            _order.CurrentTimeIsUp += OnCurrentTimeIsUp;
+        }
+
         if (_resourcePanels != null)
         {
             foreach (OrderResourcePanel resourcePanel in _resourcePanels)
@@ -59,17 +75,25 @@ public class OrderPanel : MonoBehaviour
 
         _rejectButton.onClick.AddListener(OnRejectButtonClicked);
         _submitButton.onClick.AddListener(OnSubmitButtonClicked);
-
-        if (_order != null)
-        {
-            _submitButton.interactable = IsCanSubmit();
-        }
     }
 
     private void OnDisable()
     {
         _rejectButton.onClick.RemoveAllListeners();
         _submitButton.onClick.RemoveAllListeners();
+
+        _order.CurrentTimeChanged -= OnCurrentTimeChanged;
+        _order.CurrentTimeIsUp -= OnCurrentTimeIsUp;
+    }
+
+    private void OnCurrentTimeChanged(float currentTime)
+    {
+        _timeText.text = TextFormatter.FormatTime(currentTime);
+    }
+
+    private void OnCurrentTimeIsUp()
+    {
+        Disappear();
     }
 
     private void OnRejectButtonClicked()
