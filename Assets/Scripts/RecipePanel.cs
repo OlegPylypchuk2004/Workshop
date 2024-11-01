@@ -14,7 +14,7 @@ public class RecipePanel : Panel
         base.Open();
 
         _topBar.SetTitleText($"{recipe.Result.ItemData.Name} recipe");
-        _resultItemSlot.SetItem(recipe.Result.ItemData);
+        _resultItemSlot.SetItem(recipe.Result.ItemData, recipe.Result.Quantity);
 
         int resultItemsCount = 0;
 
