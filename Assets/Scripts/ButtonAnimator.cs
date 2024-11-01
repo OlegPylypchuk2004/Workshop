@@ -19,19 +19,19 @@ public class ButtonAnimator : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     private void Update()
     {
-        if (_button.interactable)
-        {
-            _backgroundImage.color = Color.white;
-            _text.color = Color.white;
-        }
-        else
-        {
-            Color targetColor = Color.white * 0.75f;
-            targetColor.a = 1f;
+        //if (_button.interactable)
+        //{
+        //    _backgroundImage.color = Color.white;
+        //    _text.color = Color.white;
+        //}
+        //else
+        //{
+        //    Color targetColor = Color.white * 0.75f;
+        //    targetColor.a = 1f;
 
-            _backgroundImage.color = targetColor;
-            _text.color = targetColor;
-        }
+        //    _backgroundImage.color = targetColor;
+        //    _text.color = targetColor;
+        //}
     }
 
     public void OnPointerDown(PointerEventData eventData)
