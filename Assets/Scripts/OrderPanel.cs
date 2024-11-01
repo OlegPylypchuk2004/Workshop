@@ -47,7 +47,7 @@ public class OrderPanel : MonoBehaviour
         _submitButton.interactable = IsCanSubmit();
 
         _order.CurrentTimeChanged += OnCurrentTimeChanged;
-        _order.CurrentTimeIsUp += OnCurrentTimeIsUp;
+        _order.Overdue += OnOrderOverdue;
     }
 
     private void OnEnable()
@@ -62,7 +62,7 @@ public class OrderPanel : MonoBehaviour
 
             _submitButton.interactable = IsCanSubmit();
             _order.CurrentTimeChanged += OnCurrentTimeChanged;
-            _order.CurrentTimeIsUp += OnCurrentTimeIsUp;
+            _order.Overdue += OnOrderOverdue;
         }
 
         if (_resourcePanels != null)
@@ -83,7 +83,7 @@ public class OrderPanel : MonoBehaviour
         _submitButton.onClick.RemoveAllListeners();
 
         _order.CurrentTimeChanged -= OnCurrentTimeChanged;
-        _order.CurrentTimeIsUp -= OnCurrentTimeIsUp;
+        _order.Overdue -= OnOrderOverdue;
     }
 
     private void OnCurrentTimeChanged(float currentTime)
@@ -91,16 +91,17 @@ public class OrderPanel : MonoBehaviour
         _timeText.text = TextFormatter.FormatTime(currentTime);
     }
 
-    private void OnCurrentTimeIsUp(Order order)
+    private void OnOrderOverdue(Order order)
     {
         Disappear();
     }
 
     private void OnRejectButtonClicked()
     {
-        OrderRejected?.Invoke(this);
-
+        _order.Reject();
         Disappear();
+
+        OrderRejected?.Invoke(this);
     }
 
     private void OnSubmitButtonClicked()
@@ -118,9 +119,10 @@ public class OrderPanel : MonoBehaviour
         PlayerDataManager.Data.CreditsCount += _order.CreditsReward;
         PlayerDataManager.Data.ExperiencePointsCount += _order.ExperiencePointsReward;
 
-        OrderSubmitted?.Invoke(this);
-
+        _order.Submit();
         Disappear();
+
+        OrderSubmitted?.Invoke(this);
     }
 
     private bool IsCanSubmit()

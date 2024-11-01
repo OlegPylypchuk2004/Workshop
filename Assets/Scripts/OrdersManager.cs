@@ -13,6 +13,9 @@ public class OrdersManager : MonoBehaviour
     private float _ordersDelayCoef;
 
     public event Action<Order> OrderCreated;
+    public event Action<Order> OrderOverdue;
+    public event Action<Order> OrderSubmitted;
+    public event Action<Order> OrderRejected;
 
     private void Awake()
     {
@@ -70,15 +73,44 @@ public class OrdersManager : MonoBehaviour
         Order order = new Order(orderData.CustomerName, experiencePoints, orderResources, orderData.TimeIsSeconds);
         _orders.Add(order);
 
-        order.CurrentTimeIsUp += OnOrderTimeIsUp;
+        order.Overdue += OnOrderOverdue;
+        order.Submitted += OnOrderSubmitted;
+        order.Rejected += OnOrderRejected;
 
         OrderCreated?.Invoke(order);
     }
 
-    private void OnOrderTimeIsUp(Order order)
+    private void OnOrderOverdue(Order order)
     {
-        order.CurrentTimeIsUp -= OnOrderTimeIsUp;
+        order.Overdue -= OnOrderOverdue;
+        order.Submitted -= OnOrderSubmitted;
+        order.Rejected -= OnOrderRejected;
+
         _orders.Remove(order);
+
+        OrderOverdue?.Invoke(order);
+    }
+
+    private void OnOrderSubmitted(Order order)
+    {
+        order.Overdue -= OnOrderOverdue;
+        order.Submitted -= OnOrderSubmitted;
+        order.Rejected -= OnOrderRejected;
+
+        _orders.Remove(order);
+
+        OrderSubmitted?.Invoke(order);
+    }
+
+    private void OnOrderRejected(Order order)
+    {
+        order.Overdue -= OnOrderOverdue;
+        order.Submitted -= OnOrderSubmitted;
+        order.Rejected -= OnOrderRejected;
+
+        _orders.Remove(order);
+
+        OrderRejected?.Invoke(order);
     }
 
     public Order[] GetOrders()

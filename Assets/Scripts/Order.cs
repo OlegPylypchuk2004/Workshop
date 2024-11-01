@@ -11,7 +11,9 @@ public class Order
     private readonly float _time;
 
     public event Action<float> CurrentTimeChanged;
-    public event Action<Order> CurrentTimeIsUp;
+    public event Action<Order> Overdue;
+    public event Action<Order> Submitted;
+    public event Action<Order> Rejected;
 
     public Order(string customerName, int experiencePoints, OrderResource[] orderResources, float time)
     {
@@ -47,7 +49,17 @@ public class Order
         }
 
         IsTimeUp = true;
-        CurrentTimeIsUp?.Invoke(this);
+        Overdue?.Invoke(this);
+    }
+
+    public void Submit()
+    {
+        Submitted?.Invoke(this);
+    }
+
+    public void Reject()
+    {
+        Rejected?.Invoke(this);
     }
 
     public string CustomerName => _customerName;

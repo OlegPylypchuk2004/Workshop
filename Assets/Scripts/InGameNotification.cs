@@ -40,6 +40,9 @@ public class InGameNotification : MonoBehaviour
 
     private void OnDestroy()
     {
-        _canvasGroup.DOKill();
+        if (_canvasGroup != null)
+        {
+            _canvasGroup.DOKill();
+        }
     }
 }

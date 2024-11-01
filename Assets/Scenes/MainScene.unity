@@ -2108,6 +2108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _notificationPrefab: {fileID: 3854075073004106344, guid: 28940fe210a25b844938740da7957e7e, type: 3}
   _notificationsParent: {fileID: 1491127037}
+  _ordersManager: {fileID: 878350627}
 --- !u!1 &292681935
 GameObject:
   m_ObjectHideFlags: 0
