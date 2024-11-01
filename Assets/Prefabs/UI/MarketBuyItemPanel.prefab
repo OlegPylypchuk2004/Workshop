@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 2996895665080203209}
   - component: {fileID: 384065719795543232}
   - component: {fileID: 3400997738920166012}
+  - component: {fileID: 8312713690985835661}
   m_Layer: 0
   m_Name: BuyButton
   m_TagString: Untagged
@@ -196,6 +197,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8312713690985835661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186832522479319352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28261e611795d0f498c27c39cc546cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backgroundImage: {fileID: 384065719795543232}
+  _text: {fileID: 6208812974187852788}
 --- !u!1 &3630654342343585333
 GameObject:
   m_ObjectHideFlags: 0

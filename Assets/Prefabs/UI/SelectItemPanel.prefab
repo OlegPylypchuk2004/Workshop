@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 79964255166476289}
   - component: {fileID: 3582060773094435499}
   - component: {fileID: 8100344535647459005}
+  - component: {fileID: 1627406543749334545}
   m_Layer: 0
   m_Name: SelectButton
   m_TagString: Untagged
@@ -271,6 +272,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1627406543749334545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4066109136881842202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28261e611795d0f498c27c39cc546cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backgroundImage: {fileID: 3582060773094435499}
+  _text: {fileID: 1736936088763749074}
 --- !u!1 &5097072153032559591
 GameObject:
   m_ObjectHideFlags: 0

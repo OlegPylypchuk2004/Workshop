@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 6473307588995928792}
   - component: {fileID: 8578857764811216626}
   - component: {fileID: 5226742414899576398}
+  - component: {fileID: 517450837971117678}
   m_Layer: 0
   m_Name: RejectButton
   m_TagString: Untagged
@@ -200,6 +201,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &517450837971117678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303730524268368255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28261e611795d0f498c27c39cc546cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backgroundImage: {fileID: 8578857764811216626}
+  _text: {fileID: 4917258516371815514}
 --- !u!1 &1580986885555627449
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +438,7 @@ GameObject:
   - component: {fileID: 2603456614081495659}
   - component: {fileID: 7110248523931475573}
   - component: {fileID: 8326723130979211730}
+  - component: {fileID: 875599511660825243}
   m_Layer: 0
   m_Name: SubmitButton
   m_TagString: Untagged
@@ -532,6 +548,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &875599511660825243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904333229510594688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28261e611795d0f498c27c39cc546cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backgroundImage: {fileID: 7110248523931475573}
+  _text: {fileID: 7545666698122001805}
 --- !u!1 &3954160270790068502
 GameObject:
   m_ObjectHideFlags: 0
