@@ -14,8 +14,7 @@ public class EquipmentPanel : Panel
     [SerializeField] private Button _button;
     [SerializeField] private TextMeshProUGUI _buttonText;
     [SerializeField] private TextMeshProUGUI _timerText;
-    [SerializeField] private GameObject _progressBar;
-    [SerializeField] private Image _progressBarFiller;
+    [SerializeField] private Slider _slider;
 
     private Recipe[] _recipes;
     private Recipe _currentRecipe;
@@ -242,7 +241,7 @@ public class EquipmentPanel : Panel
         float workTime = _currentRecipe.Time * _resultItemSlot.GetItemQuantity();
         float elapsedTime = 0f;
 
-        _progressBar.SetActive(true);
+        _slider.gameObject.SetActive(true);
         _timerText.gameObject.SetActive(true);
 
         while (elapsedTime < workTime)
@@ -253,13 +252,13 @@ public class EquipmentPanel : Panel
             if (isActiveAndEnabled)
             {
                 _timerText.text = TextFormatter.FormatTime(remainingTime);
-                _progressBarFiller.fillAmount = elapsedTime / workTime;
+                _slider.value = elapsedTime / workTime;
             }
 
             yield return null;
         }
 
-        _progressBar.SetActive(false);
+        _slider.gameObject.SetActive(false);
         _timerText.gameObject.SetActive(false);
 
         _state = EquipmentState.Done;

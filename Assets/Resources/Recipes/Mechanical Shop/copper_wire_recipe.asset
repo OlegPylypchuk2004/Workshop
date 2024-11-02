@@ -17,7 +17,7 @@ MonoBehaviour:
     <Quantity>k__BackingField: 2
   - <ItemData>k__BackingField: {fileID: 0}
     <Quantity>k__BackingField: 0
-  <Time>k__BackingField: 0.1
+  <Time>k__BackingField: 1
   <Result>k__BackingField:
     <ItemData>k__BackingField: {fileID: 11400000, guid: 86813690dfff8c04ca01e8a90205848e, type: 2}
     <Quantity>k__BackingField: 1

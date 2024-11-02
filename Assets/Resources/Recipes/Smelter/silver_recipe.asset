@@ -15,7 +15,7 @@ MonoBehaviour:
   <Ingredients>k__BackingField:
   - <ItemData>k__BackingField: {fileID: 11400000, guid: 6917a60e786464449a588fd886302e91, type: 2}
     <Quantity>k__BackingField: 1
-  <Time>k__BackingField: 0.1
+  <Time>k__BackingField: 1
   <Result>k__BackingField:
     <ItemData>k__BackingField: {fileID: 11400000, guid: c90748fcd5f315a4c98a448daaef43f3, type: 2}
     <Quantity>k__BackingField: 1
