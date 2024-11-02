@@ -310,7 +310,7 @@ public class EquipmentPanel : Panel
         }
         else
         {
-            _resultItemSlot.SetTime(_currentRecipe.Time);
+            _resultItemSlot.SetTime(_currentRecipe.Time * _resultItemSlot.GetItemQuantity());
         }
     }
 
