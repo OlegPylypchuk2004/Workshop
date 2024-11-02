@@ -15,6 +15,8 @@ public class EquipmentPanel : Panel
     [SerializeField] private TextMeshProUGUI _buttonText;
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private Slider _slider;
+    [SerializeField] private RecipesListPanel _recipesListPanel;
+    [SerializeField] private Button _recipesButton;
 
     private Recipe[] _recipes;
     private Recipe _currentRecipe;
@@ -46,6 +48,7 @@ public class EquipmentPanel : Panel
         }
 
         _button.onClick.AddListener(OnButtonClicked);
+        _recipesButton.onClick.AddListener(OnRecipesButtonClicked);
 
         if (_setItemSlots.Any(slot => slot.GetItemData() != null))
         {
@@ -69,6 +72,7 @@ public class EquipmentPanel : Panel
         }
 
         _button.onClick.RemoveAllListeners();
+        _recipesButton.onClick.RemoveAllListeners();
     }
 
     private void OnSetItemSlotClicked(SetItemSlot setItemSlot)
@@ -234,6 +238,12 @@ public class EquipmentPanel : Panel
         }
 
         UpdateState();
+    }
+
+    private void OnRecipesButtonClicked()
+    {
+        _recipesListPanel.SetRecipes(_recipes, _data);
+        NavigationController.Instance.OpenPanel(_recipesListPanel);
     }
 
     private IEnumerator WorkCoroutine()
