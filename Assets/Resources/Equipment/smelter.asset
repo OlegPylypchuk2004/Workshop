@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: smelter
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Smelter
+  <Description>k__BackingField: Processes various ores into pure metals for further
+    use in production.
   <IdleStateButtonText>k__BackingField: Start smelting
   <AtWorkStateButtonText>k__BackingField: Smelting...
   <DoneStateButtonText>k__BackingField: Take
