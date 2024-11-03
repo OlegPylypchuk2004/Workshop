@@ -155,17 +155,17 @@ public class OrderPanel : MonoBehaviour
 
         Sequence appearSequence = DOTween.Sequence();
 
-        appearSequence.Append(_rectTransform.DOSizeDelta(normalSize, 0.25f)
+        appearSequence.Append(_rectTransform.DOSizeDelta(normalSize, 0.15f)
             .From(Vector2.zero)
             .SetEase(Ease.OutQuad));
 
-        appearSequence.Append(_backgroundImage.DOFade(1f, 0.25f)
+        appearSequence.Append(_backgroundImage.DOFade(1f, 0.15f)
             .From(0f)
             .SetEase(Ease.OutQuad));
 
-        appearSequence.AppendInterval(0.1f);
+        appearSequence.AppendInterval(0.025f);
 
-        appearSequence.Append(_canvasGroup.DOFade(1f, 0.25f)
+        appearSequence.Append(_canvasGroup.DOFade(1f, 0.15f)
             .From(0f)
             .SetEase(Ease.OutQuad));
 
@@ -183,17 +183,17 @@ public class OrderPanel : MonoBehaviour
 
         Sequence disappearSequence = DOTween.Sequence();
 
-        disappearSequence.Append(_canvasGroup.DOFade(0f, 0.25f)
+        disappearSequence.Append(_canvasGroup.DOFade(0f, 0.15f)
             .From(1f)
             .SetEase(Ease.InQuad));
 
-        disappearSequence.AppendInterval(0.1f);
+        disappearSequence.AppendInterval(0.025f);
 
-        disappearSequence.Append(_backgroundImage.DOFade(0f, 0.25f)
+        disappearSequence.Append(_backgroundImage.DOFade(0f, 0.15f)
             .From(1f)
             .SetEase(Ease.InQuad));
 
-        disappearSequence.Append(_rectTransform.DOSizeDelta(new Vector2(_rectTransform.sizeDelta.x, -50f), 0.25f)
+        disappearSequence.Append(_rectTransform.DOSizeDelta(new Vector2(_rectTransform.sizeDelta.x, -50f), 0.15f)
             .SetEase(Ease.InQuad));
 
         disappearSequence.SetLink(gameObject);
