@@ -19,4 +19,4 @@ MonoBehaviour:
   <NextLevelExperiencePointsCountCoef>k__BackingField: 2
   <MaxOrdersCount>k__BackingField: 10
   <BaseOrdersIncreaseDelay>k__BackingField: 5
-  <OrdersDelayCoef>k__BackingField: 7
+  <OrdersDelayCoef>k__BackingField: 20
