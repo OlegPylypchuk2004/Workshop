@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class InGameNotification : MonoBehaviour
 {
+    [SerializeField] private RectTransform _rectTransform;
+    [SerializeField] private RectTransform _contentRectTransform;
     [SerializeField] private RectTransform _textRectTransform;
     [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private TextMeshProUGUI _text;
@@ -44,15 +46,34 @@ public class InGameNotification : MonoBehaviour
             _textRectTransform.anchoredPosition = new Vector2(-212.5f, 0f);
         }
 
-        _canvasGroup.DOFade(0f, 0.25f)
+        _contentRectTransform.anchoredPosition = new Vector2(500f, _rectTransform.anchoredPosition.y);
+        _canvasGroup.alpha = 0f;
+
+        Sequence sequence = DOTween.Sequence();
+
+        sequence.Append(_rectTransform.DOSizeDelta(new Vector2(_rectTransform.sizeDelta.x, 50f), 0.125f)
+            .From(new Vector2(_rectTransform.sizeDelta.x, 0f))
+            .SetEase(Ease.OutQuad));
+
+        sequence.Join(_canvasGroup.DOFade(1f, 0.125f)
+            .From(0f)
+            .SetEase(Ease.OutQuad));
+
+        sequence.Append(_contentRectTransform.DOAnchorPos(Vector2.zero, 0.25f)
+            .SetEase(Ease.OutQuad));
+
+        sequence.AppendInterval(3f);
+
+        sequence.Append(_canvasGroup.DOFade(0f, 0.125f)
             .From(1f)
-            .SetEase(Ease.InQuad)
-            .SetDelay(3f)
-            .SetLink(gameObject)
-            .OnComplete(() =>
-            {
-                Destroy(gameObject);
-            });
+            .SetEase(Ease.InQuad));
+
+        sequence.SetLink(gameObject);
+
+        sequence.OnComplete(() =>
+        {
+            Destroy(gameObject);
+        });
     }
 
     private void OnDestroy()

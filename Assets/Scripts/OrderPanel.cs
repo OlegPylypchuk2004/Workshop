@@ -155,17 +155,17 @@ public class OrderPanel : MonoBehaviour
 
         Sequence appearSequence = DOTween.Sequence();
 
-        appearSequence.Append(_rectTransform.DOSizeDelta(normalSize, 0.25f)
+        appearSequence.Append(_rectTransform.DOSizeDelta(normalSize, 0.125f)
             .From(Vector2.zero)
             .SetEase(Ease.OutQuad));
 
-        appearSequence.Append(_backgroundImage.DOFade(1f, 0.25f)
+        appearSequence.Append(_backgroundImage.DOFade(1f, 0.125f)
             .From(0f)
             .SetEase(Ease.OutQuad));
 
-        appearSequence.AppendInterval(0.1f);
+        appearSequence.AppendInterval(0.125f / 2);
 
-        appearSequence.Append(_canvasGroup.DOFade(1f, 0.25f)
+        appearSequence.Append(_canvasGroup.DOFade(1f, 0.125f)
             .From(0f)
             .SetEase(Ease.OutQuad));
 
