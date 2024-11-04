@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Smelter
   <Description>k__BackingField: Processes ores into pure metals for production use
-  <Price>k__BackingField: 25000
+  <Price>k__BackingField: 2500
   <IdleStateButtonText>k__BackingField: Start smelting
   <AtWorkStateButtonText>k__BackingField: Smelting...
   <DoneStateButtonText>k__BackingField: Take

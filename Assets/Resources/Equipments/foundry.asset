@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Foundry
   <Description>k__BackingField: Combines various metals to create unique alloys for
     further use
-  <Price>k__BackingField: 25000
+  <Price>k__BackingField: 2500
   <IdleStateButtonText>k__BackingField: Start recycling
   <AtWorkStateButtonText>k__BackingField: Recycling...
   <DoneStateButtonText>k__BackingField: Take

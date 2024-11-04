@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Recycler
   <Description>k__BackingField: Breaks down unused items into basic components
-  <Price>k__BackingField: 25000
+  <Price>k__BackingField: 2500
   <IdleStateButtonText>k__BackingField: Start recycling
   <AtWorkStateButtonText>k__BackingField: Recycling...
   <DoneStateButtonText>k__BackingField: Take

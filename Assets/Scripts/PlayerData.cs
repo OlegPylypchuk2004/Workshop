@@ -1,11 +1,12 @@
 using System;
-using UnityEngine;
+using System.Collections.Generic;
 
 [Serializable]
 public class PlayerData
 {
-    [SerializeField] private int _creditsCount = 10000;
-    [SerializeField] private int _experiencePointsCount = 0;
+    private int _creditsCount = 10000;
+    private int _experiencePointsCount = 0;
+    private List<EquipmentData> _purchasedEquipments = new List<EquipmentData>();
 
     public event Action<int> CreditsCountChanged;
     public event Action<int> CreditsCountIncreased;
@@ -21,11 +22,11 @@ public class PlayerData
             {
                 int result = value - _creditsCount;
 
-                if (result > _creditsCount)
+                if (result > 0)
                 {
                     CreditsCountIncreased?.Invoke(result);
                 }
-                else if (result < _creditsCount)
+                else if (result < 0)
                 {
                     CreditsCountDecreased?.Invoke(result);
                 }
@@ -49,9 +50,12 @@ public class PlayerData
         }
     }
 
+    public List<EquipmentData> PurchasedEquipments => _purchasedEquipments;
+
     public void ResetToDefaults()
     {
         CreditsCount = 10000;
-        _experiencePointsCount = 0;
+        ExperiencePointsCount = 0;
+        _purchasedEquipments = new List<EquipmentData>();
     }
 }
