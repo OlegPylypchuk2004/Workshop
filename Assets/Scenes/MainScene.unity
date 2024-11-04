@@ -14420,6 +14420,7 @@ MonoBehaviour:
   _panelsRectTransform: {fileID: 1061660861}
   _topBar: {fileID: 2087844749}
   _navigationBar: {fileID: 1610866831}
+  _inGameNotificationManager: {fileID: 262016693}
 --- !u!1001 &1716276274
 PrefabInstance:
   m_ObjectHideFlags: 0

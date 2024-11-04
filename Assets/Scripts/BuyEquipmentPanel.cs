@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ public class BuyEquipmentPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buyButtonText;
 
     private EquipmentData _equipmentData;
+
+    public event Action<EquipmentData> EquipmentPurchased;
 
     public void Initialize(EquipmentData equipmentData)
     {
@@ -56,6 +59,8 @@ public class BuyEquipmentPanel : MonoBehaviour
 
             _buyButton.interactable = false;
             _buyButtonText.text = "Purchased";
+
+            EquipmentPurchased?.Invoke(_equipmentData);
         }
     }
 }

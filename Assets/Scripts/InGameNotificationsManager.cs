@@ -87,4 +87,9 @@ public class InGameNotificationsManager : MonoBehaviour
     {
         GetNewNotification().Initialize($"Order is rejected");
     }
+
+    public void ShowEquipmentPurchasedNotification(EquipmentData data)
+    {
+        GetNewNotification().Initialize($"{data.Name} purchased");
+    }
 }
