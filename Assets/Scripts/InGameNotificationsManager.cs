@@ -47,47 +47,80 @@ public class InGameNotificationsManager : MonoBehaviour
 
     private void OnItemAdded(ItemData itemData, int quantity)
     {
-        GetNewNotification().Initialize($"+x{quantity} {itemData.Name.ToLower()}");
+        ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
+        coloredTextDatas[0] = new ColoredTextData(itemData.Name.ToLower(), _greenNotificationsColor);
+
+        GetNewNotification().Initialize($"+x{quantity} {itemData.Name.ToLower()}", coloredTexts: coloredTextDatas);
     }
 
     private void OnItemRemoved(ItemData itemData, int quantity)
     {
-        GetNewNotification().Initialize($"-x{quantity} {itemData.Name.ToLower()}");
+        ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
+        coloredTextDatas[0] = new ColoredTextData(itemData.Name.ToLower(), _redNotificationsColor);
+
+        GetNewNotification().Initialize($"-x{quantity} {itemData.Name.ToLower()}", coloredTexts: coloredTextDatas);
     }
 
     private void OnCreditsCountIncreased(int result)
     {
-        GetNewNotification().Initialize($"+{result}", isShowCreditsIcon: true);
+        string formattedResult = TextFormatter.FormatValue(result);
+
+        ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
+        coloredTextDatas[0] = new ColoredTextData(formattedResult, _greenNotificationsColor);
+
+        GetNewNotification().Initialize($"+{formattedResult}", isShowCreditsIcon: true, coloredTexts: coloredTextDatas);
     }
 
     private void OnCreditsCountDecreased(int result)
     {
-        GetNewNotification().Initialize($"{result}", isShowCreditsIcon: true);
+        string formattedResult = TextFormatter.FormatValue(result);
+
+        ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
+        coloredTextDatas[0] = new ColoredTextData(formattedResult, _redNotificationsColor);
+
+        GetNewNotification().Initialize($"{formattedResult}", isShowCreditsIcon: true, coloredTexts: coloredTextDatas);
     }
 
     private void OnExperiencePointsCountChanged(int count)
     {
-        GetNewNotification().Initialize($"+{count}", isShowExperiencePointsIcon: true);
+        string formattedCount = TextFormatter.FormatValue(count);
+
+        ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
+        coloredTextDatas[0] = new ColoredTextData(formattedCount, _greenNotificationsColor);
+
+        GetNewNotification().Initialize($"+{formattedCount}", isShowExperiencePointsIcon: true, coloredTexts: coloredTextDatas);
     }
 
     private void OnOrderCreated(Order order)
     {
-        GetNewNotification().Initialize($"New order");
+        ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
+        coloredTextDatas[0] = new ColoredTextData("order", _greenNotificationsColor);
+
+        GetNewNotification().Initialize($"New order", coloredTexts: coloredTextDatas);
     }
 
     private void OnOrderOverdue(Order order)
     {
-        GetNewNotification().Initialize($"Order is overdue");
+        ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
+        coloredTextDatas[0] = new ColoredTextData("Order", _redNotificationsColor);
+
+        GetNewNotification().Initialize($"Order is overdue", coloredTexts: coloredTextDatas);
     }
 
     private void OnOrderSubmitted(Order order)
     {
-        GetNewNotification().Initialize($"Order is completed");
+        ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
+        coloredTextDatas[0] = new ColoredTextData("Order", _greenNotificationsColor);
+
+        GetNewNotification().Initialize($"Order is completed", coloredTexts: coloredTextDatas);
     }
 
     private void OnOrderRejected(Order order)
     {
-        GetNewNotification().Initialize($"Order is rejected");
+        ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
+        coloredTextDatas[0] = new ColoredTextData("Order", _redNotificationsColor);
+
+        GetNewNotification().Initialize($"Order is rejected", coloredTexts: coloredTextDatas);
     }
 
     public void ShowEquipmentPurchasedNotification(EquipmentData data)
