@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EquipmentTab : Tab
 {
     [SerializeField] private OpenEquipmentPanel[] _equipmentPanels;
+    [SerializeField] private Button _shopButton;
+    [SerializeField] private Panel _shopPanel;
     [SerializeField] private TopBar _topBar;
 
     public override void Open()
@@ -13,6 +16,8 @@ public class EquipmentTab : Tab
         {
             equipmentPanel.Clicked += OnDevicePanelClicked;
         }
+
+        _shopButton.onClick.AddListener(OnShopButtonClicked);
 
         _topBar.SetTitleText("Equipment");
     }
@@ -25,10 +30,17 @@ public class EquipmentTab : Tab
         {
             equipmentPanel.Clicked -= OnDevicePanelClicked;
         }
+
+        _shopButton.onClick.RemoveAllListeners();
     }
 
     private void OnDevicePanelClicked(EquipmentPanel equipmentPanel)
     {
         NavigationController.Instance.OpenPanel(equipmentPanel);
+    }
+
+    private void OnShopButtonClicked()
+    {
+        NavigationController.Instance.OpenPanel(_shopPanel);
     }
 }

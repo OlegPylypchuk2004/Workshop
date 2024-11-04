@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 6322377352691937265}
   - component: {fileID: 2009758128670501378}
   - component: {fileID: 1484146588813236464}
-  - component: {fileID: 5230645125160996741}
+  - component: {fileID: 7758165782677775753}
   m_Layer: 0
   m_Name: BuyEquipmentPanel
   m_TagString: Untagged
@@ -646,8 +646,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4722892082404704974}
-  - {fileID: 6349762554508339753}
   - {fileID: 8898185620909049350}
+  - {fileID: 6349762554508339753}
   - {fileID: 7027432170169376530}
   - {fileID: 3117524149624143298}
   - {fileID: 8175163312109124910}
@@ -696,7 +696,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5230645125160996741
+--- !u!114 &7758165782677775753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -705,12 +705,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5072681088348699338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 667bc3a56a432d54c958d0a62a136b4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 62fe0929ee2346a4c924ed1cbf4290d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _equipmentData: {fileID: 0}
-  _openButton: {fileID: 48459745015382139}
   _nameText: {fileID: 1523591983992988546}
+  _descriptionText: {fileID: 1113309076221803985}
+  _priceText: {fileID: 2858941999974611698}
+  _buyButton: {fileID: 48459745015382139}
 --- !u!1 &5172240386521177767
 GameObject:
   m_ObjectHideFlags: 0

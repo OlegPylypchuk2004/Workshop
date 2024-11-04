@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdf943493ebbc6f4eb256a7a493b3b54, type: 3}
-  m_Name: mechanical_shop
+  m_Name: smelter
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Mechanical Shop
-  <Description>k__BackingField: Combines different metals into strong alloys, enhancing
-    their properties for more complex constructions.
-  <IdleStateButtonText>k__BackingField: Start recycling
-  <AtWorkStateButtonText>k__BackingField: Recycling...
+  <Name>k__BackingField: Smelter
+  <Description>k__BackingField: Processes various ores into pure metals for further
+    use in production.
+  <Price>k__BackingField: 25000
+  <IdleStateButtonText>k__BackingField: Start smelting
+  <AtWorkStateButtonText>k__BackingField: Smelting...
   <DoneStateButtonText>k__BackingField: Take

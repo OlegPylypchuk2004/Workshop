@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdf943493ebbc6f4eb256a7a493b3b54, type: 3}
-  m_Name: smelter
+  m_Name: recycler
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Smelter
-  <Description>k__BackingField: Processes various ores into pure metals for further
-    use in production.
-  <IdleStateButtonText>k__BackingField: Start smelting
-  <AtWorkStateButtonText>k__BackingField: Smelting...
+  <Name>k__BackingField: Recycler
+  <Description>k__BackingField: Breaks down unwanted parts into basic materials,
+    returning them to the production cycle.
+  <Price>k__BackingField: 25000
+  <IdleStateButtonText>k__BackingField: Start recycling
+  <AtWorkStateButtonText>k__BackingField: Recycling...
   <DoneStateButtonText>k__BackingField: Take
