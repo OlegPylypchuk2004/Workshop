@@ -379,7 +379,6 @@ MonoBehaviour:
   _iconImage: {fileID: 6700826000105031104}
   _nameText: {fileID: 5193199673841650043}
   _quantityText: {fileID: 4391453492741354997}
-  _priceText: {fileID: 0}
 --- !u!1 &8780900714603697609
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,8 +453,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 3372220415
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
