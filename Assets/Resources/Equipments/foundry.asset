@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: foundry
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Foundry
-  <Description>k__BackingField: Combines different metals into strong alloys, enhancing
-    their properties for more complex constructions.
+  <Description>k__BackingField: Combines various metals to create unique alloys for
+    further use
   <Price>k__BackingField: 25000
   <IdleStateButtonText>k__BackingField: Start recycling
   <AtWorkStateButtonText>k__BackingField: Recycling...

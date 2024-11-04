@@ -23,6 +23,7 @@ public class EquipmentsShopPanel : Panel
         base.Open();
 
         _topBar.SetTitleText("Equipments shop");
+        _topBar.SetCreditsCountViewEnabled(true);
         _navigationBar.gameObject.SetActive(false);
     }
 

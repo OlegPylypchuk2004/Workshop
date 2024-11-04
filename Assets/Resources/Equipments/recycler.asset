@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: recycler
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Recycler
-  <Description>k__BackingField: Breaks down unwanted parts into basic materials,
-    returning them to the production cycle.
+  <Description>k__BackingField: Breaks down unused items into basic components
   <Price>k__BackingField: 25000
   <IdleStateButtonText>k__BackingField: Start recycling
   <AtWorkStateButtonText>k__BackingField: Recycling...

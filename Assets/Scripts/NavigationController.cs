@@ -40,13 +40,13 @@ public class NavigationController : MonoBehaviour
             navigationStack.Clear();
         }
 
-        tab.Open();
-        navigationStack.Push(tab);
-
         _navigationBar.gameObject.SetActive(true);
         _topBar.SetBackButtonEnabled(false);
         _topBar.SetLevelViewEnabled(true);
         _topBar.SetCreditsCountViewEnabled(true);
+
+        tab.Open();
+        navigationStack.Push(tab);
     }
 
     public void OpenPanel(INavigationElement panel)
@@ -54,13 +54,13 @@ public class NavigationController : MonoBehaviour
         if (navigationStack.Count > 0)
             navigationStack.Peek().Close();
 
-        panel.Open();
-        navigationStack.Push(panel);
-
         _navigationBar.gameObject.SetActive(false);
         _topBar.SetBackButtonEnabled(true);
         _topBar.SetLevelViewEnabled(false);
         _topBar.SetCreditsCountViewEnabled(false);
+
+        panel.Open();
+        navigationStack.Push(panel);
     }
 
     public void ClosePanel()
