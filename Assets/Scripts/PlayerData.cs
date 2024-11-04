@@ -50,7 +50,20 @@ public class PlayerData
         }
     }
 
-    public List<EquipmentData> PurchasedEquipments => _purchasedEquipments;
+    public void AddEquipmentToPurchasingEquipmentsList(EquipmentData data)
+    {
+        if (data == null || _purchasedEquipments.Contains(data))
+        {
+            return;
+        }
+
+        _purchasedEquipments.Add(data);
+    }
+
+    public bool IsPurchasedEquipment(EquipmentData data)
+    {        
+        return _purchasedEquipments.Contains(data);
+    }
 
     public void ResetToDefaults()
     {

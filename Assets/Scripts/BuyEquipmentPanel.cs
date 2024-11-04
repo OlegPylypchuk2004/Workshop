@@ -23,7 +23,7 @@ public class BuyEquipmentPanel : MonoBehaviour
         _descriptionText.text = _equipmentData.Description;
         _priceText.text = TextFormatter.FormatValue(equipmentData.Price);
 
-        if (PlayerDataManager.Data.PurchasedEquipments.Contains(_equipmentData))
+        if (PlayerDataManager.Data.IsPurchasedEquipment(_equipmentData))
         {
             _buyButton.interactable = false;
             _buyButtonText.text = "Purchased";
@@ -47,7 +47,7 @@ public class BuyEquipmentPanel : MonoBehaviour
 
     private void OnBuyButtonClicked()
     {
-        if (_equipmentData == null || PlayerDataManager.Data.PurchasedEquipments.Contains(_equipmentData))
+        if (_equipmentData == null || PlayerDataManager.Data.IsPurchasedEquipment(_equipmentData))
         {
             return;
         }
@@ -55,7 +55,7 @@ public class BuyEquipmentPanel : MonoBehaviour
         if (PlayerDataManager.Data.CreditsCount >= _equipmentData.Price)
         {
             PlayerDataManager.Data.CreditsCount -= _equipmentData.Price;
-            PlayerDataManager.Data.PurchasedEquipments.Add(_equipmentData);
+            PlayerDataManager.Data.AddEquipmentToPurchasingEquipmentsList(_equipmentData);
 
             _buyButton.interactable = false;
             _buyButtonText.text = "Purchased";
