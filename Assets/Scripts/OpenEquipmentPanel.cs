@@ -8,6 +8,7 @@ public class OpenEquipmentPanel : MonoBehaviour
     [SerializeField] private Button _button;
     [SerializeField] private EquipmentPanel _panel;
     [SerializeField] private TextMeshProUGUI _nameText;
+    [SerializeField] private EquipmentData _equipmentData;
 
     public event Action<EquipmentPanel> Clicked;
 
@@ -27,4 +28,6 @@ public class OpenEquipmentPanel : MonoBehaviour
     {
         Clicked?.Invoke(_panel);
     }
+
+    public  EquipmentData EquipmentData => _equipmentData;
 }

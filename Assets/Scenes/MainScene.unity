@@ -1230,6 +1230,10 @@ PrefabInstance:
       propertyPath: _panel
       value: 
       objectReference: {fileID: 1493487637}
+    - target: {fileID: 4708196242639726292, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
+      propertyPath: _equipmentData
+      value: 
+      objectReference: {fileID: 11400000, guid: ac91035788b6cab478d2c6477455b638, type: 2}
     - target: {fileID: 5464293618836280419, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
       propertyPath: m_Name
       value: SmelterOpenPanel
@@ -7972,6 +7976,10 @@ PrefabInstance:
       propertyPath: _panel
       value: 
       objectReference: {fileID: 292681937}
+    - target: {fileID: 4708196242639726292, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
+      propertyPath: _equipmentData
+      value: 
+      objectReference: {fileID: 11400000, guid: 37bf7dfc42fa8da4aae831dcced46a32, type: 2}
     - target: {fileID: 5193199673841650043, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
       propertyPath: m_text
       value: Foundry
@@ -13492,6 +13500,10 @@ PrefabInstance:
       propertyPath: _panel
       value: 
       objectReference: {fileID: 1913189895}
+    - target: {fileID: 4708196242639726292, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
+      propertyPath: _equipmentData
+      value: 
+      objectReference: {fileID: 11400000, guid: f8a665bfe5cee234b8557737a41499ce, type: 2}
     - target: {fileID: 5193199673841650043, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
       propertyPath: m_text
       value: Recycler
@@ -16586,6 +16598,10 @@ PrefabInstance:
       propertyPath: _panel
       value: 
       objectReference: {fileID: 1097856655}
+    - target: {fileID: 4708196242639726292, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
+      propertyPath: _equipmentData
+      value: 
+      objectReference: {fileID: 11400000, guid: 379528085dae61247aa345fafcb15dba, type: 2}
     - target: {fileID: 5193199673841650043, guid: d2fcf0e8cac40c341ac3f54b2330ab61, type: 3}
       propertyPath: m_text
       value: Foundry

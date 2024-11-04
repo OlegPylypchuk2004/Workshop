@@ -15,6 +15,8 @@ public class EquipmentTab : Tab
         foreach (OpenEquipmentPanel equipmentPanel in _equipmentPanels)
         {
             equipmentPanel.Clicked += OnDevicePanelClicked;
+
+            equipmentPanel.gameObject.SetActive(PlayerDataManager.Data.IsPurchasedEquipment(equipmentPanel.EquipmentData));
         }
 
         _shopButton.onClick.AddListener(OnShopButtonClicked);
