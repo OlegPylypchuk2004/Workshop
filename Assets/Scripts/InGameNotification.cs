@@ -46,7 +46,7 @@ public class InGameNotification : MonoBehaviour
             _textRectTransform.anchoredPosition = new Vector2(-212.5f, 0f);
         }
 
-        _contentRectTransform.anchoredPosition = new Vector2(500f, _rectTransform.anchoredPosition.y);
+        _contentRectTransform.anchoredPosition = new Vector2(1000f, _rectTransform.anchoredPosition.y);
         _canvasGroup.alpha = 0f;
 
         Sequence sequence = DOTween.Sequence();
