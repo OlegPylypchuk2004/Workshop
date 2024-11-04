@@ -11,9 +11,26 @@ public class InGameNotification : MonoBehaviour
     [SerializeField] private Image _creditsIcon;
     [SerializeField] private Image _experiencePointsIcon;
 
-    public void Initialize(string text, bool isShowCreditsIcon = false, bool isShowExperiencePointsIcon = false)
+    public void Initialize(string text, bool isShowCreditsIcon = false, bool isShowExperiencePointsIcon = false, ColoredTextData[] coloredTexts = null)
     {
-        _text.text = text;
+        if (coloredTexts == null || coloredTexts.Length == 0)
+        {
+            _text.text = text;
+        }
+        else
+        {
+            for (int i = 0; i < coloredTexts.Length; i++)
+            {
+                string finalText = text;
+
+                foreach (ColoredTextData coloredText in coloredTexts)
+                {
+                    finalText = finalText.Replace(coloredText.Text, $"<color=#{ColorUtility.ToHtmlStringRGBA(coloredText.Color)}>{coloredText.Text}</color>");
+                }
+
+                _text.text = finalText;
+            }
+        }
 
         _creditsIcon.gameObject.SetActive(isShowCreditsIcon);
         _experiencePointsIcon.gameObject.SetActive(isShowExperiencePointsIcon);

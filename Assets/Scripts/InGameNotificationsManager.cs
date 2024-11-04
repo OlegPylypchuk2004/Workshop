@@ -5,6 +5,8 @@ public class InGameNotificationsManager : MonoBehaviour
     [SerializeField] private InGameNotification _notificationPrefab;
     [SerializeField] private RectTransform _notificationsParent;
     [SerializeField] private OrdersManager _ordersManager;
+    [SerializeField] private Color _greenNotificationsColor;
+    [SerializeField] private Color _redNotificationsColor;
 
     private void OnEnable()
     {
@@ -90,6 +92,9 @@ public class InGameNotificationsManager : MonoBehaviour
 
     public void ShowEquipmentPurchasedNotification(EquipmentData data)
     {
-        GetNewNotification().Initialize($"{data.Name} purchased");
+        ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
+        coloredTextDatas[0] = new ColoredTextData(data.Name, _greenNotificationsColor);
+
+        GetNewNotification().Initialize($"{data.Name} purchased", coloredTexts: coloredTextDatas);
     }
 }

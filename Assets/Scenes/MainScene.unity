@@ -2371,6 +2371,8 @@ MonoBehaviour:
   _notificationPrefab: {fileID: 3854075073004106344, guid: 28940fe210a25b844938740da7957e7e, type: 3}
   _notificationsParent: {fileID: 1491127037}
   _ordersManager: {fileID: 878350627}
+  _greenNotificationsColor: {r: 0.18039216, g: 0.8, b: 0.44313726, a: 1}
+  _redNotificationsColor: {r: 0.90588236, g: 0.29803923, b: 0.23529412, a: 1}
 --- !u!1 &292681935
 GameObject:
   m_ObjectHideFlags: 0
