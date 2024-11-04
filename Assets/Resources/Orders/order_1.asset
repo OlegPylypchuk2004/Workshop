@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: order_1
   m_EditorClassIdentifier: 
   <CustomerName>k__BackingField: 1
-  <ExperiencePointsPerItem>k__BackingField: 25
+  <ExperiencePointsPerItem>k__BackingField: 5
   <Items>k__BackingField:
   - {fileID: 11400000, guid: 9f69542eac155044fa5120399c6489cf, type: 2}
   - {fileID: 11400000, guid: 1df7f1e3ce55da64c8b0d5df02699175, type: 2}

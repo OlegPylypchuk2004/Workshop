@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameRules : ScriptableObject
 {
     [field: SerializeField, Range(1f, 2f)] public float MarketPricesCoef { get; private set; }
+    [field: SerializeField, Range(1f, 5f)] public float OrderResourcesCountCoef { get; private set; }
     [field: SerializeField, Range(1f, 2f)] public float OrderRewardInCreditsCoef { get; private set; }
     [field: SerializeField, Range(1f, 2f)] public float OrderRewardInExperiencePointsCoef { get; private set; }
     [field: SerializeField, Range(10, 100)] public int FirstLevelExperiencePointsCount { get; private set; }

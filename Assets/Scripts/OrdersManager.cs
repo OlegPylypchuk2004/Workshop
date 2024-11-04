@@ -11,6 +11,7 @@ public class OrdersManager : MonoBehaviour
     private int _maxOrdersCount;
     private float _baseOrdersIncreaseDelay;
     private float _ordersDelayCoef;
+    private float _orderResourcesCountCoef;
 
     public event Action<Order> OrderCreated;
     public event Action<Order> OrderOverdue;
@@ -25,6 +26,7 @@ public class OrdersManager : MonoBehaviour
         _maxOrdersCount = gameRules.MaxOrdersCount;
         _baseOrdersIncreaseDelay = gameRules.BaseOrdersIncreaseDelay;
         _ordersDelayCoef = gameRules.OrdersDelayCoef;
+        _orderResourcesCountCoef = gameRules.OrderResourcesCountCoef;
     }
 
     private void Update()
@@ -53,23 +55,20 @@ public class OrdersManager : MonoBehaviour
     private void CreateOrder()
     {
         OrderData orderData = _orderDatas[UnityEngine.Random.Range(0, _orderDatas.Length)];
-
         List<ItemData> availableItems = new List<ItemData>(orderData.Items);
+        OrderResource[] orderResources = new OrderResource[orderData.Items.Length];
 
-        int orderResourcesCount = UnityEngine.Random.Range(2, Mathf.Min(6, availableItems.Count + 1));
-        OrderResource[] orderResources = new OrderResource[orderResourcesCount];
-
-        for (int j = 0; j < orderResourcesCount; j++)
+        for (int j = 0; j < orderResources.Length; j++)
         {
             int randomIndex = UnityEngine.Random.Range(0, availableItems.Count);
             ItemData randomItemData = availableItems[randomIndex];
             availableItems.RemoveAt(randomIndex);
 
-            int resourcesCount = UnityEngine.Random.Range(1, 26);
+            int resourcesCount = Mathf.RoundToInt(UnityEngine.Random.Range(1, 6) * _orderResourcesCountCoef + LevelManager.GetCurrentLevel() / 5);
             orderResources[j] = new OrderResource(randomItemData, resourcesCount);
         }
 
-        int experiencePoints = orderData.ExperiencePointsPerItem * orderResources.Length;
+        int experiencePoints = Mathf.RoundToInt(orderData.ExperiencePointsPerItem * orderResources.Length);
         Order order = new Order(orderData.CustomerName, experiencePoints, orderResources, orderData.TimeIsSeconds);
         _orders.Add(order);
 
