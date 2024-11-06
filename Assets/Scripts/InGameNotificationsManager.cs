@@ -15,7 +15,7 @@ public class InGameNotificationsManager : MonoBehaviour
 
         PlayerDataManager.Data.CreditsCountIncreased += OnCreditsCountIncreased;
         PlayerDataManager.Data.CreditsCountDecreased += OnCreditsCountDecreased;
-        PlayerDataManager.Data.ExperiencePointsChanged += OnExperiencePointsCountChanged;
+        PlayerDataManager.Data.ExperiencePointsIncreased += OnExperiencePointsCountIncreased;
 
         _ordersManager.OrderCreated += OnOrderCreated;
         _ordersManager.OrderOverdue += OnOrderOverdue;
@@ -29,7 +29,7 @@ public class InGameNotificationsManager : MonoBehaviour
         Storage.ItemRemoved -= OnItemRemoved;
         PlayerDataManager.Data.CreditsCountIncreased -= OnCreditsCountIncreased;
         PlayerDataManager.Data.CreditsCountDecreased -= OnCreditsCountDecreased;
-        PlayerDataManager.Data.ExperiencePointsChanged -= OnExperiencePointsCountChanged;
+        PlayerDataManager.Data.ExperiencePointsIncreased -= OnExperiencePointsCountIncreased;
 
         _ordersManager.OrderCreated -= OnOrderCreated;
         _ordersManager.OrderOverdue -= OnOrderOverdue;
@@ -81,7 +81,7 @@ public class InGameNotificationsManager : MonoBehaviour
         GetNewNotification().Initialize($"{formattedResult}", isShowCreditsIcon: true, coloredTexts: coloredTextDatas);
     }
 
-    private void OnExperiencePointsCountChanged(int count)
+    private void OnExperiencePointsCountIncreased(int count)
     {
         GetNewNotification().Initialize($"+{TextFormatter.FormatValue(count)}", isShowExperiencePointsIcon: true);
     }

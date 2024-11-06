@@ -12,6 +12,7 @@ public class PlayerData
     public event Action<int> CreditsCountIncreased;
     public event Action<int> CreditsCountDecreased;
     public event Action<int> ExperiencePointsChanged;
+    public event Action<int> ExperiencePointsIncreased;
     public event Action<List<EquipmentData>> PurchasedEquipmentsChanged;
 
     public int CreditsCount
@@ -43,10 +44,13 @@ public class PlayerData
         get => _experiencePointsCount;
         set
         {
+            int result = value - _experiencePointsCount;
+
             if (_experiencePointsCount != value)
             {
                 _experiencePointsCount = value;
                 ExperiencePointsChanged?.Invoke(_experiencePointsCount);
+                ExperiencePointsIncreased?.Invoke(result);
             }
         }
     }
