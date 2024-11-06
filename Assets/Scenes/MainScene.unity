@@ -629,6 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 61576931}
+  _sides: -1
 --- !u!1 &70745961
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 70745962}
+  _sides: -1
 --- !u!1001 &81488804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1087,6 +1089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 100986720}
+  _sides: 14
 --- !u!1 &103507213
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,6 +2320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 218596192}
+  _sides: 14
 --- !u!1 &238914507
 GameObject:
   m_ObjectHideFlags: 0
@@ -3293,6 +3297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 400021712}
+  _sides: -1
 --- !u!1 &405069277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3343,6 +3348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 405069278}
+  _sides: -1
 --- !u!1 &405535620
 GameObject:
   m_ObjectHideFlags: 0
@@ -5805,6 +5811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 709581487}
+  _sides: -1
 --- !u!1 &744080187
 GameObject:
   m_ObjectHideFlags: 0
@@ -6443,6 +6450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 777827181}
+  _sides: 14
 --- !u!1 &808670754
 GameObject:
   m_ObjectHideFlags: 0
@@ -7607,6 +7615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 888832273}
+  _sides: 14
 --- !u!1 &912657155
 GameObject:
   m_ObjectHideFlags: 0
@@ -9657,6 +9666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 1082202246}
+  _sides: -1
 --- !u!1 &1085240432
 GameObject:
   m_ObjectHideFlags: 0
@@ -10311,6 +10321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 1108334541}
+  _sides: 14
 --- !u!1 &1111233962
 GameObject:
   m_ObjectHideFlags: 0
@@ -11284,6 +11295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 1252027746}
+  _sides: 14
 --- !u!1 &1253916356
 GameObject:
   m_ObjectHideFlags: 0
@@ -11814,6 +11826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 1339190192}
+  _sides: 14
 --- !u!1 &1339507291
 GameObject:
   m_ObjectHideFlags: 0
@@ -13558,6 +13571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 1556835617}
+  _sides: -1
 --- !u!1 &1558644585
 GameObject:
   m_ObjectHideFlags: 0
@@ -14044,6 +14058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rectTransform: {fileID: 1591969900}
+  _sides: 14
 --- !u!1 &1607128640
 GameObject:
   m_ObjectHideFlags: 0
