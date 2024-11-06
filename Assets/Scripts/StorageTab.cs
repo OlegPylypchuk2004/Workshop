@@ -20,7 +20,8 @@ public class StorageTab : Tab
 
         foreach (var item in Storage.GetAllItems())
         {
-            StoragePanel panel = Instantiate(_panelPrefab, Vector3.zero, Quaternion.identity, _panelsRectTransform);
+            StoragePanel panel = Instantiate(_panelPrefab, _panelsRectTransform);
+            panel.transform.SetSiblingIndex(0);
             panel.Initialize(item.Key, item.Value);
             _panels.Add(panel);
         }

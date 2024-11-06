@@ -24,7 +24,8 @@ public class ItemSelectorPanel : Panel
 
         foreach (var item in Storage.GetAllItems())
         {
-            SelectItemPanel panel = Instantiate(_panelPrefab, Vector3.zero, Quaternion.identity, _panelsRectTransform);
+            SelectItemPanel panel = Instantiate(_panelPrefab, _panelsRectTransform);
+            panel.transform.SetSiblingIndex(0);
             panel.Initialize(item.Key, item.Value);
             panel.SelectButtonClicked += OnItemSelected;
             _panels.Add(panel);
