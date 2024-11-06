@@ -17,6 +17,8 @@ public static class PlayerDataManager
         }
 
         Data.CreditsCountChanged += credits => SaveData();
+        Data.ExperiencePointsChanged += credits => SaveData();
+        Data.PurchasedEquipmentsChanged += credits => SaveData();
     }
 
     public static PlayerData Data { get; private set; }

@@ -12,6 +12,7 @@ public class PlayerData
     public event Action<int> CreditsCountIncreased;
     public event Action<int> CreditsCountDecreased;
     public event Action<int> ExperiencePointsChanged;
+    public event Action<List<EquipmentData>> PurchasedEquipmentsChanged;
 
     public int CreditsCount
     {
@@ -58,6 +59,8 @@ public class PlayerData
         }
 
         _purchasedEquipments.Add(data);
+
+        PurchasedEquipmentsChanged?.Invoke(_purchasedEquipments);
     }
 
     public bool IsPurchasedEquipment(EquipmentData data)
