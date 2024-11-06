@@ -21,6 +21,8 @@ public class LevelView : MonoBehaviour
 
         _progressBarDifferenceFiller.fillAmount = currentLevelPoints / maxLevelPoints;
         _progressBarFiller.fillAmount = currentLevelPoints / maxLevelPoints;
+
+        _progressBarDifferenceFiller.gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -64,11 +66,17 @@ public class LevelView : MonoBehaviour
 
         _progressBarSequence.AppendCallback(() =>
         {
+            _progressBarDifferenceFiller.gameObject.SetActive(true);
             _progressBarDifferenceFiller.fillAmount = currentLevelPoints / maxLevelPoints;
         });
 
         _progressBarSequence.Append(_progressBarFiller.DOFillAmount(currentLevelPoints / maxLevelPoints, 0.25f)
             .SetEase(Ease.OutQuad));
+
+        _progressBarSequence.AppendCallback(() =>
+        {
+            _progressBarDifferenceFiller.gameObject.SetActive(false);
+        });
 
         _progressBarSequence.SetLink(gameObject);
     }
