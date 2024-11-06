@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -9,16 +10,8 @@ public static class PlayerDataManager
     static PlayerDataManager()
     {
         Data = new PlayerData();
-
-        if (File.Exists(filePath))
-        {
-            string json = File.ReadAllText(filePath);
-            Data = JsonUtility.FromJson<PlayerData>(json);
-        }
-
-        Data.CreditsCountChanged += credits => SaveData();
-        Data.ExperiencePointsChanged += credits => SaveData();
-        Data.PurchasedEquipmentsChanged += credits => SaveData();
+        LoadData();
+        AttachEventHandlers();
     }
 
     public static PlayerData Data { get; private set; }
@@ -27,6 +20,30 @@ public static class PlayerDataManager
     {
         string json = JsonUtility.ToJson(Data);
         File.WriteAllText(filePath, json);
+    }
+
+    private static void LoadData()
+    {
+        if (File.Exists(filePath))
+        {
+            try
+            {
+                string json = File.ReadAllText(filePath);
+                Data = JsonUtility.FromJson<PlayerData>(json);
+            }
+            catch (Exception exception)
+            {
+                Debug.LogError($"Error loading data: {exception.Message}");
+                Data = new PlayerData();
+            }
+        }
+    }
+
+    private static void AttachEventHandlers()
+    {
+        Data.CreditsCountChanged += credits => SaveData();
+        Data.ExperiencePointsChanged += experience => SaveData();
+        Data.PurchasedEquipmentsChanged += equipments => SaveData();
     }
 
     public static void ResetToDefaults()

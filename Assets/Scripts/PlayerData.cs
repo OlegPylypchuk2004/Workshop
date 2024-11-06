@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class PlayerData
 {
-    private int _creditsCount = 10000;
-    private int _experiencePointsCount = 0;
-    private List<EquipmentData> _purchasedEquipments = new List<EquipmentData>();
+    [SerializeField] private int _creditsCount = 10000;
+    [SerializeField] private int _experiencePointsCount = 0;
+    [SerializeField] private List<EquipmentData> _purchasedEquipments = new List<EquipmentData>();
 
     public event Action<int> CreditsCountChanged;
     public event Action<int> CreditsCountIncreased;
@@ -44,13 +45,16 @@ public class PlayerData
         get => _experiencePointsCount;
         set
         {
-            int result = value - _experiencePointsCount;
-
             if (_experiencePointsCount != value)
             {
+                int result = value - _experiencePointsCount;
                 _experiencePointsCount = value;
                 ExperiencePointsChanged?.Invoke(_experiencePointsCount);
-                ExperiencePointsIncreased?.Invoke(result);
+
+                if (result > 0)
+                {
+                    ExperiencePointsIncreased?.Invoke(result);
+                }
             }
         }
     }
@@ -63,12 +67,11 @@ public class PlayerData
         }
 
         _purchasedEquipments.Add(data);
-
         PurchasedEquipmentsChanged?.Invoke(_purchasedEquipments);
     }
 
     public bool IsPurchasedEquipment(EquipmentData data)
-    {        
+    {
         return _purchasedEquipments.Contains(data);
     }
 
@@ -77,5 +80,6 @@ public class PlayerData
         CreditsCount = 10000;
         ExperiencePointsCount = 0;
         _purchasedEquipments = new List<EquipmentData>();
+        PurchasedEquipmentsChanged?.Invoke(_purchasedEquipments);
     }
 }
