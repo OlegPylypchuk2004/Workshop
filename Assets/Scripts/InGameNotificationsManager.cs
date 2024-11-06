@@ -66,7 +66,7 @@ public class InGameNotificationsManager : MonoBehaviour
         string formattedResult = TextFormatter.FormatValue(result);
 
         ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
-        coloredTextDatas[0] = new ColoredTextData(formattedResult, _greenNotificationsColor);
+        coloredTextDatas[0] = new ColoredTextData($"+{formattedResult}", _greenNotificationsColor);
 
         GetNewNotification().Initialize($"+{formattedResult}", isShowCreditsIcon: true, coloredTexts: coloredTextDatas);
     }
@@ -83,18 +83,13 @@ public class InGameNotificationsManager : MonoBehaviour
 
     private void OnExperiencePointsCountChanged(int count)
     {
-        string formattedCount = TextFormatter.FormatValue(count);
-
-        ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
-        coloredTextDatas[0] = new ColoredTextData(formattedCount, _greenNotificationsColor);
-
-        GetNewNotification().Initialize($"+{formattedCount}", isShowExperiencePointsIcon: true, coloredTexts: coloredTextDatas);
+        GetNewNotification().Initialize($"+{TextFormatter.FormatValue(count)}", isShowExperiencePointsIcon: true);
     }
 
     private void OnOrderCreated(Order order)
     {
         ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
-        coloredTextDatas[0] = new ColoredTextData("order", _greenNotificationsColor);
+        coloredTextDatas[0] = new ColoredTextData("New", _greenNotificationsColor);
 
         GetNewNotification().Initialize($"New order", coloredTexts: coloredTextDatas);
     }
@@ -102,7 +97,7 @@ public class InGameNotificationsManager : MonoBehaviour
     private void OnOrderOverdue(Order order)
     {
         ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
-        coloredTextDatas[0] = new ColoredTextData("Order", _redNotificationsColor);
+        coloredTextDatas[0] = new ColoredTextData("overdue", _redNotificationsColor);
 
         GetNewNotification().Initialize($"Order is overdue", coloredTexts: coloredTextDatas);
     }
@@ -110,7 +105,7 @@ public class InGameNotificationsManager : MonoBehaviour
     private void OnOrderSubmitted(Order order)
     {
         ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
-        coloredTextDatas[0] = new ColoredTextData("Order", _greenNotificationsColor);
+        coloredTextDatas[0] = new ColoredTextData("completed", _greenNotificationsColor);
 
         GetNewNotification().Initialize($"Order is completed", coloredTexts: coloredTextDatas);
     }
@@ -118,7 +113,7 @@ public class InGameNotificationsManager : MonoBehaviour
     private void OnOrderRejected(Order order)
     {
         ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
-        coloredTextDatas[0] = new ColoredTextData("Order", _redNotificationsColor);
+        coloredTextDatas[0] = new ColoredTextData("rejected", _redNotificationsColor);
 
         GetNewNotification().Initialize($"Order is rejected", coloredTexts: coloredTextDatas);
     }
@@ -126,7 +121,7 @@ public class InGameNotificationsManager : MonoBehaviour
     public void ShowEquipmentPurchasedNotification(EquipmentData data)
     {
         ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
-        coloredTextDatas[0] = new ColoredTextData(data.Name, _greenNotificationsColor);
+        coloredTextDatas[0] = new ColoredTextData("purchased", _greenNotificationsColor);
 
         GetNewNotification().Initialize($"{data.Name} purchased", coloredTexts: coloredTextDatas);
     }
