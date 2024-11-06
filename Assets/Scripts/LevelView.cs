@@ -1,13 +1,15 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class LevelView : MonoBehaviour
+public class LevelView : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private TextMeshProUGUI _levelNumberText;
     [SerializeField] private Image _progressBarDifferenceFiller;
     [SerializeField] private Image _progressBarFiller;
+    [SerializeField] private StatisticsPanel _statisticsPanel;
 
     private Sequence _progressBarSequence;
     private float _lastProgressBarValue;
@@ -79,5 +81,10 @@ public class LevelView : MonoBehaviour
         });
 
         _progressBarSequence.SetLink(gameObject);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        NavigationController.Instance.OpenPanel(_statisticsPanel);
     }
 }
