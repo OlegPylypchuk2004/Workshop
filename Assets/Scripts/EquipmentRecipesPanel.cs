@@ -5,14 +5,17 @@ using UnityEngine.UI;
 
 public class EquipmentRecipesPanel : MonoBehaviour
 {
-    [SerializeField] private EquipmentData _equipmentData;
     [SerializeField] private Button _openButton;
     [SerializeField] private TextMeshProUGUI _nameText;
 
+    private EquipmentData _equipmentData;
+
     public event Action<EquipmentData> Chosen;
 
-    private void Awake()
+    public void Initialize(EquipmentData equipmentData)
     {
+        _equipmentData = equipmentData;
+
         _nameText.text = _equipmentData.Name;
     }
 

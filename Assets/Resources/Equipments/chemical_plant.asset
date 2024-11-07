@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: chemical_plant
   m_EditorClassIdentifier: 
   <Icon>k__BackingField: {fileID: 0}
-  <Name>k__BackingField: Smelter
+  <Name>k__BackingField: Chemical Plant
   <Description>k__BackingField: Produces acids, solvents, and compounds for advanced
     production
   <Price>k__BackingField: 500
