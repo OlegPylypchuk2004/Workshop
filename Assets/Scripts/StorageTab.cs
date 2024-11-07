@@ -56,12 +56,7 @@ public class StorageTab : Tab
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Storage.AddItem(Resources.Load<ItemData>("Items/iron_ore"));
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            Storage.AddItem(Resources.Load<ItemData>("Items/carbon"));
+            PlayerDataManager.Data.ExperiencePointsCount += Random.Range(25, 50);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
