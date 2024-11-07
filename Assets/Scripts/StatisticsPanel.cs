@@ -34,7 +34,7 @@ public class StatisticsPanel : Panel
 
         float currentValue = 0f;
 
-        DOTween.To(() => currentValue, x => currentValue = x, currentLevelPoints, 0.25f)
+        DOTween.To(() => currentValue, x => currentValue = x, currentLevelPoints, 0.5f)
             .SetEase(Ease.OutQuad)
             .SetDelay(0.25f)
             .OnUpdate(() =>
