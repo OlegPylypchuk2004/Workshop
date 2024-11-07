@@ -9,6 +9,7 @@ public class StatisticsPanel : Panel
     [SerializeField] private TextMeshProUGUI _levelNumberText;
     [SerializeField] private TextMeshProUGUI _experiencePointsText;
     [SerializeField] private RectTransform _circleRectTransform;
+    [SerializeField] private RectTransform _circleRectTransformBackground;
 
     public override void Open()
     {
@@ -29,6 +30,7 @@ public class StatisticsPanel : Panel
         _progressBarFiller.fillAmount = currentLevelPoints / maxLevelPoints;
 
         _circleRectTransform.eulerAngles = new Vector3(0f, 0f, currentLevelPoints / maxLevelPoints * -360f + 180f);
+        _circleRectTransformBackground.localEulerAngles = new Vector3(0f, 0f, _circleRectTransform.eulerAngles.z * -1f);
 
         _experiencePointsText.text = $"{currentLevelPoints} / {maxLevelPoints}";
     }

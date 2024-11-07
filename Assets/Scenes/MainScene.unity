@@ -19457,6 +19457,7 @@ MonoBehaviour:
   _levelNumberText: {fileID: 648832100}
   _experiencePointsText: {fileID: 726596450}
   _circleRectTransform: {fileID: 1652731738}
+  _circleRectTransformBackground: {fileID: 1815992463}
 --- !u!1001 &2042488767
 PrefabInstance:
   m_ObjectHideFlags: 0
