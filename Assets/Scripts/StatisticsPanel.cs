@@ -1,15 +1,14 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class StatisticsPanel : Panel
 {
     [SerializeField] private TopBar _topBar;
-    [SerializeField] private Image _progressBarFiller;
     [SerializeField] private TextMeshProUGUI _levelNumberText;
     [SerializeField] private TextMeshProUGUI _experiencePointsText;
-    [SerializeField] private RectTransform _circleRectTransform;
-    [SerializeField] private RectTransform _circleRectTransformBackground;
+    [SerializeField] private RadialProgressBar _radialProgressBar;
+    [SerializeField] private RadialProgressBar _targetRadialProgressBar;
 
     public override void Open()
     {
@@ -27,11 +26,21 @@ public class StatisticsPanel : Panel
         float currentLevelPoints = LevelManager.GetCurrentLevelPoints();
         float maxLevelPoints = LevelManager.GetPointsForNextLevel() + LevelManager.GetCurrentLevelPoints();
 
-        _progressBarFiller.fillAmount = currentLevelPoints / maxLevelPoints;
+        _experiencePointsText.text = $"{0} / {maxLevelPoints}";
 
-        _circleRectTransform.eulerAngles = new Vector3(0f, 0f, currentLevelPoints / maxLevelPoints * -360f + 180f);
-        _circleRectTransformBackground.localEulerAngles = new Vector3(0f, 0f, _circleRectTransform.eulerAngles.z * -1f);
+        _targetRadialProgressBar.UpdateView(currentLevelPoints, maxLevelPoints);
 
-        _experiencePointsText.text = $"{currentLevelPoints} / {maxLevelPoints}";
+        _radialProgressBar.UpdateView(0f, 1f);
+
+        float currentValue = 0f;
+
+        DOTween.To(() => currentValue, x => currentValue = x, currentLevelPoints, 0.25f)
+            .SetEase(Ease.OutQuad)
+            .SetDelay(0.25f)
+            .OnUpdate(() =>
+            {
+                _radialProgressBar.UpdateView(currentValue, maxLevelPoints);
+                _experiencePointsText.text = $"{Mathf.RoundToInt(currentValue)} / {maxLevelPoints}";
+            });
     }
 }
