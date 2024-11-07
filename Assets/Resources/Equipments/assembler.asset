@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Icon>k__BackingField: {fileID: 0}
   <Name>k__BackingField: Assembler
-  <Description>k__BackingField: Processes ores into pure metals for production use
-  <Price>k__BackingField: 2500
-  <IdleStateButtonText>k__BackingField: Start smelting
-  <AtWorkStateButtonText>k__BackingField: Smelting...
+  <Description>k__BackingField: Combines parts to create complex machines and equipment
+  <Price>k__BackingField: 500
+  <IdleStateButtonText>k__BackingField: Start assembling
+  <AtWorkStateButtonText>k__BackingField: Assembling...
   <DoneStateButtonText>k__BackingField: Take

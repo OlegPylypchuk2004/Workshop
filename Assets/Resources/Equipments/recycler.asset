@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf943493ebbc6f4eb256a7a493b3b54, type: 3}
   m_Name: recycler
   m_EditorClassIdentifier: 
+  <Icon>k__BackingField: {fileID: 0}
   <Name>k__BackingField: Recycler
   <Description>k__BackingField: Breaks down unused items into basic components
-  <Price>k__BackingField: 2500
+  <Price>k__BackingField: 500
   <IdleStateButtonText>k__BackingField: Start recycling
   <AtWorkStateButtonText>k__BackingField: Recycling...
   <DoneStateButtonText>k__BackingField: Take

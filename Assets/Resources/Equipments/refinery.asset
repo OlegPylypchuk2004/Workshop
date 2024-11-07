@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Icon>k__BackingField: {fileID: 0}
   <Name>k__BackingField: Refinery
-  <Description>k__BackingField: Processes ores into pure metals for production use
-  <Price>k__BackingField: 2500
-  <IdleStateButtonText>k__BackingField: Start smelting
-  <AtWorkStateButtonText>k__BackingField: Smelting...
+  <Description>k__BackingField: Refines crude oil into fuels, plastics, and rubber
+    for industrial use
+  <Price>k__BackingField: 500
+  <IdleStateButtonText>k__BackingField: Start refining
+  <AtWorkStateButtonText>k__BackingField: Refining...
   <DoneStateButtonText>k__BackingField: Take

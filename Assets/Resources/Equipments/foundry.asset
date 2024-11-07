@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf943493ebbc6f4eb256a7a493b3b54, type: 3}
   m_Name: foundry
   m_EditorClassIdentifier: 
+  <Icon>k__BackingField: {fileID: 0}
   <Name>k__BackingField: Foundry
   <Description>k__BackingField: Combines various metals to create unique alloys for
     further use
-  <Price>k__BackingField: 2500
-  <IdleStateButtonText>k__BackingField: Start recycling
-  <AtWorkStateButtonText>k__BackingField: Recycling...
+  <Price>k__BackingField: 500
+  <IdleStateButtonText>k__BackingField: Start casting
+  <AtWorkStateButtonText>k__BackingField: Casting...
   <DoneStateButtonText>k__BackingField: Take
