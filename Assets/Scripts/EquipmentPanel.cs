@@ -261,7 +261,7 @@ public class EquipmentPanel : Panel
 
             if (isActiveAndEnabled)
             {
-                _timerText.text = TextFormatter.FormatTime(remainingTime);
+                _timerText.text = TextFormatter.FormatTime(remainingTime, true);
                 _slider.value = elapsedTime / workTime;
             }
 

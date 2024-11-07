@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class TextFormatter
 {
-    public static string FormatTime(float timeInSeconds)
+    public static string FormatTime(float timeInSeconds, bool includeMilliseconds = false)
     {
         if (timeInSeconds < 0f)
         {
@@ -14,6 +14,7 @@ public static class TextFormatter
         int hours = Mathf.FloorToInt((timeInSeconds % 86400) / 3600);
         int minutes = Mathf.FloorToInt((timeInSeconds % 3600) / 60);
         int seconds = Mathf.FloorToInt(timeInSeconds % 60);
+        int milliseconds = Mathf.FloorToInt((timeInSeconds - Mathf.Floor(timeInSeconds)) * 1000);
 
         string result = "";
 
@@ -32,6 +33,11 @@ public static class TextFormatter
         if (seconds > 0 || result == "")
         {
             result += $"{seconds}s";
+        }
+
+        if (includeMilliseconds)
+        {
+            result += $" {milliseconds / 100}ms";
         }
 
         return result.Trim();
