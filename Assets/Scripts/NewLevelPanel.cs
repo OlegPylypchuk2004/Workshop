@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NewLevelPanel : Panel
 {
@@ -10,6 +11,7 @@ public class NewLevelPanel : Panel
     [SerializeField] private TextMeshProUGUI _newItemsText;
     [SerializeField] private TextMeshProUGUI _newRecipesText;
     [SerializeField] private TextMeshProUGUI _newEquipmentsText;
+    [SerializeField] private Button _continueButton;
 
     private List<NewLevelItemPanel> _panels = new List<NewLevelItemPanel>();
 
@@ -18,6 +20,20 @@ public class NewLevelPanel : Panel
         base.Open();
 
         UpdateView();
+
+        _continueButton.onClick.AddListener(OnContinueButtonClicked);
+    }
+
+    public override void Close()
+    {
+        base.Close();
+
+        _continueButton.onClick.RemoveAllListeners();
+    }
+
+    private void OnContinueButtonClicked()
+    {
+        OnCloseButtonClicked();
     }
 
     private void UpdateView()
