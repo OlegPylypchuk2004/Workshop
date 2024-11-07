@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewEquipmentData", menuName = "Data/Equipment")]
 public class EquipmentData : ScriptableObject
 {
+    [field: SerializeField] public Sprite Icon { get; private set; }
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public string Description { get; private set; }
     [field: SerializeField] public int Price { get; private set; }
