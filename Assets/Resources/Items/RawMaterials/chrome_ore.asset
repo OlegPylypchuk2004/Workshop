@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Icon>k__BackingField: {fileID: 21300000, guid: 8ed4b82931e1e5d4d8522fed78106458, type: 3}
   <Name>k__BackingField: Chrome ore
-  <Price>k__BackingField: 10
+  <Price>k__BackingField: 3
   <Type>k__BackingField: 0
