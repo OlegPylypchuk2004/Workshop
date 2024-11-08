@@ -16,7 +16,6 @@ MonoBehaviour:
   <Name>k__BackingField: Electronics Factory
   <Description>k__BackingField: Processes ores into pure metals for production use
   <Price>k__BackingField: 500
-  <IdleStateButtonText>k__BackingField: Crafts electronic components for high-tech
-    machinery and devices
+  <IdleStateButtonText>k__BackingField: Start producing
   <AtWorkStateButtonText>k__BackingField: Producing...
   <DoneStateButtonText>k__BackingField: Take
