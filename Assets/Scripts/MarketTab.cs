@@ -20,7 +20,7 @@ public class MarketTab : Tab
 
     private void InitializeGoods()
     {
-        _itemDatas = Resources.LoadAll<ItemData>("Items/RawMaterials");
+        _itemDatas = Resources.LoadAll<ItemData>("Items/AvailableInStore");
         int goodsCount = _itemDatas.Length;
 
         for (int i = 0; i < goodsCount; i++)

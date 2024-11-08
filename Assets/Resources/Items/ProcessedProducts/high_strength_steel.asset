@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e76c158e0827ab4593f6c18db00294a, type: 3}
   m_Name: high_strength_steel
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: be76b01d01ff4ba4ba7f6fb37902407a, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: cb635baa312815a4683f339e5fa72484, type: 3}
   <Name>k__BackingField: Hight strength steel
   <Price>k__BackingField: 60
   <Type>k__BackingField: 1

@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb797403deaf8834da7283273d2a1528, type: 3}
   m_Name: supplements_recipe
   m_EditorClassIdentifier: 
-  <Ingredients>k__BackingField: []
+  <Ingredients>k__BackingField:
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 9a5403bfdf9186d4db587d0ada08a3de, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: fe68e20df456eb44188090eb64b7b434, type: 2}
+    <Quantity>k__BackingField: 1
   <Time>k__BackingField: 0
   <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
+    <ItemData>k__BackingField: {fileID: 11400000, guid: 6b09564f46f9a3747b274ae08a5eb392, type: 2}
+    <Quantity>k__BackingField: 1

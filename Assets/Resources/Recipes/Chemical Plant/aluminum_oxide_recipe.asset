@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb797403deaf8834da7283273d2a1528, type: 3}
   m_Name: aluminum_oxide_recipe
   m_EditorClassIdentifier: 
-  <Ingredients>k__BackingField: []
+  <Ingredients>k__BackingField:
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 36031326a75d83040856215f602a1cb5, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 0fd7171ff1cafa74082ddbb0208a602b, type: 2}
+    <Quantity>k__BackingField: 1
   <Time>k__BackingField: 0
   <Result>k__BackingField:
     <ItemData>k__BackingField: {fileID: 0}
