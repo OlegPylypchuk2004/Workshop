@@ -8,7 +8,6 @@ public class StatisticsPanel : Panel
     [SerializeField] private TextMeshProUGUI _levelNumberText;
     [SerializeField] private TextMeshProUGUI _experiencePointsText;
     [SerializeField] private RadialProgressBar _radialProgressBar;
-    [SerializeField] private RadialProgressBar _targetRadialProgressBar;
 
     public override void Open()
     {
@@ -28,15 +27,12 @@ public class StatisticsPanel : Panel
 
         _experiencePointsText.text = $"{0} / {maxLevelPoints}";
 
-        _targetRadialProgressBar.UpdateView(currentLevelPoints, maxLevelPoints);
-
         _radialProgressBar.UpdateView(0f, 1f);
 
         float currentValue = 0f;
 
         DOTween.To(() => currentValue, x => currentValue = x, currentLevelPoints, 0.5f)
             .SetEase(Ease.OutQuad)
-            .SetDelay(0.25f)
             .OnUpdate(() =>
             {
                 _radialProgressBar.UpdateView(currentValue, maxLevelPoints);
