@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb797403deaf8834da7283273d2a1528, type: 3}
-  m_Name: sheets_of_iron_recipe
+  m_Name: iron_plates_recipe
   m_EditorClassIdentifier: 
   <Ingredients>k__BackingField:
   - <ItemData>k__BackingField: {fileID: 11400000, guid: 9f69542eac155044fa5120399c6489cf, type: 2}

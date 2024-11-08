@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e76c158e0827ab4593f6c18db00294a, type: 3}
-  m_Name: sheets_of_iron
+  m_Script: {fileID: 11500000, guid: bb797403deaf8834da7283273d2a1528, type: 3}
+  m_Name: phosphatic_acid_recipe
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: e0dbd72d46f20da43a0fab5ae64d6986, type: 3}
-  <Name>k__BackingField: Sheets of iron
-  <Price>k__BackingField: 25
-  <Type>k__BackingField: 2
+  <Ingredients>k__BackingField: []
+  <Time>k__BackingField: 0
+  <Result>k__BackingField:
+    <ItemData>k__BackingField: {fileID: 0}
+    <Quantity>k__BackingField: 0
