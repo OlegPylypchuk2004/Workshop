@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb797403deaf8834da7283273d2a1528, type: 3}
   m_Name: electric_motor_recipe
   m_EditorClassIdentifier: 
-  <Ingredients>k__BackingField: []
+  <Ingredients>k__BackingField:
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: dfff5f0e96b8fb94fab1f49f7203e34d, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 3a3a0d3f9d227074eb0fd0bcb370ac72, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 97a8c37da4a06c546af9f4ac75f71619, type: 2}
+    <Quantity>k__BackingField: 2
   <Time>k__BackingField: 0
   <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
+    <ItemData>k__BackingField: {fileID: 11400000, guid: 1825b2d7fdc9283478222304712c2e51, type: 2}
+    <Quantity>k__BackingField: 1

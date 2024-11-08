@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb797403deaf8834da7283273d2a1528, type: 3}
   m_Name: accumulator_battery_recipe
   m_EditorClassIdentifier: 
-  <Ingredients>k__BackingField: []
+  <Ingredients>k__BackingField:
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 592b2e25bbbd7e9459583ff13499441a, type: 2}
+    <Quantity>k__BackingField: 2
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 14765d16b14d9904497fd6fb971b4be0, type: 2}
+    <Quantity>k__BackingField: 2
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: c9f304b9cb8a38e4e84fd95d3feb474e, type: 2}
+    <Quantity>k__BackingField: 1
   <Time>k__BackingField: 0
   <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
+    <ItemData>k__BackingField: {fileID: 11400000, guid: d7f249326620e7140b6fc992fc5f8072, type: 2}
+    <Quantity>k__BackingField: 1

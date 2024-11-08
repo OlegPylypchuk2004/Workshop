@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb797403deaf8834da7283273d2a1528, type: 3}
   m_Name: hydraulic_pump_recipe
   m_EditorClassIdentifier: 
-  <Ingredients>k__BackingField: []
+  <Ingredients>k__BackingField:
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 7dca5db73bb6d0a4ea10e8a359da34f8, type: 2}
+    <Quantity>k__BackingField: 2
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 2a7f96f3d61e88a48bc408fc790a58a2, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 7642844977643414e96090832d7f5716, type: 2}
+    <Quantity>k__BackingField: 1
   <Time>k__BackingField: 0
   <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
+    <ItemData>k__BackingField: {fileID: 11400000, guid: 4b25d24017a124740a0876faccb58e2b, type: 2}
+    <Quantity>k__BackingField: 1
