@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Linq;
 using TMPro;
@@ -23,6 +24,10 @@ public class EquipmentPanel : Panel
     private SetItemSlot _clickedSetItemSlot;
     private EquipmentState _state;
     private int _resultItemsQuantity;
+
+    public event Action WorkStarted;
+    public event Action WorkCompleted;
+    public event Action<float, float> WorkTimeChanged;
 
     private void OnDestroy()
     {
@@ -248,6 +253,8 @@ public class EquipmentPanel : Panel
 
     private IEnumerator WorkCoroutine()
     {
+        WorkStarted?.Invoke();
+
         float workTime = _currentRecipe.Time * _resultItemSlot.GetItemQuantity();
         float elapsedTime = 0f;
 
@@ -265,6 +272,8 @@ public class EquipmentPanel : Panel
                 _slider.value = elapsedTime / workTime;
             }
 
+            WorkTimeChanged?.Invoke(elapsedTime, workTime);
+
             yield return null;
         }
 
@@ -274,6 +283,8 @@ public class EquipmentPanel : Panel
         _state = EquipmentState.Done;
 
         UpdateState();
+
+        WorkCompleted?.Invoke();
     }
 
     private void UpdateState()
