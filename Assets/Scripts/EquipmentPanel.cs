@@ -18,6 +18,7 @@ public class EquipmentPanel : Panel
     [SerializeField] private Slider _slider;
     [SerializeField] private RecipesListPanel _recipesListPanel;
     [SerializeField] private Button _recipesButton;
+    [SerializeField] private InGameNotificationsManager _inGameNotificationsManager;
 
     private Recipe[] _recipes;
     private Recipe _currentRecipe;
@@ -283,6 +284,8 @@ public class EquipmentPanel : Panel
         _state = EquipmentState.Done;
 
         UpdateState();
+
+        _inGameNotificationsManager.ShowEquipmentWorkCompletedNotification(_data);
 
         WorkCompleted?.Invoke();
     }

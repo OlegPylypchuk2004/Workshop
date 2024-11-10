@@ -3934,6 +3934,7 @@ MonoBehaviour:
   _slider: {fileID: 1620665756}
   _recipesListPanel: {fileID: 1087364688}
   _recipesButton: {fileID: 2025601424}
+  _inGameNotificationsManager: {fileID: 262016693}
 --- !u!1 &315207856
 GameObject:
   m_ObjectHideFlags: 0
@@ -4523,6 +4524,7 @@ MonoBehaviour:
   _slider: {fileID: 1823930881}
   _recipesListPanel: {fileID: 1087364688}
   _recipesButton: {fileID: 1313683836}
+  _inGameNotificationsManager: {fileID: 262016693}
 --- !u!1 &355266900
 GameObject:
   m_ObjectHideFlags: 0
@@ -6549,6 +6551,7 @@ MonoBehaviour:
   _slider: {fileID: 1293592196}
   _recipesListPanel: {fileID: 1087364688}
   _recipesButton: {fileID: 335169614}
+  _inGameNotificationsManager: {fileID: 262016693}
 --- !u!1 &446221281
 GameObject:
   m_ObjectHideFlags: 0
@@ -18192,6 +18195,7 @@ MonoBehaviour:
   _slider: {fileID: 623658740}
   _recipesListPanel: {fileID: 1087364688}
   _recipesButton: {fileID: 865433675}
+  _inGameNotificationsManager: {fileID: 262016693}
 --- !u!1001 &1100671001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19801,6 +19805,7 @@ MonoBehaviour:
   _slider: {fileID: 1079058246}
   _recipesListPanel: {fileID: 1087364688}
   _recipesButton: {fileID: 960307920}
+  _inGameNotificationsManager: {fileID: 262016693}
 --- !u!1 &1232604707
 GameObject:
   m_ObjectHideFlags: 0
@@ -24595,6 +24600,7 @@ MonoBehaviour:
   _slider: {fileID: 1086092977}
   _recipesListPanel: {fileID: 1087364688}
   _recipesButton: {fileID: 966262763}
+  _inGameNotificationsManager: {fileID: 262016693}
 --- !u!1001 &1494277199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28303,6 +28309,7 @@ MonoBehaviour:
   _slider: {fileID: 1938366403}
   _recipesListPanel: {fileID: 1087364688}
   _recipesButton: {fileID: 364047719}
+  _inGameNotificationsManager: {fileID: 262016693}
 --- !u!1 &1715194292
 GameObject:
   m_ObjectHideFlags: 0
@@ -31855,6 +31862,7 @@ MonoBehaviour:
   _slider: {fileID: 2072332529}
   _recipesListPanel: {fileID: 1087364688}
   _recipesButton: {fileID: 1625734736}
+  _inGameNotificationsManager: {fileID: 262016693}
 --- !u!1 &1918061930
 GameObject:
   m_ObjectHideFlags: 0
@@ -33659,6 +33667,7 @@ MonoBehaviour:
   _slider: {fileID: 967368485}
   _recipesListPanel: {fileID: 1087364688}
   _recipesButton: {fileID: 1244112441}
+  _inGameNotificationsManager: {fileID: 262016693}
 --- !u!1 &2000664889
 GameObject:
   m_ObjectHideFlags: 0

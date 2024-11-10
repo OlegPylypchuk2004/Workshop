@@ -125,4 +125,12 @@ public class InGameNotificationsManager : MonoBehaviour
 
         GetNewNotification().Initialize($"{data.Name} purchased", coloredTexts: coloredTextDatas);
     }
+
+    public void ShowEquipmentWorkCompletedNotification(EquipmentData equipmentData)
+    {
+        ColoredTextData[] coloredTextDatas = new ColoredTextData[1];
+        coloredTextDatas[0] = new ColoredTextData($"{equipmentData.Name}", _greenNotificationsColor);
+
+        GetNewNotification().Initialize($"{equipmentData.Name} work completed", coloredTexts: coloredTextDatas);
+    }
 }
