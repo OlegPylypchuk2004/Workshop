@@ -407,6 +407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneLoadingTransition
       objectReference: {fileID: 0}
+    - target: {fileID: 4557672654324735317, guid: 8e85cbf9485a5e34784459f4f3de5f36, type: 3}
+      propertyPath: m_Name
+      value: Text
+      objectReference: {fileID: 0}
     - target: {fileID: 7487022176001695729, guid: 8e85cbf9485a5e34784459f4f3de5f36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

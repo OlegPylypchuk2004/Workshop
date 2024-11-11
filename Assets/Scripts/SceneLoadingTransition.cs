@@ -7,6 +7,7 @@ public class SceneLoadingTransition : MonoBehaviour
     [SerializeField] private Image _backgroundImage;
     [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private Slider _slider;
+    [SerializeField] private TextDotsAnimator _textDotsAnimator;
 
     public static SceneLoadingTransition Instance { get; private set; }
 
@@ -48,6 +49,8 @@ public class SceneLoadingTransition : MonoBehaviour
             _backgroundImage.color = new Color(_backgroundImage.color.r, _backgroundImage.color.g, _backgroundImage.color.b, 0f);
             _canvasGroup.alpha = 0f;
             _slider.value = 0f;
+
+            _textDotsAnimator.PlayAnimation();
         });
 
         transitionSequence.Append(_backgroundImage.DOFade(1f, 0.125f)
@@ -81,6 +84,8 @@ public class SceneLoadingTransition : MonoBehaviour
             {
                 UILocker.Instance.Unlock();
             }
+
+            _textDotsAnimator.StopAnimation();
         });
     }
 }
