@@ -29,12 +29,14 @@ public class LevelUpChecker : MonoBehaviour
         {
             _cashedLevel = level;
 
+            UILocker.Instance.Lock();
             Invoke(nameof(OpenNewLevelPanel), 0.5f);
         }
     }
 
     private void OpenNewLevelPanel()
     {
+        UILocker.Instance.Unlock();
         NavigationController.Instance.OpenPanel(_newLevelPanel);
     }
 }
