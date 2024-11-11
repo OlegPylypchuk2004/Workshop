@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: acid_recipe
   m_EditorClassIdentifier: 
   <Ingredients>k__BackingField:
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 01da3ed947025ac4ab105db1c7f435f6, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 0751cc3f0f46b9341abfce44dcb584bb, type: 2}
+    <Quantity>k__BackingField: 1
   - <ItemData>k__BackingField: {fileID: 0}
     <Quantity>k__BackingField: 0
-  - <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
-  <Time>k__BackingField: 0
+  <Time>k__BackingField: 1
   <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
+    <ItemData>k__BackingField: {fileID: 11400000, guid: 9a5403bfdf9186d4db587d0ada08a3de, type: 2}
+    <Quantity>k__BackingField: 1

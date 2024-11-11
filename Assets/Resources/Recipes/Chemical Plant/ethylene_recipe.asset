@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: ethylene_recipe
   m_EditorClassIdentifier: 
   <Ingredients>k__BackingField:
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: c0f59faf2b5b9a248a1b28b8f1b682a6, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 3a001cb51a6d0634ca8dc607e62aa17a, type: 2}
+    <Quantity>k__BackingField: 1
   - <ItemData>k__BackingField: {fileID: 0}
     <Quantity>k__BackingField: 0
-  - <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
-  <Time>k__BackingField: 0
+  <Time>k__BackingField: 1
   <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
+    <ItemData>k__BackingField: {fileID: 11400000, guid: be424ed10dc8cf346876d4eff7c2157d, type: 2}
+    <Quantity>k__BackingField: 1

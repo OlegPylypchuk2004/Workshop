@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: oxidant_recipe
   m_EditorClassIdentifier: 
   <Ingredients>k__BackingField:
-  - <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
-  - <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
-  <Time>k__BackingField: 0
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: b1afc718fa30fe3419f46951faac4b79, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 0fd7171ff1cafa74082ddbb0208a602b, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: f2becdae06a440d4084a9d093103a69e, type: 2}
+    <Quantity>k__BackingField: 1
+  <Time>k__BackingField: 1
   <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
+    <ItemData>k__BackingField: {fileID: 11400000, guid: f8d813f2847551c42bab0a46d0d74544, type: 2}
+    <Quantity>k__BackingField: 1

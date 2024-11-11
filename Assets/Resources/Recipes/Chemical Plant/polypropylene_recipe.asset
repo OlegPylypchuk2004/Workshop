@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: polypropylene_recipe
   m_EditorClassIdentifier: 
   <Ingredients>k__BackingField:
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: fe5105d329e57844c82d19557ce987e3, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 3a001cb51a6d0634ca8dc607e62aa17a, type: 2}
+    <Quantity>k__BackingField: 1
   - <ItemData>k__BackingField: {fileID: 0}
     <Quantity>k__BackingField: 0
-  - <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
-  <Time>k__BackingField: 0
+  <Time>k__BackingField: 1
   <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
+    <ItemData>k__BackingField: {fileID: 11400000, guid: ea4d2a21a59bd5240bc523687582a23d, type: 2}
+    <Quantity>k__BackingField: 1

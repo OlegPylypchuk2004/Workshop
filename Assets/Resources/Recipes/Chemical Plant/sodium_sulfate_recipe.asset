@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: sodium_sulfate_recipe
   m_EditorClassIdentifier: 
   <Ingredients>k__BackingField:
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 01da3ed947025ac4ab105db1c7f435f6, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 5efe99e2624595d4288ba713b268b26c, type: 2}
+    <Quantity>k__BackingField: 1
   - <ItemData>k__BackingField: {fileID: 0}
     <Quantity>k__BackingField: 0
-  - <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
-  <Time>k__BackingField: 0
+  <Time>k__BackingField: 1
   <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 0}
-    <Quantity>k__BackingField: 0
+    <ItemData>k__BackingField: {fileID: 11400000, guid: 238099b5e777c8e49947d10f35ca8e8a, type: 2}
+    <Quantity>k__BackingField: 1
