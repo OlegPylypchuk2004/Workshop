@@ -1,8 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bootstrap : MonoBehaviour
 {
-    private void Start()
+    private IEnumerator Start()
     {
 #if UNITY_EDITOR
         Application.targetFrameRate = 1000;
@@ -11,6 +12,8 @@ public class Bootstrap : MonoBehaviour
 #endif
 
         Storage.LoadInventory();
+
+        yield return new WaitForSeconds(0.125f);
 
         SceneLoader.Instance.LoadByName("MainScene");
     }
