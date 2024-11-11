@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb797403deaf8834da7283273d2a1528, type: 3}
   m_Name: diesel_recipe
   m_EditorClassIdentifier: 
-  <Ingredients>k__BackingField: []
-  <Time>k__BackingField: 0
-  <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 0}
+  <Ingredients>k__BackingField:
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: c0f59faf2b5b9a248a1b28b8f1b682a6, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 6b09564f46f9a3747b274ae08a5eb392, type: 2}
+    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 0}
     <Quantity>k__BackingField: 0
+  <Time>k__BackingField: 1
+  <Result>k__BackingField:
+    <ItemData>k__BackingField: {fileID: 11400000, guid: 128a764dc659ed6499f6db1f5b5be788, type: 2}
+    <Quantity>k__BackingField: 1

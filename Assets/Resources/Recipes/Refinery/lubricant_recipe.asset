@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb797403deaf8834da7283273d2a1528, type: 3}
-  m_Name: polyurethane_recipe
+  m_Name: lubricant_recipe
   m_EditorClassIdentifier: 
   <Ingredients>k__BackingField:
-  - <ItemData>k__BackingField: {fileID: 11400000, guid: fe5105d329e57844c82d19557ce987e3, type: 2}
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: c0f59faf2b5b9a248a1b28b8f1b682a6, type: 2}
     <Quantity>k__BackingField: 1
-  - <ItemData>k__BackingField: {fileID: 11400000, guid: 1c155f2ea59517a419f524f0ad215a4e, type: 2}
+  - <ItemData>k__BackingField: {fileID: 11400000, guid: 592b2e25bbbd7e9459583ff13499441a, type: 2}
     <Quantity>k__BackingField: 1
-  - <ItemData>k__BackingField: {fileID: 11400000, guid: 3a001cb51a6d0634ca8dc607e62aa17a, type: 2}
-    <Quantity>k__BackingField: 1
+  - <ItemData>k__BackingField: {fileID: 0}
+    <Quantity>k__BackingField: 0
   <Time>k__BackingField: 1
   <Result>k__BackingField:
-    <ItemData>k__BackingField: {fileID: 11400000, guid: d302c0f9ee1ff204d821c4a7882f5e08, type: 2}
+    <ItemData>k__BackingField: {fileID: 11400000, guid: 7d2cd610daa54964b9cd47071953e417, type: 2}
     <Quantity>k__BackingField: 1
