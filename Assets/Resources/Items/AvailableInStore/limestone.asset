@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e76c158e0827ab4593f6c18db00294a, type: 3}
   m_Name: limestone
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: cb635baa312815a4683f339e5fa72484, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: b584369f6549de34b9a09acb5013ba6d, type: 3}
   <Name>k__BackingField: Limestone
   <Price>k__BackingField: 3
   <Type>k__BackingField: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e76c158e0827ab4593f6c18db00294a, type: 3}
   m_Name: chrome_ore
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: cb635baa312815a4683f339e5fa72484, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 8e0e3bab6078ab74ebd1811c4dc630a9, type: 3}
   <Name>k__BackingField: Chrome ore
   <Price>k__BackingField: 3
   <Type>k__BackingField: 0
