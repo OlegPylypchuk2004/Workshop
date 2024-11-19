@@ -7,6 +7,7 @@ public class SetItemSlot : ItemSlot
     [SerializeField] private Button _button;
     [SerializeField] private Image _maskImage;
     [SerializeField] private GameObject _cross;
+    [SerializeField] private GameObject _plus;
 
     public event Action<SetItemSlot> Clicked;
 
@@ -33,5 +34,12 @@ public class SetItemSlot : ItemSlot
     public void SetCrossEnabled(bool isEnabled)
     {
         _cross.SetActive(isEnabled);
+    }
+
+    public override void SetAlpha(float alpha)
+    {
+        base.SetAlpha(alpha);
+
+        _plus.SetActive(alpha < 1f);
     }
 }

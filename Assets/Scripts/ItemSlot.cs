@@ -52,4 +52,12 @@ public class ItemSlot : MonoBehaviour
     {
         return _itemQuantity;
     }
+
+    public virtual void SetAlpha(float alpha)
+    {
+        Color targetColor = _itemIconImage.color;
+        targetColor.a = alpha;
+
+        _itemIconImage.color = targetColor;
+    }
 }

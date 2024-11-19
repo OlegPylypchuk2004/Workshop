@@ -205,6 +205,7 @@ public class EquipmentPanel : Panel
             case EquipmentState.Idle:
                 _state = EquipmentState.AtWork;
                 CoroutineManager.Instance.StartCoroutine(WorkCoroutine());
+
                 break;
 
             case EquipmentState.AtWork:
@@ -256,6 +257,13 @@ public class EquipmentPanel : Panel
     {
         WorkStarted?.Invoke();
 
+        foreach (SetItemSlot setItemSlot in _setItemSlots)
+        {
+            setItemSlot.SetAlpha(0.5f);
+        }
+
+        _resultItemSlot.SetAlpha(0.5f);
+
         float workTime = _currentRecipe.Time * _resultItemSlot.GetItemQuantity();
         float elapsedTime = 0f;
 
@@ -286,6 +294,13 @@ public class EquipmentPanel : Panel
         UpdateState();
 
         _inGameNotificationsManager.ShowEquipmentWorkCompletedNotification(_data);
+
+        foreach (SetItemSlot setItemSlot in _setItemSlots)
+        {
+            setItemSlot.SetAlpha(1f);
+        }
+
+        _resultItemSlot.SetAlpha(1f);
 
         WorkCompleted?.Invoke();
     }

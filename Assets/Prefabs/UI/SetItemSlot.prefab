@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 36867475367426106}
   - component: {fileID: 3887652249044315153}
   m_Layer: 0
-  m_Name: Icon
+  m_Name: Plus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -636,3 +636,4 @@ MonoBehaviour:
   _button: {fileID: 2050158331093501418}
   _maskImage: {fileID: 2747225496167899440}
   _cross: {fileID: 8514035557869647317}
+  _plus: {fileID: 4174038266426034035}
