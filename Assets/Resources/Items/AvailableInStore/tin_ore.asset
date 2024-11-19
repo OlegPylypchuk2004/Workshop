@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e76c158e0827ab4593f6c18db00294a, type: 3}
   m_Name: tin_ore
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: 5b0e41f4d07fd614586365a41a0a618d, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: caf85ee5067834945acee35d401a8521, type: 3}
   <Name>k__BackingField: Tin ore
   <Price>k__BackingField: 3
   <Type>k__BackingField: 0
