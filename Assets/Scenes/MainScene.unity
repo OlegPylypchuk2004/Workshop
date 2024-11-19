@@ -16304,6 +16304,7 @@ GameObject:
   - component: {fileID: 1002210979}
   - component: {fileID: 1002210978}
   - component: {fileID: 1002210977}
+  - component: {fileID: 1002210980}
   m_Layer: 0
   m_Name: ConfirmButton
   m_TagString: Untagged
@@ -16413,6 +16414,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002210975}
   m_CullTransparentMesh: 1
+--- !u!114 &1002210980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002210975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28261e611795d0f498c27c39cc546cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1002210977}
+  _backgroundImage: {fileID: 1002210978}
+  _text: {fileID: 1946506999}
 --- !u!1 &1009791894
 GameObject:
   m_ObjectHideFlags: 0
@@ -20765,6 +20781,7 @@ GameObject:
   - component: {fileID: 1274766844}
   - component: {fileID: 1274766843}
   - component: {fileID: 1274766842}
+  - component: {fileID: 1274766845}
   m_Layer: 0
   m_Name: CancelButton
   m_TagString: Untagged
@@ -20874,6 +20891,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274766840}
   m_CullTransparentMesh: 1
+--- !u!114 &1274766845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274766840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28261e611795d0f498c27c39cc546cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1274766842}
+  _backgroundImage: {fileID: 1274766843}
+  _text: {fileID: 929593680}
 --- !u!1 &1275502077
 GameObject:
   m_ObjectHideFlags: 0
