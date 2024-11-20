@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf943493ebbc6f4eb256a7a493b3b54, type: 3}
   m_Name: refinery
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: d7ee8e725c307bf4d98abd8b9c695081, type: 3}
   <Name>k__BackingField: Refinery
   <Description>k__BackingField: Refines crude oil into fuels, plastics, and rubber
     for industrial use

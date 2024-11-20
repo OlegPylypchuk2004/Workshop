@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf943493ebbc6f4eb256a7a493b3b54, type: 3}
   m_Name: recycler
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 60bb8649cc3102a439b2d6e9f2bc249f, type: 3}
   <Name>k__BackingField: Recycler
   <Description>k__BackingField: Breaks down unused items into basic components
   <Price>k__BackingField: 500

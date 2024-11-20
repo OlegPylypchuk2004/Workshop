@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BuyEquipmentPanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _nameText;
+    [SerializeField] private Image _iconImage;
     [SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private TextMeshProUGUI _priceText;
     [SerializeField] private Button _buyButton;
@@ -20,6 +21,7 @@ public class BuyEquipmentPanel : MonoBehaviour
         _equipmentData = equipmentData;
 
         _nameText.text = _equipmentData.Name;
+        _iconImage.sprite = _equipmentData.Icon;
         _descriptionText.text = _equipmentData.Description;
         _priceText.text = TextFormatter.FormatValue(equipmentData.Price);
 
