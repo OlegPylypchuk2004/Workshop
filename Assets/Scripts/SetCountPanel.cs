@@ -32,6 +32,7 @@ public class SetCountPanel : Panel
         _confirmButton.onClick.AddListener(OnConfirmButtonClicked);
 
         _topBar.SetCreditsCountViewEnabled(true);
+        _topBar.SetTitleText("Set the quantity");
     }
 
     public override void Close()
