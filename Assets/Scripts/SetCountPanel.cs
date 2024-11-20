@@ -11,6 +11,7 @@ public class SetCountPanel : Panel
     [SerializeField] private GameObject _priceView;
     [SerializeField] private Button _cancelButton;
     [SerializeField] private Button _confirmButton;
+    [SerializeField] private TopBar _topBar;
 
     private int _minValue = 0;
     private int _maxValue = 1;
@@ -29,6 +30,8 @@ public class SetCountPanel : Panel
 
         _cancelButton.onClick.AddListener(OnCancelButtonClicked);
         _confirmButton.onClick.AddListener(OnConfirmButtonClicked);
+
+        _topBar.SetCreditsCountViewEnabled(true);
     }
 
     public override void Close()

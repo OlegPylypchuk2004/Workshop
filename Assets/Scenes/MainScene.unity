@@ -15316,6 +15316,7 @@ MonoBehaviour:
   _priceView: {fileID: 1896026731}
   _cancelButton: {fileID: 1274766842}
   _confirmButton: {fileID: 1002210977}
+  _topBar: {fileID: 2087844749}
 --- !u!1 &929593678
 GameObject:
   m_ObjectHideFlags: 0
