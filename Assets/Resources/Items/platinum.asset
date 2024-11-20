@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e76c158e0827ab4593f6c18db00294a, type: 3}
   m_Name: platinum
   m_EditorClassIdentifier: 
-  <Icon>k__BackingField: {fileID: 21300000, guid: cb635baa312815a4683f339e5fa72484, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: a737534f42670d84298a45e5398f5903, type: 3}
   <Name>k__BackingField: Platinum
   <Price>k__BackingField: 150
   <Type>k__BackingField: 1
